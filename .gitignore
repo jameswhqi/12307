@@ -1,3 +1,7 @@
+12307.pro.user
+
+#begin{macOS.gitignore}
+
 *.DS_Store
 .AppleDouble
 .LSOverride
@@ -24,3 +28,5 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+#end{macOS.gitignore}
