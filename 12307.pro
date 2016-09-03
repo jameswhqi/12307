@@ -22,4 +22,6 @@ FORMS    += mainwindow.ui
 RESOURCES +=
 
 DISTFILES += \
-    README.md
+    README.md \
+    .gitignore \
+    ui_workflow.graffle
