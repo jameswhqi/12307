@@ -24,4 +24,5 @@ RESOURCES +=
 DISTFILES += \
     README.md \
     .gitignore \
-    ui_workflow.graffle
+    ui_flowchart.graffle \
+    ui_flowchart.pdf
