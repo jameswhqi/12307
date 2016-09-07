@@ -1,0 +1,18 @@
+#ifndef ORDER_H
+#define ORDER_H
+#include <QList>
+#include "passenger.h"
+
+class Order
+{
+public:
+    Order(int target_index);//构造函数，用于生成某张票对应的订单    
+    void Add_Passenger(const Passenger &new_pass);//给订单中添加一位乘客
+    void Delete_Passenger(const int target_pass);//删除指定编号的乘客
+
+private:
+    int index;
+    QList<Passenger> pass_list;
+};
+
+#endif // ORDER_H

@@ -32,9 +32,7 @@ public:
     void Delete_Passenger();//删除一个乘客
 
     //管理票务信息的方法
-    bool Order_Ticket(TicketOffice &local, int target_index);//向TicketOffice提交订票请求
-    const Passenger& Choose_Pass();
-    bool Buy_Ticket(TicketOffice &local, int target_index, const Passenger& target);//订票，选人，买票
+    bool Buy_Ticket(TicketOffice &local, int target_index);//买票：包括订票，选人，买票，支付
     void Return_Ticker(TicketOffice &local);//退票
 
 private:
@@ -50,15 +48,11 @@ private:
     //账户余额
     double balance;
 
-
     //账户所管理的乘客信息
     QList<Passenger> pass_list;
 
     //账户所管理的火车票
     QList<Ticket> ticket_head;
-
-    //账户所管理的临时订票单
-    Order temp;
 };
 
 
