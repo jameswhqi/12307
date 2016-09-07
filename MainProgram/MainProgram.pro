@@ -8,18 +8,20 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    logindialog.cpp
+    logindialog.cpp \
+    ticketoffice.cpp \
+    train.cpp \
+    ticket.cpp \
+    spot.cpp
 
 HEADERS  += mainwindow.h \
-    logindialog.h
+    logindialog.h \
+    ticketoffice.h \
+    train.h \
+    ticket.h \
+    spot.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui
 
 RESOURCES +=
-
-DISTFILES += \
-    README.md \
-    .gitignore \
-    ui_flowchart.graffle \
-    ui_flowchart.jpg

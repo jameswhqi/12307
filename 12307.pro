@@ -7,4 +7,5 @@ DISTFILES += \
     README.md \
     .gitignore \
     ui_flowchart.graffle \
-    ui_flowchart.jpg
+    ui_flowchart.jpg \
+    uml.graffle
