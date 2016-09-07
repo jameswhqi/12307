@@ -1,9 +1,10 @@
 #ifndef TRAIN_H
 #define TRAIN_H
 #include "spot.h"
+#include "station.h"
 #include <QString>
 #include <QVector>
-#include <QtMath>
+#include <QTime>
 
 const int SEAT_COUNT = 120;//每个车次的座位/床位数
 
@@ -17,7 +18,7 @@ private:
     QString number;//车次编号
     TrainType type;//车次类型（特快/普快/高铁）
     Station &origin, &destination;//始发站、终点站
-    Time departureTime, arrivalTime;//出发、到达时刻
+    QTime departureTime, arrivalTime;//出发、到达时刻
     Price price;//票价
 };
 
@@ -40,23 +41,6 @@ private:
 //车次类型（特快/普快/高铁）
 enum TrainType {
     T, K, G
-};
-
-//车站类
-class Station {
-private:
-    int index;//对应于数据库中的索引编号
-    QString stationName;//车站名称
-};
-
-//时刻类
-class Time {
-public:
-    int getHour();
-    int getMinute();
-    QString print();//按标准格式打印
-private:
-    int hour, minute;
 };
 
 //价格类

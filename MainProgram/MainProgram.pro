@@ -13,7 +13,8 @@ SOURCES += main.cpp\
     train.cpp \
     ticket.cpp \
     spot.cpp \
-    user.cpp
+    user.cpp \
+    station.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -21,7 +22,8 @@ HEADERS  += mainwindow.h \
     train.h \
     ticket.h \
     spot.h \
-    user.h
+    user.h \
+    station.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui
