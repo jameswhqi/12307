@@ -12,7 +12,7 @@ public:
         name = nname;
         id = nid;
     }
-    ～Passenger();//析构函数，用于删除乘客
+    ~Passenger();//析构函数，用于删除乘客
 private:
     //乘客信息：姓名，身份证号
     QString name;

@@ -3,28 +3,28 @@
 #include <QString>
 #include <QList>
 #include "passenger.h"
-#inclede "ticketoffice.h"
+#include "ticketoffice.h"
 #include "ticket.h"
-＃include "order.h"
+#include "order.h"
 
 class User
 {
 public:
     User();//构造函数，用于登陆
-    ～User();//析构函数，用于登出
+    ~User();//析构函数，用于登出
 
-     //管理核心信息的方法
-     void Reset_Password();
-     void Reset_Phone();
-     void Reset_Email();
+    //管理核心信息的方法
+    void Reset_Password();
+    void Reset_Phone();
+    void Reset_Email();
 
-     //管理基本信息的方法
-     void Reset_Name();
-     void Reset_Sex();
+    //管理基本信息的方法
+    void Reset_Name();
+    void Reset_Sex();
 
-     //管理账户余额的方法
-     void Charge(double charge_money);//充值
-     double Blance();//查看余额
+    //管理账户余额的方法
+    void Charge(double charge_money);//充值
+    double Blance();//查看余额
 
     //管理乘客信息的方法
     void Add_Passenger();//增加一个新乘客

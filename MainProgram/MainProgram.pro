@@ -15,8 +15,8 @@ SOURCES += main.cpp\
     ticketoffice.cpp \
     train.cpp \
     ticket.cpp \
-    spot.cpp \
-    station.cpp
+    station.cpp \
+    spot.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -26,10 +26,13 @@ HEADERS  += mainwindow.h \
     ticketoffice.h \
     train.h \
     ticket.h \
-    spot.h \
-    station.h
+    station.h \
+    spot.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui
 
 RESOURCES +=
+
+DISTFILES += \
+    uml.qmodel
