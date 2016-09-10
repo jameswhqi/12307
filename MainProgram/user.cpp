@@ -14,7 +14,7 @@ User::User(QString new_account)
 }
 
 //析构函数，用于登出
-User::～User()
+User::~User()
 {
 
 }
@@ -150,8 +150,8 @@ void User::Query_Blance()
     balance = query.value(7).toDouble;//price一定要改
 }
 
-//返回余额
-Price User::Blance()
+//查看余额
+double User::Balance()
 {
     return balance;
 }
@@ -181,7 +181,7 @@ bool User::Buy_Ticket(TicketOffice &local, int target_index)
 }
 
 //退票
-void User::Return_Ticker(TicketOffice &local)
+void User::Return_Ticket(TicketOffice &local)
 {
 
 }

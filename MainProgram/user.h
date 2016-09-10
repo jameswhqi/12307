@@ -3,7 +3,7 @@
 #include <QString>
 #include <QList>
 #include "passenger.h"
-#inclede "ticketoffice.h"
+#include "ticketoffice.h"
 #include "ticket.h"
 
 enum sex{男,女};
@@ -11,6 +11,7 @@ enum sex{男,女};
 class User
 {
 public:
+<<<<<<< HEAD
     User();//构造函数，用于登陆与刷新全部信息
     ~User();//析构函数，用于登出
 

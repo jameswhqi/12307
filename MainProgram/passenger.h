@@ -13,6 +13,7 @@ public:
         id = new_id;
     }
     ~Passenger(){}//析构函数，用于删除乘客
+
 private:
     //乘客信息：姓名，身份证号
     QString name;

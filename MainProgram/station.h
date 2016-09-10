@@ -6,10 +6,15 @@
 class Station
 {
 public:
-    Station();
+    Station(int index = 0, QString name = QString());
+
+    int index() const;
+    QString name() const;
+    void setIndex(int index);
+    void setName(const QString &name);
 private:
-    int index;//对应于数据库中的索引编号
-    QString stationName;//车站名称
+    int m_index;//对应于数据库中的索引编号
+    QString m_name;//车站名称
 };
 
 #endif // STATION_H

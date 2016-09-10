@@ -1,11 +1,14 @@
 #include "mainwindow.h"
+#include "ticketoffice.h"
 #include <QApplication>
+#include <QSqlDatabase>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-
-    return a.exec();
+    QApplication app(argc, argv);
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("12307.db");
+    db.open();
+    TicketOffice TO;
+    return app.exec();
 }
