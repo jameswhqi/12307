@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,7 +16,8 @@ SOURCES += main.cpp\
     train.cpp \
     ticket.cpp \
     station.cpp \
-    spot.cpp
+    spot.cpp \
+    admin.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -27,7 +28,8 @@ HEADERS  += mainwindow.h \
     train.h \
     ticket.h \
     station.h \
-    spot.h
+    spot.h \
+    admin.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui

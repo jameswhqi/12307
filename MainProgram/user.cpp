@@ -7,7 +7,7 @@ User::User()
 }
 
 //析构函数，用于登出
-User::～User()
+User::~User()
 {
 
 }
@@ -50,7 +50,7 @@ User::～User()
  }
 
  //查看余额
- double User::Blance()
+ double User::Balance()
  {
      return balance;
  }
@@ -80,7 +80,7 @@ bool User::Buy_Ticket(TicketOffice &local, int target_index)
 }
 
 //退票
-void User::Return_Ticker(TicketOffice &local)
+void User::Return_Ticket(TicketOffice &local)
 {
 
 }

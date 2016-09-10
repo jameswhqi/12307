@@ -24,7 +24,7 @@ public:
 
     //管理账户余额的方法
     void Charge(double charge_money);//充值
-    double Blance();//查看余额
+    double Balance();//查看余额
 
     //管理乘客信息的方法
     void Add_Passenger();//增加一个新乘客
@@ -35,7 +35,7 @@ public:
     bool Order_Ticket(TicketOffice &local, int target_index);//向TicketOffice提交订票请求
     const Passenger& Choose_Pass();
     bool Buy_Ticket(TicketOffice &local, int target_index, const Passenger& target);//订票，选人，买票
-    void Return_Ticker(TicketOffice &local);//退票
+    void Return_Ticket(TicketOffice &local);//退票
 
 private:
     //账户核心信息：用户名，密码，手机号，电子邮箱

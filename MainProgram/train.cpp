@@ -70,6 +70,14 @@ void Train::setDestination(const Station &destination)
 {
     m_destination = &destination;
 }
+QDate Train::date()
+{
+    return m_date;
+}
+void Train::setDate(QDate date)
+{
+    m_date = date;
+}
 Time Train::departureTime() const
 {
     return m_departureTime;
@@ -89,6 +97,14 @@ void Train::setDepartureTime(Time time)
 void Train::setDuration(Time duration)
 {
     m_duration = duration;
+}
+Train::Price Train::price()
+{
+    return m_price;
+}
+void Train::setPrice(Price price)
+{
+    m_price = price;
 }
 Spot &Train::spot(int index)
 {

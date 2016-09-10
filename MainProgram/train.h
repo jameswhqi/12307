@@ -4,6 +4,7 @@
 #include "station.h"
 #include <QString>
 #include <QVector>
+#include <QDate>
 
 const int SEAT_COUNT = 120;//每个硬座车次的座位数
 const int BED_COUNT = 60;//每个卧铺车次的床位数
@@ -26,11 +27,15 @@ public:
     void setOrigin(const Station &origin);//设置始发站
     Station &destination() const;//返回终点站引用
     void setDestination(const Station &destination);//设置终点站
+    QDate date() const;//返回出发日期
+    void setDate(QDate date);//设置出发日期
     Time departureTime() const;//返回出发时刻
     Time duration() const;//返回运行时间
     Time arrivalTime() const;//返回到达时刻
     void setDepartureTime(Time time);//设置出发时刻
     void setDuration(Time duration);//设置运行时间
+    Price price() const;//返回票价
+    void setPrice(Price price);//设置票价
 
     Spot &spot(int index);//返回编号对应的座位/床位引用
 
@@ -45,6 +50,7 @@ private:
     TrainType m_trainType;//车次类型（特快/普快/高铁）
     Spot::SpotType m_spotType;//位子类型（硬座/高铁/卧铺）
     Station *m_origin, *m_destination;//始发站、终点站
+    QDate m_date;//出发日期
     Time m_departureTime, m_duration;//出发时刻、运行时间
     Price m_price;//票价
     QVector<Spot> m_spots;//座位/床位对象数组

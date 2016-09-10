@@ -1,7 +1,8 @@
 #ifndef LOGINDIALOG_H
 #define LOGINDIALOG_H
-
+#include "ticketoffice.h"
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
 class LoginDialog;
@@ -12,8 +13,15 @@ class LoginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoginDialog(QWidget *parent = 0);
+    explicit LoginDialog(TicketOffice *TO, QWidget *parent = 0);
     ~LoginDialog();
+
+    int mode();//返回当前模式(0:乘客 1:管理员)
+    QString username();//返回当前填入的用户名
+    QString password();//返回当前填入的密码
+
+public slots:
+    void toggleHide(int mode);//当modeSelector切换到“管理员”时隐藏“注册”键
 
 private:
     Ui::LoginDialog *ui;
