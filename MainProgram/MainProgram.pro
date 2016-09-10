@@ -10,7 +10,6 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     logindialog.cpp \
     user.cpp \
-    order.cpp \
     passenger.cpp \
     ticketoffice.cpp \
     train.cpp \
@@ -21,7 +20,6 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     logindialog.h \
     user.h \
-    order.h \
     passenger.h \
     ticketoffice.h \
     train.h \
