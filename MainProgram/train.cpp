@@ -2,10 +2,10 @@
 
 Train::Train(int index, QString number, TrainType trainType, Spot::SpotType spotType,
              Station &origin, Station &destination, Time departureTime,
-             Time duration, Price price)
+             Time duration, Price price, bool inTicket)
     : m_index(index), m_number(number), m_trainType(trainType), m_spotType(spotType),
       m_origin(&origin), m_destination(&destination), m_departureTime(departureTime),
-      m_duration(duration), m_price(price)
+      m_duration(duration), m_price(price), m_inTicket(inTicket)
 {
     int spotCount;
     if (m_spotType == Spot::BED) {
@@ -148,10 +148,31 @@ int Train::findVacant()
     }
     return -1;
 }
+bool Train::inTicket() const
+{
+    return m_inTicket;
+}
+void Train::setInTicket(bool inTicket)
+{
+    m_inTicket = inTicket;
+}
 
 
 Price::Price(int dataFen)
-    : m_dataFen(dataFen) {}
+    : m_dataFen(dataFen)
+{
+    checkValid();
+}
+
+void Price::checkValid()
+{
+    if (m_dataFen < 0) {
+        m_isValid = false;
+    }
+    else {
+        m_isValid = true;
+    }
+}
 
 double Price::toReal() const
 {
@@ -204,6 +225,26 @@ QString Price::toString(PriceFormat format, bool thousandSeparator) const
         return number;
     }
 }
+bool Price::isValid()
+{
+    return m_isValid;
+}
+Price Price::operator +(const Price &other) {
+    return Price(m_dataFen + other.m_dataFen);
+}
+Price &Price::operator +=(const Price &other) {
+    m_dataFen += other.m_dataFen;
+    checkValid();
+    return *this;
+}
+Price Price::operator -(const Price &other) {
+    return Price(m_dataFen - other.m_dataFen);
+}
+Price &Price::operator -=(const Price &other) {
+    m_dataFen -= other.m_dataFen;
+    checkValid();
+    return *this;
+}
 
 
 Time::Time(int hour, int minute)
@@ -247,4 +288,8 @@ Time Time::elapse(const Time &duration)
     result.m_day += result.m_hour / 24;
     result.m_hour = result.m_hour % 24;
     return result;
+}
+static Time Time::fromString(const QString &text)
+{
+    return Time(text.section(':', 0).toInt(), text.section(':', 1).toInt());
 }

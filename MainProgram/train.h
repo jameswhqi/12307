@@ -15,7 +15,7 @@ class Train
 public:
     Train(int index, QString number, TrainType trainType, Spot::SpotType spotType,
           Station &origin, Station &destination, Time departureTime,
-          Time duration, Price price);
+          Time duration, Price price, bool inTicket);
 
     int index() const;//返回索引编号
     void setIndex(int index);//设置索引编号
@@ -43,6 +43,9 @@ public:
     int vacantCount();//返回未被预订的座位/床位数
     int findVacant();//找到一个未被预订的座位/床位并返回它的编号，如果找不到则返回-1
 
+    bool inTicket() const;
+    void setInTicket(bool inTicket);
+
     enum TrainType { T, K, G };//车次类型（特快/普快/高铁）
 private:
     int m_index;//对应于数据库中的索引编号
@@ -54,6 +57,8 @@ private:
     Time m_departureTime, m_duration;//出发时刻、运行时间
     Price m_price;//票价
     QVector<Spot> m_spots;//座位/床位对象数组
+
+    bool m_inTicket;//表示此对象是否存在于某个Ticket对象中
 };
 
 
@@ -73,9 +78,17 @@ public:
     QString toString(PriceFormat format = number, bool thousandSeparator = true) const;
         //按标准格式打印，thousandSeparator表示是否用","分隔千位
 
+    bool isValid();
+    Price operator +(const Price &other);
+    Price &operator +=(const Price &other);
+    Price operator -(const Price &other);
+    Price &operator -=(const Price &other);
+
     enum PriceFormat {numberOnly, numberYuan, symbolNumber, RMBNumber};
         //打印格式，分别表示"12.34" "12.34元" "￥12.34" "RMB12.34"
 private:
+    bool m_isValid;
+    void checkValid();//检查价格数据是否小于0
     int m_dataFen;//以分为单位的价格数据，如1234表示12.34元
 };
 
@@ -93,6 +106,8 @@ public:
 
     QString toString();//按标准格式打印
     Time elapse(const Time &duration);//返回当前时刻之后duration长度的时刻
+
+    static Time fromString(const QString &text);//从数据库文本转换为Time对象
 private:
     int m_hour, m_minute, m_day;//m_day用于表示elapse()的结果是否超过了当天，1表示第二天
 };

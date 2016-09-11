@@ -16,7 +16,7 @@ LoginDialog::~LoginDialog()
     delete ui;
 }
 
-int LoginDialog::mode()
+bool LoginDialog::mode()
 {
     return ui->modeSelector->currentIndex();
 }
