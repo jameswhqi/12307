@@ -152,13 +152,13 @@ void MainWindow::on_his_pb_clicked()
 void MainWindow::on_bal_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(3);
-    ui->money_dis_lab->setText(user->balance()->toString(NumberOnly,true));
+    ui->money_dis_lab->setText(user->Balance()->toString(Price::numberOnly,true));
 }
 
 void MainWindow::on_money_query_btn_clicked()
 {
     user->Query_Blance();
-    ui->money_dis_lab->setText(user->balance()->toString(NumberOnly,true));
+    ui->money_dis_lab->setText(user->Balance()->toString(Price::numberOnly,true));
 }
 
 void MainWindow::on_money_update_btn_clicked()
