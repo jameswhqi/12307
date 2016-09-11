@@ -2,8 +2,6 @@
 #include "ui_mainwindow.h"
 #include "user.h"
 
-User* user;
-
 MainWindow::MainWindow(bool mode, TicketOffice *TO)
     : ui(new Ui::MainWindow)
 {
@@ -20,8 +18,7 @@ MainWindow::MainWindow(bool mode, TicketOffice *TO)
         delete ui->history_stk;
         delete ui->money_stk;
         delete ui->pass_stk;
-    }
-    else {
+    } else {
         delete ui->modifyButton;
         delete ui->addButton;
         delete ui->deleteButton;
@@ -73,11 +70,9 @@ int MainWindow::spotType()
 {
     if (ui->trainType->currentIndex() == 3) {
         return 1;
-    }
-    else if (ui->spotType->currentIndex() == 2) {
+    } else if (ui->spotType->currentIndex() == 2) {
         return 2;
-    }
-    else {
+    } else {
         return ui->spotType->currentIndex() - 1;
     }
 }
@@ -96,7 +91,12 @@ void MainWindow::setStations(QList<Station *> &stationList)
 
 void MainWindow::clearTrainInfo()
 {
-
+    for (int i = 0; i < ui->trainInfo->rowCount(); i++) {
+        for (int j = 0; j < 8; j++) {
+            delete ui->trainInfo->item(i,j);
+        }
+    }
+    ui->trainInfo->setRowCount(0);
 }
 
 void MainWindow::showTrainInfo(QList<Train *> *searchResult)
@@ -104,7 +104,19 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
     int resultSize = searchResult->size();
     ui->trainInfo->setRowCount(resultSize);
     for (int i = 0; i < resultSize; i++) {
-
+        QTableWidgetItem *items = new QTableWidgetItem[8];
+        Train *pointer = searchResult->at(i);
+        items[0].setText(pointer->number());
+        items[1].setText(pointer->origin().name());
+        items[2].setText(pointer->destination().name());
+        items[3].setText(pointer->departureTime().toString());
+        items[4].setText(pointer->arrivalTime().toString());
+        items[5].setText(pointer->duration().toString());
+        items[6].setText(QString::number(pointer->vacantCount()));
+        items[7].setText(pointer->price().toString(Price::symbolNumber));
+        for (int j = 0; j < 8; j++) {
+            ui->trainInfo->setItem(i,j,items[j]);
+        }
     }
 }
 
