@@ -14,271 +14,499 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QStackedWidget" name="stackedWidget">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>0</y>
-      <width>621</width>
-      <height>371</height>
-     </rect>
-    </property>
-    <widget class="QWidget" name="train"/>
-    <widget class="QWidget" name="user">
-     <widget class="QStackedWidget" name="stackedWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>621</width>
-        <height>311</height>
-       </rect>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QWidget" name="info_stk">
-       <widget class="QWidget" name="layoutWidget">
-        <property name="geometry">
-         <rect>
-          <x>180</x>
-          <y>20</y>
-          <width>211</width>
-          <height>221</height>
-         </rect>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QToolButton" name="train_btm">
+        <property name="text">
+         <string>车次</string>
         </property>
-        <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="username_label">
-           <property name="text">
-            <string>用户名：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="username_lineEdit">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="passwd_label">
-           <property name="text">
-            <string>密码：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="QPushButton" name="passwd_btn">
-           <property name="text">
-            <string>修改密码</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="name_label">
-           <property name="text">
-            <string>姓名：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="name_lineEdit">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="sex_label">
-           <property name="text">
-            <string>性别：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="QLineEdit" name="sex_lineEdit">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="phone_label">
-           <property name="text">
-            <string>电话：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="phone_lineEdit">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="email_label">
-           <property name="text">
-            <string>邮箱：</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="QLineEdit" name="email_lineEdit">
-           <property name="enabled">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
        </widget>
+      </item>
+      <item>
+       <widget class="QToolButton" name="user_btm">
+        <property name="text">
+         <string>用户</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="train">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label">
+              <property name="text">
+               <string>始发站</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="origin"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>终点站</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="destination"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>出发日期</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QDateEdit" name="dateEdit">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="displayFormat">
+               <string>yyyy-MM-dd</string>
+              </property>
+              <property name="calendarPopup">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_2">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_4">
+              <property name="text">
+               <string>车次</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="trainNumber"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_5">
+              <property name="text">
+               <string>列车类型</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="trainType"/>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>座位类型</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="spotType"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="searchButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>🔍搜索</string>
+            </property>
+            <property name="autoDefault">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="trainInfo">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="sortingEnabled">
+           <bool>true</bool>
+          </property>
+          <property name="rowCount">
+           <number>0</number>
+          </property>
+          <property name="columnCount">
+           <number>8</number>
+          </property>
+          <attribute name="horizontalHeaderDefaultSectionSize">
+           <number>55</number>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderDefaultSectionSize">
+           <number>21</number>
+          </attribute>
+          <column>
+           <property name="text">
+            <string>车次</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>始发站</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>终点站</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>发车时间</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>到达时间</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>运行时长</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>余票</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>价格</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="deleteButton">
+            <property name="text">
+             <string>删除</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="addButton">
+            <property name="text">
+             <string>添加</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="modifyButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>修改</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="orderButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>购买</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+       <zorder>layoutWidget_3</zorder>
+       <zorder>layoutWidget_4</zorder>
+       <zorder>trainInfo</zorder>
+       <zorder>addButton</zorder>
       </widget>
-      <widget class="QWidget" name="pass_stk"/>
-      <widget class="QWidget" name="history_stk"/>
-      <widget class="QWidget" name="money_stk">
-       <widget class="QLabel" name="money_text">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>90</y>
-          <width>101</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>账户余额：</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="money_dis_lab">
-        <property name="geometry">
-         <rect>
-          <x>190</x>
-          <y>110</y>
-          <width>171</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::Panel</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Sunken</enum>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="money_text2">
-        <property name="geometry">
-         <rect>
-          <x>370</x>
-          <y>110</y>
-          <width>59</width>
-          <height>16</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>元</string>
-        </property>
-       </widget>
-       <widget class="QToolButton" name="money_query_btn">
-        <property name="geometry">
-         <rect>
-          <x>280</x>
-          <y>180</y>
-          <width>71</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>刷新</string>
-        </property>
-       </widget>
-       <widget class="QToolButton" name="money_update_btn">
-        <property name="geometry">
-         <rect>
-          <x>170</x>
-          <y>180</y>
-          <width>71</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>充值</string>
-        </property>
-       </widget>
+      <widget class="QWidget" name="user">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QStackedWidget" name="stackedWidget_2">
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QWidget" name="info_stk">
+           <widget class="QWidget" name="layoutWidget">
+            <property name="geometry">
+             <rect>
+              <x>180</x>
+              <y>20</y>
+              <width>211</width>
+              <height>221</height>
+             </rect>
+            </property>
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="username_label">
+               <property name="text">
+                <string>用户名：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="username_lineEdit">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="passwd_label">
+               <property name="text">
+                <string>密码：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QPushButton" name="passwd_btn">
+               <property name="text">
+                <string>修改密码</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="name_label">
+               <property name="text">
+                <string>姓名：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLineEdit" name="name_lineEdit">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="sex_label">
+               <property name="text">
+                <string>性别：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLineEdit" name="sex_lineEdit">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0">
+              <widget class="QLabel" name="phone_label">
+               <property name="text">
+                <string>电话：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="1">
+              <widget class="QLineEdit" name="phone_lineEdit">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="email_label">
+               <property name="text">
+                <string>邮箱：</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="1">
+              <widget class="QLineEdit" name="email_lineEdit">
+               <property name="enabled">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+          <widget class="QWidget" name="pass_stk"/>
+          <widget class="QWidget" name="history_stk"/>
+          <widget class="QWidget" name="money_stk">
+           <widget class="QLabel" name="money_text">
+            <property name="geometry">
+             <rect>
+              <x>110</x>
+              <y>90</y>
+              <width>101</width>
+              <height>61</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>账户余额：</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="money_dis_lab">
+            <property name="geometry">
+             <rect>
+              <x>190</x>
+              <y>110</y>
+              <width>171</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Panel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <widget class="QLabel" name="money_text2">
+            <property name="geometry">
+             <rect>
+              <x>370</x>
+              <y>110</y>
+              <width>59</width>
+              <height>16</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>元</string>
+            </property>
+           </widget>
+           <widget class="QToolButton" name="money_query_btn">
+            <property name="geometry">
+             <rect>
+              <x>280</x>
+              <y>180</y>
+              <width>71</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>刷新</string>
+            </property>
+           </widget>
+           <widget class="QToolButton" name="money_update_btn">
+            <property name="geometry">
+             <rect>
+              <x>170</x>
+              <y>180</y>
+              <width>71</width>
+              <height>22</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string>充值</string>
+            </property>
+           </widget>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QToolButton" name="info_pb">
+            <property name="text">
+             <string>基本信息</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="pass_pb">
+            <property name="text">
+             <string>乘客管理</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="his_pb">
+            <property name="text">
+             <string>我的车票</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="bal_pb">
+            <property name="text">
+             <string>账户余额</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>70</x>
-        <y>320</y>
-        <width>471</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item>
-        <widget class="QToolButton" name="info_pb">
-         <property name="text">
-          <string>基本信息</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="pass_pb">
-         <property name="text">
-          <string>乘客管理</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="his_pb">
-         <property name="text">
-          <string>我的车票</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="bal_pb">
-         <property name="text">
-          <string>账户余额</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="layoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>41</width>
-      <height>111</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <widget class="QToolButton" name="train_btm">
-       <property name="text">
-        <string>车次</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="user_btm">
-       <property name="text">
-        <string>用户</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
