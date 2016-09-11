@@ -16,7 +16,7 @@ public:
     explicit LoginDialog(TicketOffice *TO, QWidget *parent = 0);
     ~LoginDialog();
 
-    int mode();//返回当前模式(0:乘客 1:管理员)
+    bool mode();//返回当前模式(0:乘客 1:管理员)
     QString username();//返回当前填入的用户名
     QString password();//返回当前填入的密码
 
