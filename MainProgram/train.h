@@ -73,9 +73,17 @@ public:
     QString toString(PriceFormat format = number, bool thousandSeparator = true) const;
         //按标准格式打印，thousandSeparator表示是否用","分隔千位
 
+    bool isValid();
+    Price operator +(const Price &other);
+    Price &operator +=(const Price &other);
+    Price operator -(const Price &other);
+    Price &operator -=(const Price &other);
+
     enum PriceFormat {numberOnly, numberYuan, symbolNumber, RMBNumber};
         //打印格式，分别表示"12.34" "12.34元" "￥12.34" "RMB12.34"
 private:
+    bool m_isValid;
+    void checkValid();//检查价格数据是否小于0
     int m_dataFen;//以分为单位的价格数据，如1234表示12.34元
 };
 

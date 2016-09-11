@@ -151,7 +151,20 @@ int Train::findVacant()
 
 
 Price::Price(int dataFen)
-    : m_dataFen(dataFen) {}
+    : m_dataFen(dataFen)
+{
+    checkValid();
+}
+
+void Price::checkValid()
+{
+    if (m_dataFen < 0) {
+        m_isValid = false;
+    }
+    else {
+        m_isValid = true;
+    }
+}
 
 double Price::toReal() const
 {
@@ -203,6 +216,26 @@ QString Price::toString(PriceFormat format, bool thousandSeparator) const
         number.prepend("RMB");
         return number;
     }
+}
+bool Price::isValid()
+{
+    return m_isValid;
+}
+Price Price::operator +(const Price &other) {
+    return Price(m_dataFen + other.m_dataFen);
+}
+Price &Price::operator +=(const Price &other) {
+    m_dataFen += other.m_dataFen;
+    checkValid();
+    return *this;
+}
+Price Price::operator -(const Price &other) {
+    return Price(m_dataFen - other.m_dataFen);
+}
+Price &Price::operator -=(const Price &other) {
+    m_dataFen -= other.m_dataFen;
+    checkValid();
+    return *this;
 }
 
 

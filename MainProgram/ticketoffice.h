@@ -16,6 +16,8 @@ class TicketOffice :public QObject
     Q_OBJECT
 public:
     TicketOffice();
+
+    void updateSpots();//根据数据库modified_date表的日期删除今天之前的spots信息，添加至当前预售期结束
     void searchTrain();//根据用户输入的搜索条件在数据库中搜索车次，存入trainList
 public slots:
     void signIn();//接收用户点击LoginDialog中确认键的信号

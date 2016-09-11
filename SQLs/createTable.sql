@@ -5,8 +5,8 @@ CREATE TABLE modified_date (
 CREATE TABLE trains (
     idx INTEGER PRIMARY KEY,
     number TEXT UNIQUE,
-    trainType INTEGER,
-    spotType INTEGER,
+    traintype INTEGER,
+    spottype INTEGER,
     origin INTEGER,
     destination INTEGER,
     departureTime TEXT,
@@ -51,4 +51,10 @@ CREATE TABLE tickets (
     FOREIGN KEY (user) REFERENCES users(idx),
     FOREIGN KEY (passenger) REFERENCES passengers(idx),
     FOREIGN KEY (train) REFERENCES trains(idx)
+);
+
+CREATE TABLE admin (
+    idx INTEGER PRIMARY KEY,
+    username TEXT UNIQUE,
+    password TEXT
 );
