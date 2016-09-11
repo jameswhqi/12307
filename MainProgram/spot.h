@@ -8,6 +8,10 @@ const int SEATS_IN_A_ROW = 5;//高铁每排的座位数
 class Spot
 {
 public:
+    enum SpotType { SEAT, GSEAT, BED };//硬座/高铁/卧铺
+    enum Column { A, B, C, D, F };//高铁座位的列
+    enum Level { BOTTOM, MIDDLE, TOP };//床位的上中下铺
+
     Spot(int index = 0, SpotType type = SEAT, bool booked = false);
 
     int index() const;//返回编号
@@ -27,9 +31,6 @@ public:
     Level level();//（卧铺）返回铺位
     void setLevel(Level level);//（卧铺）设置铺位
 
-    enum SpotType { SEAT, GSEAT, BED };//硬座/高铁/卧铺
-    enum Column { A, B, C, D, F };//高铁座位的列
-    enum Level { BOTTOM, MIDDLE, TOP };//床位的上中下铺
 private:
     int m_index;//座位/床位编号，从0开始
     SpotType m_type;//位子类型

@@ -3,33 +3,35 @@
 #include <QString>
 #include <QList>
 #include "passenger.h"
-#include "ticketoffice.h"
+#include "train.h"
 #include "ticket.h"
 
 class User
 {
 public:
+    enum gender{男,女};
+
     User(int new_idx = -1);//构造函数，用于登陆与刷新全部信息
     ~User();//析构函数，用于登出
 
-     //管理核心信息的方法：
-     int index();//返回索引
-     QString Username();//返回用户名
-     bool Update_Password(QString old_password, QString new_password);//向数据库更新密码
-     void Query_Password();//从数据库获取密码
+    //管理核心信息的方法：
+    int index();//返回索引
+    QString Username();//返回用户名
+    bool Update_Password(QString old_password, QString new_password);//向数据库更新密码
+    void Query_Password();//从数据库获取密码
 
-     //管理基本信息的方法
-     bool Update_Info(QString new_name,int new_sex,QString new_id,QString new_phone,QString new_email);//向数据库更新基本信息
-     void Query_Info();//从数据库获取基本信息
-     QString Name();//返回姓名
-     gender Sex();//返回性别
-     QString Phone();//返回联系方式
-     QString Email();//返回电子邮箱
+    //管理基本信息的方法
+    bool Update_Info(QString new_name,int new_sex,QString new_id,QString new_phone,QString new_email);//向数据库更新基本信息
+    void Query_Info();//从数据库获取基本信息
+    QString Name();//返回姓名
+    gender Sex();//返回性别
+    QString Phone();//返回联系方式
+    QString Email();//返回电子邮箱
 
-     //管理账户余额的方法
-     bool Charge(const Price& charge_money);//充值
-     void Query_Blance();//从数据库获取余额
-     Price* balance();//返回余额
+    //管理账户余额的方法
+    bool Charge(const Price& charge_money);//充值
+    void Query_Blance();//从数据库获取余额
+    Price* Balance();//返回余额
 
     //管理乘客信息的方法
     void Add_Passenger();//增加一个新乘客
@@ -37,10 +39,9 @@ public:
     void Delete_Passenger();//删除一个乘客
 
     //管理票务信息的方法
-    bool Buy_Ticket(TicketOffice &local, int target_index);//买票：包括订票，选人，买票，支付
-    void Return_Ticker(TicketOffice &local);//退票
+    //bool Buy_Ticket(TicketOffice &local, int target_index);//买票：包括订票，选人，买票，支付
+    //void Return_Ticker(TicketOffice &local);//退票
 
-    enum gender{男,女};
 
 private:
 

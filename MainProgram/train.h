@@ -9,10 +9,65 @@
 const int SEAT_COUNT = 120;//每个硬座车次的座位数
 const int BED_COUNT = 60;//每个卧铺车次的床位数
 
+//价格类
+class Price
+{
+public:
+    enum PriceFormat {numberOnly, numberYuan, symbolNumber, RMBNumber};
+        //打印格式，分别表示"12.34" "12.34元" "￥12.34" "RMB12.34"
+
+    Price(int dataFen = 0);
+
+    double toReal() const;//返回实型价格
+    int dataFen() const;//返回以分为单位的价格数据
+    int getYuan() const;//返回价格的整数部分
+    int getSubYuan() const;//返回价格的小数部分，如12.34元返回34
+    void setDataFen(int dataFen);//设置以分为单位的价格数据
+    void setYuan(int yuan);//设置价格的整数部分
+    void setSubYuan(int subYuan);//设置价格的小数部分
+    QString toString(PriceFormat format = Price::numberOnly, bool thousandSeparator = true) const;
+        //按标准格式打印，thousandSeparator表示是否用","分隔千位
+
+    bool isValid();
+    Price operator +(const Price &other);
+    Price &operator +=(const Price &other);
+    Price operator -(const Price &other);
+    Price &operator -=(const Price &other);
+
+
+private:
+    bool m_isValid;
+    void checkValid();//检查价格数据是否小于0
+    int m_dataFen;//以分为单位的价格数据，如1234表示12.34元
+};
+
+//时间/时刻类
+class Time
+{
+public:
+    Time(int hour = 0, int minute = 0);
+
+    int hour() const;//返回小时
+    int minute() const;//返回分钟
+    int day() const;//返回第几天
+    void setHour(int hour);//设置小时
+    void setMinute(int minute);//设置分钟
+
+    QString toString();//按标准格式打印
+    Time elapse(const Time &duration);//返回当前时刻之后duration长度的时刻
+
+    static Time fromString(const QString &text);//从数据库文本转换为Time对象
+private:
+    int m_hour, m_minute, m_day;//m_day用于表示elapse()的结果是否超过了当天，1表示第二天
+};
+
+
 //车次类
 class Train
 {
 public:
+    enum TrainType { T, K, G };//车次类型（特快/普快/高铁）
+
     Train(int index, QString number, TrainType trainType, Spot::SpotType spotType,
           Station &origin, Station &destination, Time departureTime,
           Time duration, Price price, bool inTicket);
@@ -46,7 +101,7 @@ public:
     bool inTicket() const;
     void setInTicket(bool inTicket);
 
-    enum TrainType { T, K, G };//车次类型（特快/普快/高铁）
+
 private:
     int m_index;//对应于数据库中的索引编号
     QString m_number;//车次编号
@@ -62,54 +117,8 @@ private:
 };
 
 
-//价格类
-class Price
-{
-public:
-    Price(int dataFen = 0);
 
-    double toReal() const;//返回实型价格
-    int dataFen() const;//返回以分为单位的价格数据
-    int getYuan() const;//返回价格的整数部分
-    int getSubYuan() const;//返回价格的小数部分，如12.34元返回34
-    void setDataFen(int dataFen);//设置以分为单位的价格数据
-    void setYuan(int yuan);//设置价格的整数部分
-    void setSubYuan(int subYuan);//设置价格的小数部分
-    QString toString(PriceFormat format = number, bool thousandSeparator = true) const;
-        //按标准格式打印，thousandSeparator表示是否用","分隔千位
 
-    bool isValid();
-    Price operator +(const Price &other);
-    Price &operator +=(const Price &other);
-    Price operator -(const Price &other);
-    Price &operator -=(const Price &other);
 
-    enum PriceFormat {numberOnly, numberYuan, symbolNumber, RMBNumber};
-        //打印格式，分别表示"12.34" "12.34元" "￥12.34" "RMB12.34"
-private:
-    bool m_isValid;
-    void checkValid();//检查价格数据是否小于0
-    int m_dataFen;//以分为单位的价格数据，如1234表示12.34元
-};
-
-//时间/时刻类
-class Time
-{
-public:
-    Time(int hour = 0, int minute = 0);
-
-    int hour() const;//返回小时
-    int minute() const;//返回分钟
-    int day() const;//返回第几天
-    void setHour(int hour);//设置小时
-    void setMinute(int minute);//设置分钟
-
-    QString toString();//按标准格式打印
-    Time elapse(const Time &duration);//返回当前时刻之后duration长度的时刻
-
-    static Time fromString(const QString &text);//从数据库文本转换为Time对象
-private:
-    int m_hour, m_minute, m_day;//m_day用于表示elapse()的结果是否超过了当天，1表示第二天
-};
 
 #endif // TRAIN_H

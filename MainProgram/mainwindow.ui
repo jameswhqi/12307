@@ -283,10 +283,6 @@
          </layout>
         </item>
        </layout>
-       <zorder>layoutWidget_3</zorder>
-       <zorder>layoutWidget_4</zorder>
-       <zorder>trainInfo</zorder>
-       <zorder>addButton</zorder>
       </widget>
       <widget class="QWidget" name="user">
        <layout class="QVBoxLayout" name="verticalLayout_3">

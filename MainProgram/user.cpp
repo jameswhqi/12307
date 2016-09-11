@@ -2,6 +2,7 @@
 #include <QString>
 #include <QVariant>
 #include <QSqlQuery>
+#inlcude "train.h"
 #include "user.h"
 
 //构造函数，用于登陆
@@ -151,7 +152,7 @@ void User::Query_Blance()
     query.next();
 
     balance.setDataFen(query.value(0));
-
+}
 //返回余额
 Price* User::Balance()
 {
@@ -177,13 +178,13 @@ void User::Delete_Passenger()
 }
 
 //买票：包括生成订单，填写订单（填写乘客信息），支付
-bool User::Buy_Ticket(TicketOffice &local, int target_index)
-{
+//bool User::Buy_Ticket(TicketOffice &local, int target_index)
+//{
 
-}
+//}
 
 //退票
-void User::Return_Ticket(TicketOffice &local)
-{
+//void User::Return_Ticket(TicketOffice &local)
+//{
 
-}
+//}

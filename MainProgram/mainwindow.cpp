@@ -163,6 +163,6 @@ void MainWindow::on_money_query_btn_clicked()
 
 void MainWindow::on_money_update_btn_clicked()
 {
-    ChargeDialoge* NewChargeDialoge = new CharegeDialoge(this);
+    ChargeDialoge* NewChargeDialoge = new ChargeDialoge(this);
     NewChargeDialoge->exec();
 }

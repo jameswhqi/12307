@@ -8,6 +8,8 @@ namespace Ui {
 class MainWindow;
 }
 
+class TicketOffice;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
