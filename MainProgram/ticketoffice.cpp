@@ -11,6 +11,12 @@ TicketOffice::TicketOffice()
         m_stationList.append(temp);
     }
 
+    //根据数据库modified_date表的日期删除今天之前的spots信息，添加至当前预售期结束
+    query.exec("SELECT date FROM modified_date");
+    query.next();
+    QDate original = QDate::fromString(query.value(0).toString());
+    int diff = QDate::currentDate().toJulianDay() - original.toJulianDay();
+    query.exec("SELECT (spottype, spots) ")
     //生成LoginDialog
     m_loginDialog = new LoginDialog(this);
     m_loginDialog->show();
@@ -22,6 +28,6 @@ void TicketOffice::signIn() {
     QString password = m_loginDialog->password();
     QSqlQuery query;
     if (mode) {
-        query.prepare("SELECT idx ");
+        query.prepare("SELECT idx FROM ");
     }
 }

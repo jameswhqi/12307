@@ -9,6 +9,8 @@
 #include "mainwindow.h"
 #include <QList>
 
+const int SALE_PERIOD = 30;//预售期
+
 class TicketOffice :public QObject
 {
     Q_OBJECT
