@@ -33,9 +33,10 @@ QString User::Username()
 }
 
 //重置密码
-bool User::Reset_Password(QString old_password, QString new_password)
+int User::Reset_Password(QString old_password, QString new_password, QString new_password2)
 {
-    if(old_password != password)    return false;
+    if(old_password != password)    return -1;
+    if(new_password != new_password2) return 1;
     else
     {
         password = new_password;
@@ -46,7 +47,7 @@ bool User::Reset_Password(QString old_password, QString new_password)
         query.bindValue(":password",new_password);
         query.exec();
 
-        return true;
+        return 0;
     }
 }
 
@@ -63,7 +64,7 @@ void User::Query_Password()
 }
 
 //向数据库更新基本信息
-bool User::Update_Info(QString new_name,int new_sex,QString new_id,QString new_phone,QString new_email)
+bool User::Update_Info(QString new_name,int new_sex, QString new_phone,QString new_email)
 {
     name = new_name;
     sex = new_sex;//enum有问题
@@ -72,7 +73,6 @@ bool User::Update_Info(QString new_name,int new_sex,QString new_id,QString new_p
 
     QSqlQuery query;
     query.prepare("update user set name=:name,sex=:sex,phone=:phone,email=:email where idx=:idx");
-    query.bindValue(":idx",idx);
     query.bindValue(":name",name);
     query.bindValue(":sex",sex;
     query.bindValue(":phone",phone);

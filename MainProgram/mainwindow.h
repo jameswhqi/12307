@@ -48,6 +48,14 @@ private slots:
 
     void on_money_update_btn_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_info_query_btn_clicked();
+
+    void on_info_updatebtn_clicked();
+
+    void on_password_reset_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

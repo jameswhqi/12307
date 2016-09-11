@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "chargedialoge.h"
+#include "infodialog.h"
+#include "passworddialog.h"
 #include "user.h"
 
 MainWindow::MainWindow(bool mode, TicketOffice *TO , User* newuser)
@@ -137,6 +139,12 @@ void MainWindow::on_user_btm_clicked()
 void MainWindow::on_info_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(0);
+
+    ui->username_lab->setText(user->Username());
+    ui->name_lab->setText(user->Name());
+    ui->sex_lab->setText((user->Sex()==0)?"男":"女");
+    ui->phone_lab->setText(user->Phone());
+    ui->email_lab->setText(user->Email());
 }
 
 void MainWindow::on_pass_pb_clicked()
@@ -152,6 +160,7 @@ void MainWindow::on_his_pb_clicked()
 void MainWindow::on_bal_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(3);
+
     ui->money_dis_lab->setText(user->Balance()->toString(Price::numberOnly,true));
 }
 
@@ -165,4 +174,28 @@ void MainWindow::on_money_update_btn_clicked()
 {
     ChargeDialoge* NewChargeDialoge = new ChargeDialoge(this);
     NewChargeDialoge->exec();
+}
+
+
+void MainWindow::on_info_query_btn_clicked()
+{
+    user->Query_Info();
+
+    ui->username_lab->setText(user->Username());
+    ui->name_lab->setText(user->Name());
+    ui->sex_lab->setText((user->Sex()==0)?"男":"女");
+    ui->phone_lab->setText(user->Phone());
+    ui->email_lab->setText(user->Email());
+}
+
+void MainWindow::on_info_updatebtn_clicked()
+{
+    InfoDialog* NewInfoDialog = new InfoDialog(this);
+    NewInfoDialog->exec();
+}
+
+void MainWindow::on_password_reset_clicked()
+{
+    PasswordDialog* NewPasswordDialog = new PasswordDialog(this);
+    NewPasswordDialog->exec();
 }

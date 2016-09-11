@@ -17,11 +17,11 @@ public:
     //管理核心信息的方法：
     int index();//返回索引
     QString Username();//返回用户名
-    bool Update_Password(QString old_password, QString new_password);//向数据库更新密码
+    int Update_Password(QString old_password, QString new_password, QString new_password2);//向数据库更新密码
     void Query_Password();//从数据库获取密码
 
     //管理基本信息的方法
-    bool Update_Info(QString new_name,int new_sex,QString new_id,QString new_phone,QString new_email);//向数据库更新基本信息
+    bool Update_Info(QString new_name,int new_sex, QString new_phone,QString new_email);//向数据库更新基本信息
     void Query_Info();//从数据库获取基本信息
     QString Name();//返回姓名
     gender Sex();//返回性别
