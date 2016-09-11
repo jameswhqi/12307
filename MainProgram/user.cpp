@@ -5,9 +5,9 @@
 #include "user.h"
 
 //构造函数，用于登陆
-User::User(QString new_account)
+User::User(int new_idx)
 {
-    account = new_account;
+    idx = new_idx;
     Query_Password();
     Query_Info();
     Query_Blance();
@@ -19,10 +19,16 @@ User::~User()
 
 }
 
-//返回用户名
-QString User::Accout()
+//返回索引
+int User::index()
 {
-    return accout;
+    return idx;
+}
+
+//返回用户名
+QString User::Username()
+{
+    return username;
 }
 
 //重置密码
@@ -34,8 +40,8 @@ bool User::Reset_Password(QString old_password, QString new_password)
         password = new_password;
 
         QSqlQuery query;
-        query.prepare("update user set password=:password where account=:account");
-        query.bindValue(":account",account);
+        query.prepare("update user set password=:password where idx=:idx");
+        query.bindValue(":idx",account);
         query.bindValue(":password",new_password);
         query.exec();
 
@@ -47,8 +53,8 @@ bool User::Reset_Password(QString old_password, QString new_password)
 void User::Query_Password()
 {
     QSqlQuery query;
-    query.prepare("select password from user where account=:account");
-    query.bindValue(":account",account);
+    query.prepare("select password from user where idx=:idx");
+    query.bindValue(":idx",idx);
     query.exec();
     query.next();//默认指向结果集的上一个，要next()
 
@@ -60,16 +66,14 @@ bool User::Update_Info(QString new_name,int new_sex,QString new_id,QString new_p
 {
     name = new_name;
     sex = new_sex;//enum有问题
-    id = new_id;
     phone = new_phone;
     email = new_email;
 
     QSqlQuery query;
-    query.prepare("update user set name=:name,sex=:sex,id=:id,phone=:phone,email=:email where account=:account");
-    query.bindValue(":account",account);
+    query.prepare("update user set name=:name,sex=:sex,phone=:phone,email=:email where idx=:idx");
+    query.bindValue(":idx",idx);
     query.bindValue(":name",name);
     query.bindValue(":sex",sex;
-    query.bindValue(":id",id);
     query.bindValue(":phone",phone);
     query.bindValue(":email",email);
     query.exec();
@@ -81,14 +85,13 @@ bool User::Update_Info(QString new_name,int new_sex,QString new_id,QString new_p
 void User::UserQuery_Info()
 {
     QSqlQuery query;
-    query.prepare("select * from user where account=:account");
-    query.bindValue(":account",account);
+    query.prepare("select * from user where idx=:idx");
+    query.bindValue(":idx",idx);
     query.exec();
     query.next();
 
-    name = query.value(2).toString;
-    sex = query.value(3);//enum sex型，不太对
-    id = query.value(4).toString;
+    name = query.value(3).toString;
+    sex = query.value(4);
     phone = query.value(5).toString;
     email = query.value(6).toString;
 }
@@ -100,15 +103,9 @@ QString User::Name()
 }
 
 //返回性别
-sex User::Sex()
+gender User::Sex()
 {
     return sex;
-}
-
-//返回身份证号
-QString User::ID()
-{
-    return id;
 }
 
 //返回联系方式
@@ -123,37 +120,42 @@ QString User::email()
     return email;
 }
 
-//充值//price类绝对要改
-bool User::Charge(double charge_money)
+//充值
+bool User::Charge(const Price& charge_money)
 {
-    assert(charge_money >= 0);
-    balance += charge_money;
+    if(!charge_money.isValid());
+    {
+        return false;
+    }
+    else
+    {
+        balance ＝ balance + charge_money;
 
-    QSqlQuery query;
-    query.prepare("update user set balance=:balance where account=:account");
-    query.bindValue(":account",account);
-    query.bindValue(":balance",balance);
-    query.exec();
+        QSqlQuery query;
+        query.prepare("update user set balance=:balance where idx=:idx");
+        query.bindValue(":idx",idx);
+        query.bindValue(":balance",balance.dataFen());
+        query.exec();
 
-    return true;
+        return true;
+    }
 }
 
 //从数据库获取余额
 void User::Query_Blance()
 {
     QSqlQuery query;
-    query.prepare("select balance from user where account=:account");
-    query.bindValue(":account",account);
+    query.prepare("select balance from user where idx=:idx");
+    query.bindValue(":idx",idx);
     query.exec();
     query.next();
 
-    balance = query.value(7).toDouble;//price一定要改
-}
+    balance.setDataFen(query.value(0));
 
-//查看余额
-double User::Balance()
+//返回余额
+Price* User::Balance()
 {
-    return balance;
+    return &balance;
 }
 
 //增加一个新乘客

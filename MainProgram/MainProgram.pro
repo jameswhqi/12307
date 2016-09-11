@@ -16,7 +16,8 @@ SOURCES += main.cpp\
     ticket.cpp \
     station.cpp \
     spot.cpp \
-    admin.cpp
+    admin.cpp \
+    chargedialoge.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -27,10 +28,12 @@ HEADERS  += mainwindow.h \
     ticket.h \
     station.h \
     spot.h \
-    admin.h
+    admin.h \
+    chargedialoge.h
 
 FORMS    += mainwindow.ui \
-    logindialog.ui
+    logindialog.ui \
+    chargedialoge.ui
 
 RESOURCES +=
 

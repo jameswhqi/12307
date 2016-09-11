@@ -26,10 +26,10 @@ CREATE TABLE users (
     idx INTEGER PRIMARY KEY,
     username TEXT UNIQUE,
     password TEXT,
+	name TEXT,
+	sex INTEGER,
     phone TEXT,
     email TEXT,
-    name TEXT,
-    sex INTEGER,
     balance INTEGER
 );
 
