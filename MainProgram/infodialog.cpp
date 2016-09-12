@@ -20,7 +20,6 @@ InfoDialog::~InfoDialog()
 
 void InfoDialog::on_confirm_clicked()
 {
-    User* user;
     QString new_name = ui->name->text();
     int new_sex = (ui->sex->text()=="男")? 0:1;
     QString new_phone = ui->phone->text();

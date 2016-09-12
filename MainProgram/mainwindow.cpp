@@ -3,6 +3,7 @@
 #include "chargedialoge.h"
 #include "infodialog.h"
 #include "passworddialog.h"
+#include "passdialog.h"
 #include "user.h"
 
 MainWindow::MainWindow(bool mode, TicketOffice *TO , User* newuser)
@@ -141,8 +142,8 @@ void MainWindow::on_user_btm_clicked()
 
     for(int i = 0;i<pass_size;i++)
     {
-        ui->passinfo->setItem(i,0,user->Pass_Name(i));
-        ui->passinfo->setItem(i,1,user->Pass_ID(i));
+        ui->passinfo->setItem(i,0,new QTableWidgetItem(user->Pass_Name(i)));
+        ui->passinfo->setItem(i,1,new QTableWidgetItem(user->Pass_ID(i)));
     }
     ui->passinfo->show();
 }
@@ -217,12 +218,31 @@ void MainWindow::on_refresh_pass_clicked()
 
     int pass_size = user->Pass_Size();
     ui->passinfo->setRowCount(pass_size);
-    ui->passinfo->setColumnCount(2);
+    //ui->passinfo->setColumnCount(2);
 
     for(int i = 0;i<pass_size;i++)
     {
-        ui->passinfo->setItem(i,0,user->Pass_Name(i));
-        ui->passinfo->setItem(i,1,user->Pass_ID(i));
+        ui->passinfo->setItem(i,0,new QTableWidgetItem(user->Pass_Name(i)));
+        ui->passinfo->setItem(i,1,new QTableWidgetItem(user->Pass_ID(i)));
     }
     ui->passinfo->show();
+}
+
+void MainWindow::on_refresh_btn_clicked()
+{
+    int ticket_size = user->Ticket_Size();
+    ui->ticketinfo->setRowCount(ticket_size);
+    //ui->passinfo->setColumnCount();
+
+    for(int i = 0;i<ticket_size;i++)
+    {
+        ui->ticketinfo->setItem(i,0,);
+
+    }
+}
+
+void MainWindow::on_add_pass_clicked()
+{
+    PassDialog new_passdialog = new PassDialog;
+    new_passdialog.exec();
 }

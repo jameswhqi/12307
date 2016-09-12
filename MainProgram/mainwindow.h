@@ -60,6 +60,10 @@ private slots:
 
     void on_refresh_pass_clicked();
 
+    void on_refresh_btn_clicked();
+
+    void on_add_pass_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

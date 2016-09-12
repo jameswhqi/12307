@@ -172,7 +172,9 @@ void User::Query_User()
     pass_list.clear();
 
     QSqlQuery query;
-    query.exec("select name,id from passengers where user=:user");
+    query.prepare("select name,id from passengers where user=:user");
+    query.bindValue(":user",idx);
+    query.exec();
     while(query.next())
     {
         Passenger* newPass = Passenger::newPass(query.value(0).toString(),query.value(1).toString());
@@ -258,6 +260,43 @@ void User::Delete_Pass_To_Buy(const int ref)
 void User::Clear_Pass_To_Buy()
 {
     pass_to_buy.clear();
+}
+
+//从数据库以及TO获取购票信息
+void User::Query_Ticket()
+{
+    for(int i = 0;i<ticket_list.size();i++)
+    {
+        delete[] ticket_list[i];
+    }
+    ticket_list.clear();
+
+    QSqlQuery query_idx;
+    query_idx.prepare("select idx from tickets where user=:user");
+    query_idx.bindValue(":user",idx);
+    query_idx.exec();
+
+    QSqlQuery query_pass;
+    query_pass.prepare("select passenger from tickets where user=:user");
+    query_pass.bindValue(":user",idx);
+    query_pass.exec();
+
+    QSqlQuery query_name_id;
+    while(query_pass.next())
+    {
+        query_name_id.prepare("select name,id from passengers where idx=:idx");
+        query_name_id.bindValue(":idx",query_pass.value(0));
+        query_name_id.exec();
+    }
+
+
+
+}
+
+//返回购票张数
+int User::Ticket_Size()
+{
+    return ticket_list.size();
 }
 
 //退票

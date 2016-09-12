@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     admin.cpp \
     chargedialoge.cpp \
     infodialog.cpp \
-    passworddialog.cpp
+    passworddialog.cpp \
+    passdialog.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -33,13 +34,15 @@ HEADERS  += mainwindow.h \
     admin.h \
     chargedialoge.h \
     infodialog.h \
-    passworddialog.h
+    passworddialog.h \
+    passdialog.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     chargedialoge.ui \
     infodialog.ui \
-    passworddialog.ui
+    passworddialog.ui \
+    passdialog.ui
 
 RESOURCES +=
 
