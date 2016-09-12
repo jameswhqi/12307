@@ -1,6 +1,5 @@
 #ifndef TICKET_H
 #define TICKET_H
-#include "spot.h"
 #include "train.h"
 #include "passenger.h"
 

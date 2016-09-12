@@ -2,9 +2,9 @@
 #define USER_H
 #include <QString>
 #include <QList>
-#include "passenger.h"
-#include "train.h"
 #include "ticket.h"
+
+class TicketOffice;
 
 class User
 {
@@ -29,7 +29,7 @@ public:
     QString Email();//返回电子邮箱
 
     //管理账户余额的方法
-    bool Charge(const Price& charge_money);//充值
+    bool Charge(Price& charge_money);//充值
     void Query_Blance();//从数据库获取余额
     Price* Balance();//返回余额
 
@@ -42,10 +42,14 @@ public:
     const QString Pass_ID(int ref);//返回指定的身份证号
 
     //管理票务信息的方法
-    //bool Buy_Ticket(TicketOffice &local, int target_index);//买票：包括订票，选人，买票，支付
+    //bool Buy_Ticket(TicketOffice &local);//买票：包括订票，选人，买票，支付
     //void Return_Ticker(TicketOffice &local);//退票
     int Ticket_Size();//返回购票张数
-
+    void Add_Pass_To_But(const int ref);
+    void Delete_Pass_To_Buy(const int ref);
+    void Clear_Pass_To_Buy();
+    void Query_Ticket();//从TO和数据库中更新ticket表，复杂，放在TO中为宜，因为不涉及批量操作
+    Ticket* ticket(int ref);
 
 private:
 

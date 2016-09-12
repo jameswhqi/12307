@@ -2,9 +2,7 @@
 #include <QString>
 #include <QVariant>
 #include <QSqlQuery>
-#inlcude "train.h"
-#include "ticket.h"
-#include "ticketoffice.h"
+
 #include "user.h"
 
 //构造函数，用于登陆
@@ -14,6 +12,7 @@ User::User(int new_idx)
     Query_Password();
     Query_Info();
     Query_Blance();
+
 }
 
 //析构函数，用于登出
@@ -35,7 +34,7 @@ QString User::Username()
 }
 
 //重置密码
-int User::Reset_Password(QString old_password, QString new_password, QString new_password2)
+int User::Update_Password(QString old_password, QString new_password, QString new_password2)
 {
     if(old_password != password)    return -1;
     if(new_password != new_password2) return 1;
@@ -45,7 +44,7 @@ int User::Reset_Password(QString old_password, QString new_password, QString new
 
         QSqlQuery query;
         query.prepare("update user set password=:password where idx=:idx");
-        query.bindValue(":idx",account);
+        query.bindValue(":idx",idx);
         query.bindValue(":password",new_password);
         query.exec();
 
@@ -62,21 +61,21 @@ void User::Query_Password()
     query.exec();
     query.next();//默认指向结果集的上一个，要next()
 
-    password = query.value(0).toString;
+    password = query.value(0).toString();
 }
 
 //向数据库更新基本信息
 bool User::Update_Info(QString new_name,int new_sex, QString new_phone,QString new_email)
 {
     name = new_name;
-    sex = new_sex;//enum有问题
+    sex = gender(new_sex);//enum有问题
     phone = new_phone;
     email = new_email;
 
     QSqlQuery query;
     query.prepare("update user set name=:name,sex=:sex,phone=:phone,email=:email where idx=:idx");
     query.bindValue(":name",name);
-    query.bindValue(":sex",sex;
+    query.bindValue(":sex",sex);
     query.bindValue(":phone",phone);
     query.bindValue(":email",email);
     query.exec();
@@ -85,7 +84,7 @@ bool User::Update_Info(QString new_name,int new_sex, QString new_phone,QString n
 }
 
 //从数据库获取基本信息
-void User::UserQuery_Info()
+void User::Query_Info()
 {
     QSqlQuery query;
     query.prepare("select * from user where idx=:idx");
@@ -93,10 +92,10 @@ void User::UserQuery_Info()
     query.exec();
     query.next();
 
-    name = query.value(3).toString;
-    sex = query.value(4);
-    phone = query.value(5).toString;
-    email = query.value(6).toString;
+    name = query.value(3).toString();
+    sex = gender(query.value(4).toInt());
+    phone = query.value(5).toString();
+    email = query.value(6).toString();
 }
 
 //返回姓名
@@ -106,7 +105,7 @@ QString User::Name()
 }
 
 //返回性别
-gender User::Sex()
+User::gender User::Sex()
 {
     return sex;
 }
@@ -118,21 +117,21 @@ QString User::Phone()
 }
 
 //返回电子邮箱
-QString User::email()
+QString User::Email()
 {
     return email;
 }
 
 //充值
-bool User::Charge(const Price& charge_money)
+bool User::Charge(Price& charge_money)
 {
-    if(!charge_money.isValid());
+    if(!charge_money.isValid())
     {
         return false;
     }
     else
     {
-        balance ＝ balance + charge_money;
+        balance += charge_money;
 
         QSqlQuery query;
         query.prepare("update user set balance=:balance where idx=:idx");
@@ -153,7 +152,7 @@ void User::Query_Blance()
     query.exec();
     query.next();
 
-    balance.setDataFen(query.value(0));
+    balance.setDataFen(query.value(0).toInt());
 }
 
 //返回余额
@@ -210,7 +209,7 @@ void User::Delete_Passenger(int ref)
 }
 
 //返回管理的乘客数
-const int User::Pass_Size()
+int User::Pass_Size()
 {
     return pass_list.size();
 }
@@ -226,7 +225,7 @@ const QString User::Pass_ID(int ref)
 {
     return pass_list[ref]->ID();
 }
-
+/*
 //买票，给TicketOffice一个QList<Passenger*>*,一个balance,返回给我Ticket*或NULL
 bool User::Buy_Ticket(TicketOffice &local)
 {
@@ -236,10 +235,11 @@ bool User::Buy_Ticket(TicketOffice &local)
     else
     {
         Ticket *res;
-        res->
+
         ticket_list.append(res);
     }
 }
+*/
 
 //增加一个新的买票乘客
 void User::Add_Pass_To_But(const int ref)
@@ -285,18 +285,50 @@ void User::Query_Ticket()
     while(query_pass.next())
     {
         query_name_id.prepare("select name,id from passengers where idx=:idx");
-        query_name_id.bindValue(":idx",query_pass.value(0));
+        query_name_id.bindValue(":idx",query_pass.value(0).toInt());
         query_name_id.exec();
     }
 
+    QSqlQuery query_train_date;
+    query_train_date.prepare("select idx,date from tickets where=:user");
+    query_train_date.bindValue(":user",idx);
+    query_train_date.exec();
 
+    QSqlQuery query_spot;
+    query_spot.prepare("select spot from tickets where user=:user");
+    query_spot.bindValue(":user",idx);
+    query_spot.exec();
 
+    while(query_idx.next())
+    {
+        query_name_id.next();
+        query_train_date.next();
+        query_spot.next();
+
+        QSqlQuery query_spot_type;
+        query_spot_type.prepare("select traintype from trains where idx=:idx");
+        query_spot_type.bindValue(":idx",query_train_date.value(0).toInt());
+        query_spot_type.exec();
+        query_spot_type.next();//注意，要指向下一个
+
+        Passenger* new_pass = new Passenger(query_name_id.value(0).toString(),query_name_id.value(1).toString());
+        //假设接口函数是Train* trainForTicket(int idx,QString date)
+        Train* new_train = trainForTicket(query_train_date.value(0).toInt(),query_train_date.value(1).toString());
+        Spot* new_spot = Spot(query_spot.value(0).toInt(), query_spot_type.value(0).toInt(), true);
+        Ticket* new_ticket = Ticket(query_idx.value(0).toInt((),new_pass,new_train,new_spot);
+        ticket_list.append(new_ticket);
+    }
 }
 
 //返回购票张数
 int User::Ticket_Size()
 {
     return ticket_list.size();
+}
+
+Ticket* User::ticket(int ref)
+{
+    return ticket_list[ref];
 }
 
 //退票

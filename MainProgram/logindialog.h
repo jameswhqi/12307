@@ -2,12 +2,12 @@
 #define LOGINDIALOG_H
 #include <QDialog>
 #include <QString>
+#include "ticketoffice.h"
 
 namespace Ui {
 class LoginDialog;
 }
 
-class TicketOffice;
 
 class LoginDialog : public QDialog
 {

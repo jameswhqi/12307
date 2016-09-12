@@ -1,17 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "chargedialoge.h"
-#include "infodialog.h"
-#include "passworddialog.h"
-#include "passdialog.h"
-#include "user.h"
 
-MainWindow::MainWindow(bool mode, TicketOffice *TO , User* newuser)
+
+MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
     : ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
     user = newuser;
-    connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(searchTrain()));
+
+    m_TO = TO;
+    //connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(searchTrain()));
 
     //删掉对user或admin没用的widget
     if (mode) {
@@ -121,9 +119,14 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
         items[6].setText(QString::number(pointer->vacantCount()));
         items[7].setText(pointer->price().toString(Price::symbolNumber));
         for (int j = 0; j < 8; j++) {
-            ui->trainInfo->setItem(i,j,items[j]);
+            ui->trainInfo->setItem(i,j,&items[j]);
         }
     }
+}
+
+void MainWindow::on_searchButton_clicked()
+{
+
 }
 
 
@@ -236,13 +239,21 @@ void MainWindow::on_refresh_btn_clicked()
 
     for(int i = 0;i<ticket_size;i++)
     {
-        ui->ticketinfo->setItem(i,0,);
-
+        ui->ticketinfo->setItem(i,0,new QTableWidgetItem(user->ticket(i)->passenger().Name()));
+        ui->ticketinfo->setItem(i,1,new QTableWidgetItem(user->ticket(i)->train().trainType()));
+        ui->ticketinfo->setItem(i,2,new QTableWidgetItem(user->ticket(i)->train().number()));
+        ui->ticketinfo->setItem(i,3,new QTableWidgetItem(user->ticket(i)->train().spotType()));
+        ui->ticketinfo->setItem(i,4,new QTableWidgetItem(user->ticket(i)->spot().index()));
+        ui->ticketinfo->setItem(i,5,new QTableWidgetItem(user->ticket(i)->train().origin().name()));
+        ui->ticketinfo->setItem(i,6,new QTableWidgetItem(user->ticket(i)->train().destination().name()));
+        ui->ticketinfo->setItem(i,7,new QTableWidgetItem(user->ticket(i)->train().departureTime().toString()));
+        ui->ticketinfo->setItem(i,8,new QTableWidgetItem(user->ticket(i)->train().arrivalTime().toString()));
     }
+    ui->ticketinfo->show();
 }
 
 void MainWindow::on_add_pass_clicked()
 {
-    PassDialog new_passdialog = new PassDialog;
-    new_passdialog.exec();
+    PassDialog* new_passdialog = new PassDialog;
+    new_passdialog->exec();
 }

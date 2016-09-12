@@ -2,6 +2,7 @@
 #define INFODIALOG_H
 
 #include <QDialog>
+#include "user.h"
 
 namespace Ui {
 class InfoDialog;

@@ -6,9 +6,9 @@ LoginDialog::LoginDialog(TicketOffice *TO, QWidget *parent) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
-    connect(ui->signInButton, SIGNAL(clicked()), TO, SLOT(signIn());
-    connect(this, SIGNAL(rejected()), TO, SLOT(cancelSignIn());
-    connect(ui->modeSelector, SIGNAL(currentChanged(int), this, SLOT(toggleHide(int));
+    connect(ui->signInButton, SIGNAL(clicked()), TO, SLOT(signIn()));
+    connect(this, SIGNAL(rejected()), TO, SLOT(cancelSignIn()));
+    connect(ui->modeSelector, SIGNAL(currentChanged(int)), this, SLOT(toggleHide(int)));
 }
 
 LoginDialog::~LoginDialog()

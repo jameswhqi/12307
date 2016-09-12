@@ -1,23 +1,28 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-#include "train.h"
+#include <QObject>
 #include <QMainWindow>
-#include <user.h>
+#include "chargedialoge.h"
+#include "infodialog.h"
+#include "passworddialog.h"
+#include "passdialog.h"
+#include "ticketoffice.h"
 
 namespace Ui {
 class MainWindow;
 }
 
-class TicketOffice;
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(bool mode, TicketOffice *TO, User *newuser = NULL);
+    explicit MainWindow(bool mode, TicketOffice *TO, User *newuser);
     ~MainWindow();
     User *user;
+    TicketOffice *m_TO;
+
 
     //返回搜索区域的信息
     QString origin();//始发站选中的文本
@@ -32,6 +37,8 @@ public:
     void clearTrainInfo();//清空搜索结果
     void showTrainInfo(QList<Train *> *searchResult);//显示搜索结果
 private slots:
+    void on_searchButton_clicked();
+
     void on_train_btm_clicked();
 
     void on_user_btm_clicked();
@@ -66,6 +73,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+
 };
 
 #endif // MAINWINDOW_H

@@ -496,13 +496,9 @@
              </spacer>
             </item>
            </layout>
-           <zorder>refresh_pass</zorder>
-           <zorder>add_pass</zorder>
-           <zorder>delete_pass</zorder>
            <zorder>horizontalSpacer_2</zorder>
            <zorder>passinfo</zorder>
            <zorder>horizontalSpacer_3</zorder>
-           <zorder>layoutWidget</zorder>
           </widget>
           <widget class="QWidget" name="history_stk">
            <widget class="QTableWidget" name="ticketinfo">
@@ -510,7 +506,7 @@
              <rect>
               <x>30</x>
               <y>20</y>
-              <width>531</width>
+              <width>571</width>
               <height>221</height>
              </rect>
             </property>
@@ -530,7 +526,7 @@
              <number>0</number>
             </property>
             <property name="columnCount">
-             <number>9</number>
+             <number>10</number>
             </property>
             <attribute name="horizontalHeaderDefaultSectionSize">
              <number>55</number>
@@ -551,12 +547,22 @@
             </column>
             <column>
              <property name="text">
-              <string>车次</string>
+              <string>列车类型</string>
              </property>
             </column>
             <column>
              <property name="text">
-              <string>列车类型</string>
+              <string>列车编号</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>车票类型</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>车票号码</string>
              </property>
             </column>
             <column>
@@ -577,11 +583,6 @@
             <column>
              <property name="text">
               <string>到达时间</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>号码</string>
              </property>
             </column>
             <column>

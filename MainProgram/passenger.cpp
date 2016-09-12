@@ -1,9 +1,9 @@
 #include "passenger.h"
-#incldue "QString"
+#include <QString>
 
 Passenger* Passenger::newPass(const QString new_name, const QString new_id)
 {
-    Passenger* res = new Passsenger(new_name,new_id);
+    Passenger* res = new Passenger(new_name,new_id);
     return res;
 }
 

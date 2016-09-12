@@ -4,6 +4,12 @@
 #include <QtMath>
 #include <QByteArray>
 #include <QMessageBox>
+#include "station.h"
+#include "logindialog.h"
+#include <QDate>
+#include "train.h"
+#include <mainwindow.h>
+#include "admin.h"
 
 TicketOffice::TicketOffice()
 {
@@ -23,6 +29,7 @@ TicketOffice::TicketOffice()
 
 void TicketOffice::updateSpots()
 {
+    QSqlQuery query;
     query.exec("SELECT date FROM modified_date");
     query.next();
     QDate original = QDate::fromString(query.value(0).toString());
@@ -74,15 +81,16 @@ void TicketOffice::signIn()
     query.addBindValue(password);
     query.exec();
     if (query.next()) {
-        int idx = query.value(0);
-        m_mainWindow = new MainWindow(mode, this);
-        m_mainWindow->setStations(m_stationList);
+        int idx = query.value(0).toInt();
         if (mode) {
-            m_admin = new Admin(idx, m_mainWindow);
+            //m_admin = new Admin(idx);
         }
         else {
-            m_user = new User(idx, m_mainWindow);
+            m_user = new User(idx);
         }
+        m_mainWindow = new MainWindow(mode, this, m_user);
+        m_mainWindow->setStations(m_stationList);
+
     }
     else {
         QMessageBox msg;

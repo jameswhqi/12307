@@ -1,15 +1,18 @@
 #ifndef TICKETOFFICE_H
 #define TICKETOFFICE_H
-#include "ticket.h"
-#include "train.h"
-#include "station.h"
-#include "user.h"
 #include "admin.h"
-#include "logindialog.h"
-#include "mainwindow.h"
+//#include "logindialog.h"
+//#include "mainwindow.h"
 #include <QList>
+#include <QObject>
 
 const int SALE_PERIOD = 30;//预售期
+
+class User;
+class Station;
+class Train;
+class MainWindow;
+class LoginDialog;
 
 class TicketOffice :public QObject
 {
@@ -21,11 +24,12 @@ public:
 
     //void clearCache(bool all = false);//当m_cache太大的时候进行清空，all为false时保留存在于Ticket中的Train指针
 public slots:
+    void searchTrain();
     void signIn();//接收用户点击LoginDialog中确认键的信号
     //void cancelSignIn();//接受LoginDialog的rejected()信号
 
     //根据用户输入的搜索条件在数据库中搜索车次，存入trainList并显示出来
-    void searchTrain();
+
 private:
     QList<Train *> m_searchResult;//搜索到的车次表
     QList<Train *> m_cache;//所有已经被读取过的Train的指针列表

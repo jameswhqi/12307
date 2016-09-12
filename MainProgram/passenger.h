@@ -13,7 +13,7 @@ public:
         id = new_id;
     }
     ~Passenger(){}//析构函数
-    Passenger* newPass(const QString new_name, const QString new_id);//创建新乘客
+    static Passenger* newPass(const QString new_name, const QString new_id);//创建新乘客
     void resetPass(QString new_name, const QString new_id);//修改乘客信息
     const QString Name();//返回姓名
     const QString ID();//返回身份证号
