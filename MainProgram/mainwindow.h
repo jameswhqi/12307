@@ -56,6 +56,10 @@ private slots:
 
     void on_password_reset_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_refresh_pass_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

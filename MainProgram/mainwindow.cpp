@@ -134,6 +134,17 @@ void MainWindow::on_train_btm_clicked()
 void MainWindow::on_user_btm_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+
+    int pass_size = user->Pass_Size();
+    ui->passinfo->setRowCount(pass_size);
+    ui->passinfo->setColumnCount(2);
+
+    for(int i = 0;i<pass_size;i++)
+    {
+        ui->passinfo->setItem(i,0,user->Pass_Name(i));
+        ui->passinfo->setItem(i,1,user->Pass_ID(i));
+    }
+    ui->passinfo->show();
 }
 
 void MainWindow::on_info_pb_clicked()
@@ -198,4 +209,20 @@ void MainWindow::on_password_reset_clicked()
 {
     PasswordDialog* NewPasswordDialog = new PasswordDialog(this);
     NewPasswordDialog->exec();
+}
+
+void MainWindow::on_refresh_pass_clicked()
+{
+    user->Query_User();//从数据库刷新
+
+    int pass_size = user->Pass_Size();
+    ui->passinfo->setRowCount(pass_size);
+    ui->passinfo->setColumnCount(2);
+
+    for(int i = 0;i<pass_size;i++)
+    {
+        ui->passinfo->setItem(i,0,user->Pass_Name(i));
+        ui->passinfo->setItem(i,1,user->Pass_ID(i));
+    }
+    ui->passinfo->show();
 }

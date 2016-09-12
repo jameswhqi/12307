@@ -34,9 +34,12 @@ public:
     Price* Balance();//返回余额
 
     //管理乘客信息的方法
-    void Add_Passenger();//增加一个新乘客
-    void Reset_Passenger();//修改一个乘客信息
-    void Delete_Passenger();//删除一个乘客
+    void Add_Passenger(const QString new_name, const QString new_id);//增加一个新乘客
+    void Delete_Passenger(const int ref);//删除一个乘客
+    void Query_User();//从数据库获取乘客信息
+    const int Pass_Size();//返回管理的乘客数
+    const Pass_Name(int ref);//返回指定的姓名
+    const Pass_ID(int ref);//返回指定的身份证号
 
     //管理票务信息的方法
     //bool Buy_Ticket(TicketOffice &local, int target_index);//买票：包括订票，选人，买票，支付
@@ -61,6 +64,9 @@ private:
 
     //账户所管理的乘客信息
     QList<Passenger*> pass_list;
+
+    //某笔订单订票的乘客信息
+    QList<Passenger*> pass_to_buy;
 
     //账户所管理的火车票
     QList<Ticket*> ticket_list;

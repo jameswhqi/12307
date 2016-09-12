@@ -3,6 +3,8 @@
 #include <QVariant>
 #include <QSqlQuery>
 #inlcude "train.h"
+#include "ticket.h"
+#include "ticketoffice.h"
 #include "user.h"
 
 //构造函数，用于登陆
@@ -153,35 +155,110 @@ void User::Query_Blance()
 
     balance.setDataFen(query.value(0));
 }
+
 //返回余额
 Price* User::Balance()
 {
     return &balance;
 }
 
-//增加一个新乘客
-void User::Add_Passenger()
+//从数据库获取乘客信息
+void User::Query_User()
 {
+    for(int i = 0;i<pass_list.size();i++)
+    {
+        delete[] pass_list[i];
+    }
+    pass_list.clear();
 
+    QSqlQuery query;
+    query.exec("select name,id from passengers where user=:user");
+    while(query.next())
+    {
+        Passenger* newPass = Passenger::newPass(query.value(0).toString(),query.value(1).toString());
+        pass_list.append(newPass);
+    }
 }
 
-//修改一个乘客信息
-void User::Reset_Passenger()
+//增加一个新乘客
+void User::Add_Passenger(const QString new_name, const QString new_id)
 {
+    Passenger* newPass = Passenger::newPass(new_name,new_id);
+    pass_list.append(newPass);
 
+    QSqlQuery query;
+    query.prepare("insert into passengers (user,name,id) values (:user,:name:id)");
+    query.bindValue(":user",idx);
+    query.bindValue(":name",new_name);
+    query.bindValue(":id",new_id);
+    query.exec();
 }
 
 //删除一个乘客
-void User::Delete_Passenger()
-{
+void User::Delete_Passenger(int ref)
+{   
+    QSqlQuery query;
+    query.prepare("delete from passengers where user = :user and id = :id");
+    query.bindValue(":user",idx);
+    query.bindValue(":id",pass_list[ref]->ID());
+    query.exec();
 
+    delete[] pass_list[ref];//要先释放这个空间
+    pass_list.removeAt(ref);
 }
 
-//买票：包括生成订单，填写订单（填写乘客信息），支付
-//bool User::Buy_Ticket(TicketOffice &local, int target_index)
-//{
+//返回管理的乘客数
+const int User::Pass_Size()
+{
+    return pass_list.size();
+}
 
-//}
+//返回指定的姓名
+const QString User::Pass_Name(int ref)
+{
+    return pass_list[ref]->Name();
+}
+
+//返回指定的身份证号
+const QString User::Pass_ID(int ref)
+{
+    return pass_list[ref]->ID();
+}
+
+//买票，给TicketOffice一个QList<Passenger*>*,一个balance,返回给我Ticket*或NULL
+bool User::Buy_Ticket(TicketOffice &local)
+{
+    Ticket* res = local->Order_Ticket(&pass_to_buy,*Balance());
+    pass_to_buy.clear();
+    if(res == NULL) return false;
+    else
+    {
+        Ticket *res;
+        res->
+        ticket_list.append(res);
+    }
+}
+
+//增加一个新的买票乘客
+void User::Add_Pass_To_But(const int ref)
+{
+    if(pass_to_buy.indexOf(pass_list[ref]) == -1)//不重复插入
+    {
+        pass_to_buy.append(pass_list[ref]);
+    }
+}
+
+//删除一个买票乘客
+void User::Delete_Pass_To_Buy(const int ref)
+{
+    pass_to_buy.removeAt(ref);
+}
+
+//清空pass_to_buy列表
+void User::Clear_Pass_To_Buy()
+{
+    pass_to_buy.clear();
+}
 
 //退票
 //void User::Return_Ticket(TicketOffice &local)
