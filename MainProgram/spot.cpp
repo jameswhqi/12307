@@ -4,6 +4,8 @@ Spot::Spot(int index, SpotType type, bool booked)
     :m_index(index), m_type(type), m_booked(booked)
 {
     switch (m_type) {
+    case SEAT:
+        break;
     case GSEAT:
         m_row = m_index / SEATS_IN_A_ROW + 1;
         m_column = Column(m_index % SEATS_IN_A_ROW);
@@ -23,6 +25,8 @@ void Spot::setIndex(int index)
 {
     m_index = index;
     switch (m_type) {
+    case SEAT:
+        break;
     case GSEAT:
         m_row = index / SEATS_IN_A_ROW + 1;
         m_column = Column(index % SEATS_IN_A_ROW);
@@ -32,7 +36,7 @@ void Spot::setIndex(int index)
         m_level = Level(index % 3);
     }
 }
-Spot::SpotType Spot::type()
+Spot::SpotType Spot::type() const
 {
     return m_type;
 }
@@ -77,11 +81,11 @@ QString Spot::toString() const
         }
     case BED:
         switch (m_level) {
-        case Bottom:
+        case BOTTOM:
             return QString::number(m_row).append("下");
-        case Middle:
+        case MIDDLE:
             return QString::number(m_row).append("中");
-        case Top:
+        case TOP:
             return QString::number(m_row).append("上");
         }
     }
@@ -96,6 +100,8 @@ void Spot::setRow(int row)
 {
     m_row = row;
     switch (m_type) {
+    case SEAT:
+        break;
     case GSEAT:
         m_index = (m_row - 1) * SEATS_IN_A_ROW + m_column;
         break;

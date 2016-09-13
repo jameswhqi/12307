@@ -2,7 +2,8 @@
 #define LOGINDIALOG_H
 #include <QDialog>
 #include <QString>
-#include "ticketoffice.h"
+
+class TicketOffice;
 
 namespace Ui {
 class LoginDialog;
@@ -14,7 +15,7 @@ class LoginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit LoginDialog(TicketOffice *TO, QWidget *parent = 0);
+    explicit LoginDialog(TicketOffice *TO);
     ~LoginDialog();
 
     bool mode();//返回当前模式(0:乘客 1:管理员)

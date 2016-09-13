@@ -1,7 +1,6 @@
 TEMPLATE = subdirs
 
-SUBDIRS = MainProgram \
-    DatabaseInit
+SUBDIRS = MainProgram
 
 DISTFILES += \
     README.md \

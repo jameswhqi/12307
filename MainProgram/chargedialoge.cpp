@@ -1,12 +1,11 @@
 #include "chargedialoge.h"
 #include "ui_chargedialoge.h"
-#include "user.h"
 
-ChargeDialoge::ChargeDialoge(QWidget *parent) :
-    QDialog(parent),
+ChargeDialoge::ChargeDialoge(MainWindow *parent) :
     ui(new Ui::ChargeDialoge)
 {
     ui->setupUi(this);
+    MW = parent;
 }
 
 ChargeDialoge::~ChargeDialoge()
@@ -16,7 +15,7 @@ ChargeDialoge::~ChargeDialoge()
 
 void ChargeDialoge::on_money_yes_clicked()
 {
-    if(parent->user->Charge(ui->input_money->text()))
+    if(MW->user->Charge(Price((int)ui->input_money->text().toDouble())))
     {
         ui->charge_result->setText(" 充值成功！");
     }
@@ -26,7 +25,7 @@ void ChargeDialoge::on_money_yes_clicked()
     }
 }
 
-void ChargeDialoge::on_money_no_clicked()
-{
+//void ChargeDialoge::on_money_no_clicked()
+//{
 
-}
+//}

@@ -1,8 +1,8 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
+#include "ticketoffice.h"
 
-LoginDialog::LoginDialog(TicketOffice *TO, QWidget *parent) :
-    QDialog(parent),
+LoginDialog::LoginDialog(TicketOffice *TO) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);

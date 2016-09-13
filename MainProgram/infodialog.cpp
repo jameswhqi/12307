@@ -1,16 +1,16 @@
 #include "infodialog.h"
 #include "ui_infodialog.h"
 
-InfoDialog::InfoDialog(QWidget *parent) :
-    QDialog(parent),
+InfoDialog::InfoDialog(MainWindow *parent) :
     ui(new Ui::InfoDialog)
 {
+    MW = parent;
     ui->setupUi(this);
-    ui->username->setText(user->Username());
-    ui->name->setText(user->Name());
-    ui->sex->setText((user->Sex()==0)?"男":"女");
-    ui->phone->setText(user->Phone());
-    ui->email->setText(user->Email());
+    //ui->username->setText(user->Username());
+    ui->name->setText(MW->user->Name());
+    ui->sex->setText((MW->user->Sex()==0)?"男":"女");
+    ui->phone->setText(MW->user->Phone());
+    ui->email->setText(MW->user->Email());
 }
 
 InfoDialog::~InfoDialog()
@@ -25,7 +25,7 @@ void InfoDialog::on_confirm_clicked()
     QString new_phone = ui->phone->text();
     QString new_email = ui->email->text();
 
-    if(user->Update_Info(new_name,new_sex,new_phone,new_email))
+    if(MW->user->Update_Info(new_name,new_sex,new_phone,new_email))
     {
         ui->result->setText("修改成功");
     }
@@ -35,7 +35,7 @@ void InfoDialog::on_confirm_clicked()
     }
 }
 
-void InfoDialog::on_cancel_clicked()
-{
+//void InfoDialog::on_cancel_clicked()
+//{
 
-}
+//}

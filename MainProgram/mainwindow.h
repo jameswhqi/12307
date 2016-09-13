@@ -2,16 +2,14 @@
 #define MAINWINDOW_H
 #include <QObject>
 #include <QMainWindow>
-#include "chargedialoge.h"
-#include "infodialog.h"
-#include "passworddialog.h"
-#include "passdialog.h"
-#include "ticketoffice.h"
+#include "user.h"
 
 namespace Ui {
 class MainWindow;
 }
 
+class TicketOffice;
+class admin;
 
 class MainWindow : public QMainWindow
 {
@@ -37,7 +35,7 @@ public:
     void clearTrainInfo();//清空搜索结果
     void showTrainInfo(QList<Train *> *searchResult);//显示搜索结果
 private slots:
-    void on_searchButton_clicked();
+    //void on_searchButton_clicked();
 
     void on_train_btm_clicked();
 

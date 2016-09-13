@@ -2,7 +2,7 @@
 #define PASSDIALOG_H
 
 #include <QDialog>
-#include "user.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class PassDialog;
@@ -13,7 +13,7 @@ class PassDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit PassDialog(QWidget *parent = 0,User* new_user = NULL);
+    explicit PassDialog(User* new_user = NULL);
     ~PassDialog();
 
 private slots:

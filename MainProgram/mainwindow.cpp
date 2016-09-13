@@ -1,4 +1,7 @@
-#include "mainwindow.h"
+#include "chargedialoge.h"
+#include "passworddialog.h"
+#include "infodialog.h"
+#include "passdialog.h"
 #include "ui_mainwindow.h"
 
 
@@ -124,10 +127,10 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
     }
 }
 
-void MainWindow::on_searchButton_clicked()
-{
+//void MainWindow::on_searchButton_clicked()
+//{
 
-}
+//}
 
 
 void MainWindow::on_train_btm_clicked()
@@ -254,6 +257,6 @@ void MainWindow::on_refresh_btn_clicked()
 
 void MainWindow::on_add_pass_clicked()
 {
-    PassDialog* new_passdialog = new PassDialog;
+    PassDialog* new_passdialog = new PassDialog(user);
     new_passdialog->exec();
 }

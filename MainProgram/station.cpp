@@ -8,7 +8,7 @@ int Station::index() const
     return m_index;
 }
 
-QString Station::name()
+QString Station::name() const
 {
     return m_name;
 }

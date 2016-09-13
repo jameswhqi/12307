@@ -1,10 +1,8 @@
 #include "passdialog.h"
 #include "ui_passdialog.h"
-#include "QString.h"
-#include "user.h"
+#include <QString>
 
-PassDialog::PassDialog(QWidget *parent,User* new_user) :
-    QDialog(parent),
+PassDialog::PassDialog(User* new_user) :
     ui(new Ui::PassDialog)
 {
     ui->setupUi(this);

@@ -49,8 +49,8 @@
                          </base-DElement>
                          <object>{cfa7bf6a-624d-4642-a07d-a72c7bfe269d}</object>
                          <name>ticket.h</name>
-                         <pos>x:740;y:680</pos>
-                         <rect>x:-120;y:-120;w:240;h:240</rect>
+                         <pos>x:450;y:1430</pos>
+                         <rect>x:-105;y:-105;w:210;h:210</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -69,8 +69,8 @@
                           </DElement>
                          </base-DElement>
                          <object>{ab182c13-a8bb-4aab-9f51-94563d2b3a07}</object>
-                         <name>Ticket</name>
-                         <pos>x:745;y:685</pos>
+                         <name>Ticket 车票</name>
+                         <pos>x:460;y:1440</pos>
                          <rect>x:-80;y:-85;w:160;h:170</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -91,8 +91,8 @@
                          </base-DElement>
                          <object>{1d5fe3b9-0159-4f03-8553-791a140631e2}</object>
                          <name>train.h</name>
-                         <pos>x:450;y:135</pos>
-                         <rect>x:-355;y:-280;w:710;h:560</rect>
+                         <pos>x:245;y:1870</pos>
+                         <rect>x:-320;y:-295;w:640;h:590</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -111,8 +111,8 @@
                           </DElement>
                          </base-DElement>
                          <object>{35764795-3a4d-4c0c-af9d-66c4b979e72c}</object>
-                         <name>Train</name>
-                         <pos>x:280;y:145</pos>
+                         <name>Train 车次</name>
+                         <pos>x:105;y:1870</pos>
                          <rect>x:-140;y:-255;w:280;h:510</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -132,9 +132,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{bce17b5d-ec83-4a95-969f-2018a0cd6632}</object>
-                         <name>Price</name>
-                         <pos>x:610;y:70</pos>
-                         <rect>x:-165;y:-105;w:330;h:210</rect>
+                         <name>Price 钱（价格/余额）</name>
+                         <pos>x:410;y:1790</pos>
+                         <rect>x:-135;y:-140;w:270;h:280</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -172,10 +172,10 @@
                          </base-DElement>
                          <object>{f1e8e9d0-40ea-4724-89bf-daf165993671}</object>
                          <name>ticketoffice.h</name>
-                         <pos>x:375;y:715</pos>
-                         <rect>x:-150;y:-110;w:300;h:220</rect>
+                         <pos>x:-5;y:30</pos>
+                         <rect>x:-115;y:-140;w:230;h:280</rect>
                          <auto-sized>false</auto-sized>
-                         <visual-role>5</visual-role>
+                         <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
                       </DComponent>
@@ -192,50 +192,14 @@
                           </DElement>
                          </base-DElement>
                          <object>{d22ad06a-c2f2-4dc7-bc82-ecc65fb46354}</object>
-                         <name>TicketOffice</name>
-                         <pos>x:375;y:735</pos>
-                         <rect>x:-130;y:-65;w:260;h:130</rect>
+                         <name>TicketOffice 最核心的“售票处”</name>
+                         <pos>x:7.10543e-15;y:55</pos>
+                         <rect>x:-95;y:-105;w:190;h:210</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
                        <show-all-members>true</show-all-members>
                       </DClass>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{ec253d43-7f6f-4326-ac01-ce917f2d8cb4}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{b9b39106-3b20-4d50-bff3-0879b0882c6a}</object>
-                         <a>{37ecbb16-1c52-4769-b405-b5d4a9decd64}</a>
-                         <b>{43a312cc-ec80-462f-b13c-a175aa1a08a5}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{f9110ae2-410f-495f-9465-83e721bf6539}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{f8bfdc0d-bf4c-474b-83d2-bc0849060214}</object>
-                         <a>{37ecbb16-1c52-4769-b405-b5d4a9decd64}</a>
-                         <b>{d74131cb-13a3-4dd2-a3b7-9c9390471bfa}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
                      </instance>
                     </item>
                     <item>
@@ -250,8 +214,8 @@
                          </base-DElement>
                          <object>{317ecfd8-d3f4-468a-a145-da8880892e5e}</object>
                          <name>spot.h</name>
-                         <pos>x:1150;y:145</pos>
-                         <rect>x:-255;y:-230;w:510;h:460</rect>
+                         <pos>x:85;y:2475</pos>
+                         <rect>x:-135;y:-235;w:270;h:470</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -270,9 +234,9 @@
                           </DElement>
                          </base-DElement>
                          <object>{a71ee337-0e6a-43d1-b2b9-2b26a0419f63}</object>
-                         <name>Spot</name>
-                         <pos>x:1065;y:150</pos>
-                         <rect>x:-135;y:-195;w:270;h:390</rect>
+                         <name>Spot 座位/铺位</name>
+                         <pos>x:85;y:2495</pos>
+                         <rect>x:-115;y:-195;w:230;h:390</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -288,11 +252,9 @@
                          <uid>{741114c7-7836-4ac7-8606-ab22569cf919}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>&lt;QString&gt;
-
-const int SEATS_IN_A_ROW = 5;</text>
-                       <pos>x:1200;y:-45</pos>
-                       <rect>x:0;y:0;w:182.484;h:55</rect>
+                       <text>const int SEATS_IN_A_ROW = 5;</text>
+                       <pos>x:-10;y:2265</pos>
+                       <rect>x:0;y:0;w:182.484;h:29</rect>
                       </DAnnotation>
                      </instance>
                     </item>
@@ -304,9 +266,9 @@ const int SEATS_IN_A_ROW = 5;</text>
                          <uid>{3a20ee54-ded0-4c0e-848a-910277c5baed}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>&lt;QList&gt;</text>
-                       <pos>x:435;y:620</pos>
-                       <rect>x:0;y:0;w:57.7813;h:29</rect>
+                       <text>const int SALE_PERIOD = 30;</text>
+                       <pos>x:-85;y:-85</pos>
+                       <rect>x:0;y:0;w:168.328;h:29</rect>
                       </DAnnotation>
                      </instance>
                     </item>
@@ -318,14 +280,10 @@ const int SEATS_IN_A_ROW = 5;</text>
                          <uid>{d92de359-f8f2-4d25-9ad8-15365fae7cbc}</uid>
                         </DElement>
                        </base-DElement>
-                       <text>&lt;QString&gt;
-&lt;QVector&gt;
-&lt;QTime&gt;
-
-const int SEAT_COUNT = 120;
+                       <text>const int SEAT_COUNT = 120;
 const int BED_COUNT = 60;</text>
-                       <pos>x:575;y:-140</pos>
-                       <rect>x:0;y:0;w:171.578;h:94</rect>
+                       <pos>x:325;y:1605</pos>
+                       <rect>x:0;y:0;w:171.578;h:42</rect>
                       </DAnnotation>
                      </instance>
                     </item>
@@ -341,7 +299,7 @@ const int BED_COUNT = 60;</text>
                          </base-DElement>
                          <object>{2b7c5cde-4242-4002-b760-12060867a2c5}</object>
                          <name>station.h</name>
-                         <pos>x:-100;y:245</pos>
+                         <pos>x:410;y:2435</pos>
                          <rect>x:-150;y:-120;w:300;h:240</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
@@ -361,8 +319,8 @@ const int BED_COUNT = 60;</text>
                           </DElement>
                          </base-DElement>
                          <object>{7e5f2ca7-da10-4c71-a0aa-019ec4034c1a}</object>
-                         <name>Station</name>
-                         <pos>x:-100;y:270</pos>
+                         <name>Station 车站</name>
+                         <pos>x:410;y:2455</pos>
                          <rect>x:-140;y:-80;w:280;h:160</rect>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -396,42 +354,6 @@ const int BED_COUNT = 60;</text>
                         <DRelation>
                          <base-DElement>
                           <DElement>
-                           <uid>{bae0811c-6d1e-4f1c-b1b6-8a0f8ff1efc3}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{28873a0d-87d4-4738-bbba-722a3901f1fe}</object>
-                         <a>{37ecbb16-1c52-4769-b405-b5d4a9decd64}</a>
-                         <b>{c867928e-f90c-4e35-b817-9d167133a8e9}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{0ce5a924-5a68-4baf-8481-a59df2eefb3c}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{8c197493-0496-4fa2-8dc3-b4d24d5ccf6c}</object>
-                         <a>{d74131cb-13a3-4dd2-a3b7-9c9390471bfa}</a>
-                         <b>{34ee3548-9ae7-4294-8ec6-eee210c6ffcf}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
                            <uid>{dbe88cd9-1e38-49b5-89e0-328c6accb1f0}</uid>
                           </DElement>
                          </base-DElement>
@@ -441,20 +363,6 @@ const int BED_COUNT = 60;</text>
                         </DRelation>
                        </base-DRelation>
                       </DDependency>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DAnnotation">
-                      <DAnnotation>
-                       <base-DElement>
-                        <DElement>
-                         <uid>{da142291-3ef5-4632-b5b5-5c779e13fefb}</uid>
-                        </DElement>
-                       </base-DElement>
-                       <text>&lt;QString&gt;</text>
-                       <pos>x:-225;y:150</pos>
-                       <rect>x:0;y:0;w:70.3594;h:29</rect>
-                      </DAnnotation>
                      </instance>
                     </item>
                     <item>
@@ -469,8 +377,8 @@ const int BED_COUNT = 60;</text>
                          </base-DElement>
                          <object>{3e0b82dd-cbbf-4525-8245-a35565b29cde}</object>
                          <name>passenger.h</name>
-                         <pos>x:1140;y:610</pos>
-                         <rect>x:-135;y:-90;w:270;h:180</rect>
+                         <pos>x:470;y:1170</pos>
+                         <rect>x:-160;y:-115;w:320;h:230</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>8</visual-role>
                         </DObject>
@@ -489,10 +397,10 @@ const int BED_COUNT = 60;</text>
                           </DElement>
                          </base-DElement>
                          <object>{4d6b68ee-795e-436b-8df9-abbc15b0b88a}</object>
-                         <name>Passenger</name>
-                         <pos>x:1145;y:620</pos>
-                         <rect>x:-110;y:-60;w:220;h:120</rect>
-                         <visual-role>9</visual-role>
+                         <name>Passenger 乘客</name>
+                         <pos>x:470;y:1195</pos>
+                         <rect>x:-145;y:-80;w:290;h:160</rect>
+                         <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
                        <show-all-members>true</show-all-members>
@@ -528,9 +436,9 @@ const int BED_COUNT = 60;</text>
                           </DElement>
                          </base-DElement>
                          <object>{8615ff60-e6f0-44bd-8a9f-87aab1620e00}</object>
-                         <name>Time</name>
-                         <pos>x:580;y:295</pos>
-                         <rect>x:-105;y:-90;w:210;h:180</rect>
+                         <name>Time 时刻/时长</name>
+                         <pos>x:410;y:2050</pos>
+                         <rect>x:-130;y:-100;w:260;h:200</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -550,8 +458,8 @@ const int BED_COUNT = 60;</text>
                          </base-DElement>
                          <object>{dc5cf2ae-1b94-497a-91a1-523fe1793560}</object>
                          <name>user.h</name>
-                         <pos>x:-60;y:785</pos>
-                         <rect>x:-155;y:-220;w:310;h:440</rect>
+                         <pos>x:90;y:1240</pos>
+                         <rect>x:-170;y:-290;w:340;h:580</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>8</visual-role>
                         </DObject>
@@ -570,32 +478,14 @@ const int BED_COUNT = 60;</text>
                           </DElement>
                          </base-DElement>
                          <object>{08e52862-c598-4a21-9fe6-bcceb0320a7a}</object>
-                         <name>User</name>
-                         <pos>x:-45;y:795</pos>
-                         <rect>x:-125;y:-195;w:250;h:390</rect>
-                         <visual-role>9</visual-role>
+                         <name>User 旅客账户</name>
+                         <pos>x:95;y:1250</pos>
+                         <rect>x:-145;y:-270;w:290;h:540</rect>
+                         <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
                        <show-all-members>true</show-all-members>
                       </DClass>
-                     </instance>
-                    </item>
-                    <item>
-                     <instance type="DDependency">
-                      <DDependency>
-                       <base-DRelation>
-                        <DRelation>
-                         <base-DElement>
-                          <DElement>
-                           <uid>{e51d7309-9638-4d89-921d-dfa4f28bcecc}</uid>
-                          </DElement>
-                         </base-DElement>
-                         <object>{ed2fc9c2-e419-459a-b677-d350f0dcac1c}</object>
-                         <a>{37ecbb16-1c52-4769-b405-b5d4a9decd64}</a>
-                         <b>{ce157c31-9de2-4549-99b4-1fb73548e013}</b>
-                        </DRelation>
-                       </base-DRelation>
-                      </DDependency>
                      </instance>
                     </item>
                     <item>
@@ -610,8 +500,8 @@ const int BED_COUNT = 60;</text>
                          </base-DElement>
                          <object>{99958b92-53a2-476a-ad48-52a8e2d662aa}</object>
                          <name>admin.h</name>
-                         <pos>x:385;y:990</pos>
-                         <rect>x:-80;y:-80;w:160;h:160</rect>
+                         <pos>x:220;y:-45</pos>
+                         <rect>x:-70;y:-55;w:140;h:110</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>8</visual-role>
                         </DObject>
@@ -630,10 +520,10 @@ const int BED_COUNT = 60;</text>
                           </DElement>
                          </base-DElement>
                          <object>{91401c84-34b3-4256-98bd-f2c715f9c278}</object>
-                         <name>Admin</name>
-                         <pos>x:395;y:995</pos>
-                         <rect>x:-40;y:-30;w:80;h:60</rect>
-                         <visual-role>9</visual-role>
+                         <name>Admin 管理员</name>
+                         <pos>x:230;y:-35</pos>
+                         <rect>x:-45;y:-30;w:90;h:60</rect>
+                         <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
                       </DClass>
@@ -657,9 +547,381 @@ const int BED_COUNT = 60;</text>
                       </DDependency>
                      </instance>
                     </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{12580b1a-036b-46d0-b469-326cfa4257ad}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{d42ef01f-033e-4aa1-9320-a4c4a1445ff6}</object>
+                         <a>{ce157c31-9de2-4549-99b4-1fb73548e013}</a>
+                         <b>{d74131cb-13a3-4dd2-a3b7-9c9390471bfa}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{68dbf4b4-5dea-47bd-b005-5ef5d07b1e97}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{af0aa736-76be-46d9-af33-1aecf7cbe203}</object>
+                         <name>mainwindow.h</name>
+                         <pos>x:245;y:420</pos>
+                         <rect>x:-170;y:-220;w:340;h:440</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>5</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{57d2c37f-d591-4b03-b7fb-ba80a41aab84}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{6b60ceb4-f94a-4677-9237-f25ac21c126a}</object>
+                         <name>MainWindow 主窗口</name>
+                         <pos>x:255;y:425</pos>
+                         <rect>x:-145;y:-195;w:290;h:390</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{12614d1b-b3d9-41fc-8926-3f57e3a919e3}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{315cc8fb-40b2-4765-afdd-e4a221fa0ae3}</object>
+                         <name>logindialog.h</name>
+                         <pos>x:460;y:65</pos>
+                         <rect>x:-130;y:-105;w:260;h:210</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{a295d688-b1c3-4b17-a14b-33bf8667803e}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{71bca62d-3d27-4334-9b9a-ccd237055b8f}</object>
+                         <name>LoginDialog 登录对话框</name>
+                         <pos>x:465;y:70</pos>
+                         <rect>x:-105;y:-80;w:210;h:160</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{55fb30c1-8cd8-45ba-8e31-044f71a12670}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{c849d460-a453-4abd-8d47-8597edfd54d4}</object>
+                         <name>infodialog.h</name>
+                         <pos>x:530;y:775</pos>
+                         <rect>x:-115;y:-95;w:230;h:190</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>8</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{141ddadd-5fe5-4034-83b1-3a4ff6e7d66f}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{4085b2b7-0785-4cc1-9766-098b157d12b5}</object>
+                         <name>InfoDialog 修改用户信息对话框</name>
+                         <pos>x:530;y:800</pos>
+                         <rect>x:-100;y:-60;w:200;h:120</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{8791029d-9abf-47e0-975d-1e14dc4257e2}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{938408ab-ce37-4773-960c-c9fbf7355410}</object>
+                         <name>chargedialog.h</name>
+                         <pos>x:265;y:775</pos>
+                         <rect>x:-125;y:-100;w:250;h:200</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>8</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{a20313d8-127d-440c-898a-9a54801b8c2e}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{4444b66a-6e24-4ad2-afd6-8c61984c4b19}</object>
+                         <name>ChargeDialog 充值对话框</name>
+                         <pos>x:265;y:800</pos>
+                         <rect>x:-110;y:-65;w:220;h:130</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DComponent">
+                      <DComponent>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{f7218be6-07e8-4a25-a624-bd6e64f104cb}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{3b59cdc4-8166-4e7a-a706-b35345fa1d69}</object>
+                         <name>passworddialog.h</name>
+                         <pos>x:-10;y:775</pos>
+                         <rect>x:-125;y:-100;w:250;h:200</rect>
+                         <auto-sized>false</auto-sized>
+                         <visual-role>8</visual-role>
+                        </DObject>
+                       </base-DObject>
+                      </DComponent>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DClass">
+                      <DClass>
+                       <base-DObject>
+                        <DObject>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{a8cbead1-7219-4bca-9d41-1c797ea1a6a7}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{8d682a1b-5d02-43d1-b775-d3af26a06138}</object>
+                         <name>PasswordDialog 修改密码对话框</name>
+                         <pos>x:-10;y:795</pos>
+                         <rect>x:-115;y:-60;w:230;h:120</rect>
+                         <visual-role>0</visual-role>
+                        </DObject>
+                       </base-DObject>
+                       <show-all-members>true</show-all-members>
+                      </DClass>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{715265f9-009d-4501-8ca0-571226f2e3e6}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{299217f0-9bc3-45c8-9990-27e0dadb5ef7}</object>
+                         <a>{37ecbb16-1c52-4769-b405-b5d4a9decd64}</a>
+                         <b>{68dbf4b4-5dea-47bd-b005-5ef5d07b1e97}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{fc4671a5-963e-4f9f-9226-821fdba1bc5c}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{d8ca724e-339e-431f-a6b9-c4812261abf4}</object>
+                         <a>{37ecbb16-1c52-4769-b405-b5d4a9decd64}</a>
+                         <b>{12614d1b-b3d9-41fc-8926-3f57e3a919e3}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{b7bb2e39-d3b0-41b4-9473-d30d515cdec4}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{250fb81c-0a05-4ca6-a7cd-8da195e1375e}</object>
+                         <a>{68dbf4b4-5dea-47bd-b005-5ef5d07b1e97}</a>
+                         <b>{f7218be6-07e8-4a25-a624-bd6e64f104cb}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{31a018c8-3fcb-4b1f-9cee-7aa98eb78044}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{89cb34d5-ab0f-4dff-bb92-6cabad6615fc}</object>
+                         <a>{68dbf4b4-5dea-47bd-b005-5ef5d07b1e97}</a>
+                         <b>{8791029d-9abf-47e0-975d-1e14dc4257e2}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{fb6c728d-2dfd-4e71-8726-6874af459536}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{5de6795d-27b9-489b-ae16-5b6393a9cef2}</object>
+                         <a>{68dbf4b4-5dea-47bd-b005-5ef5d07b1e97}</a>
+                         <b>{55fb30c1-8cd8-45ba-8e31-044f71a12670}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{4b914559-c486-49ed-a0f9-c551792a8688}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{af878606-0486-40e7-8651-9ea91b14535c}</object>
+                         <a>{8791029d-9abf-47e0-975d-1e14dc4257e2}</a>
+                         <b>{ce157c31-9de2-4549-99b4-1fb73548e013}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{9884323d-0df9-40d2-838f-76e13086e4da}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{e17d3658-a8b7-4d19-9134-8f7b82d54f6d}</object>
+                         <a>{f7218be6-07e8-4a25-a624-bd6e64f104cb}</a>
+                         <b>{ce157c31-9de2-4549-99b4-1fb73548e013}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
+                    <item>
+                     <instance type="DDependency">
+                      <DDependency>
+                       <base-DRelation>
+                        <DRelation>
+                         <base-DElement>
+                          <DElement>
+                           <uid>{90cbc5cf-2a85-43e2-8a3e-4787bc489a02}</uid>
+                          </DElement>
+                         </base-DElement>
+                         <object>{3e12a300-8bca-4531-afde-1e0b9c70b242}</object>
+                         <a>{55fb30c1-8cd8-45ba-8e31-044f71a12670}</a>
+                         <b>{ce157c31-9de2-4549-99b4-1fb73548e013}</b>
+                        </DRelation>
+                       </base-DRelation>
+                      </DDependency>
+                     </instance>
+                    </item>
                    </qlist>
                   </elements>
-                  <last-modified>1473474362040</last-modified>
+                  <last-modified>1473667304393</last-modified>
                   <toolbarid>General</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -682,14 +944,22 @@ const int BED_COUNT = 60;</text>
                     <flags>1</flags>
                    </MElement>
                   </base-MElement>
-                  <name>Price</name>
+                  <name>Price 钱（价格/余额）</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{ef911c57-21e8-4fd2-bcbe-4dd3e4384c78}</uid>
+                    <uid>{57e59a0c-282d-4c8e-968e-cd5501848e41}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <declaration>enum PriceFormat {numberOnly, ...}</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7a30e337-2334-4a17-898e-9ae4343a45e3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Price(int dataFen = 0)</declaration>
@@ -697,7 +967,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{39a413c1-556d-4090-95e7-a0205c6eff23}</uid>
+                    <uid>{f6048643-6dae-4c32-8140-d6b8c0df8350}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -706,7 +976,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{723856ed-7751-4915-8801-eaa56a3c96ac}</uid>
+                    <uid>{239c6372-ff85-472a-8e21-b9285f0b5a20}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -715,7 +985,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{fa06f36b-a488-4cdf-a4c7-ddeb70401cbb}</uid>
+                    <uid>{4283a0fc-10d0-473d-a9a3-dbef3da99f02}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -724,7 +994,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d94c9a10-ed5f-4086-81e2-d7ce74d0466a}</uid>
+                    <uid>{da26cc04-1408-439f-8cfa-14fa50124e6c}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -733,7 +1003,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4a86fcb5-fbb9-4b9f-8447-220a9d5de9c5}</uid>
+                    <uid>{2da08336-c0ab-47ba-af1c-a0aed40e7a13}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDataFen(int dataFen)</declaration>
@@ -741,7 +1011,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f6fa8c8a-54f2-4060-b991-30366ca8d15e}</uid>
+                    <uid>{01f6210d-55e9-4a4d-bdf4-cad43aab29dc}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setYuan(int yuan)</declaration>
@@ -749,7 +1019,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e29b892b-7928-49b8-b479-3c6689292806}</uid>
+                    <uid>{a50a719c-5f75-4d71-9abc-077a6a55bc7f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setSubYuan(int subYuan)</declaration>
@@ -757,24 +1027,56 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c46ec1b0-6a0f-46f7-92da-73d350ce94a6}</uid>
+                    <uid>{ed9e05dc-08cb-42a2-9215-09f5bb629ecd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
-                    <declaration>QString toString(PriceFormat format = number, ...)</declaration>
+                    <declaration>QString toString(PriceFormat format ...)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b4f54c83-d108-4046-947c-6925758495e6}</uid>
+                    <uid>{f85543e2-248f-44e4-aa2a-52272f045fa8}</uid>
                     <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>enum PriceFormat {numberOnly, ...}</declaration>
+                    <type>2</type>
+                    <declaration>bool isValid()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{10c4ec73-e16a-424b-a38a-e0b2548ef0dc}</uid>
+                    <uid>{e6d87337-c83f-4063-a4e6-1f755836fd14}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>Price operator +(const Price &amp;other)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9e3f069a-5dad-4096-b4c7-7dd134b956c6}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>Price operator -(const Price &amp;other)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c9bc67f2-d96c-47e0-a68d-fdf827c6ffb5}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>bool m_isValid</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{66ac67ac-1dc0-47d8-9dbe-41b7594629a2}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>void checkValid()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{97a55340-d5ee-4643-8f77-dd77c4a4a2be}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_dataFen</declaration>
@@ -801,38 +1103,14 @@ const int BED_COUNT = 60;</text>
                     <flags>1</flags>
                    </MElement>
                   </base-MElement>
-                  <name>TicketOffice</name>
+                  <name>TicketOffice 最核心的“售票处”</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{2fad5046-4ea0-4ad0-9b81-cf13dd36eac0}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>QList&lt;Train &amp;&gt; trainList</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{3aca0e5d-0340-4619-8420-2df2dc2f5422}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>QList&lt;Ticket &amp;&gt; ticketList</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{21a1d4f3-f977-45c4-83b5-d72510b7b9b3}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>QList&lt;Station &amp;&gt; stationList</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{e03b7b68-91b2-4943-8b76-d5b3de91d12c}</uid>
+                    <uid>{d5d48002-8aeb-46c4-addc-31bfbba5e880}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>TicketOffice()</declaration>
@@ -840,10 +1118,82 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{40009b6a-e4a6-466e-ac1c-71f8bba234c1}</uid>
+                    <uid>{eb9c3444-c2c2-4292-b309-415eef45691e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void searchTrains(Searchfields searchfields)</declaration>
+                    <declaration>void updateSpots()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c045177b-89b8-411a-9110-0b38ea218a51}</uid>
+                    <visibility>7</visibility>
+                    <type>2</type>
+                    <declaration>void signIn()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{447fd7c4-b232-42d1-84d4-a89f2001d1c2}</uid>
+                    <visibility>7</visibility>
+                    <type>2</type>
+                    <declaration>void searchTrain()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{07f7b9ec-f1c2-4ebd-82c7-a651e01daeb8}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QList&lt;Train *&gt; m_searchResult</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{f5153430-817b-49f8-977f-6e4ae404bc1d}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QList&lt;Train *&gt; m_cache</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b333def7-98bc-4825-afd5-16cfb9bdb48b}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QList&lt;Station *&gt; m_stationList</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9f501d93-809f-4d02-abb6-08013be77e96}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>User *m_user</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{3a9c98b8-7705-41e7-9082-ea55331bbd96}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>Admin *m_admin</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9022ecfb-4ff1-4d73-a4a5-e4991ee23229}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>LoginDialog *m_loginDialog</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d0f52cc5-3735-45af-9e31-e66bee5ce9d9}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>MainWindow *m_mainWindow</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -867,14 +1217,14 @@ const int BED_COUNT = 60;</text>
                     <flags>1</flags>
                    </MElement>
                   </base-MElement>
-                  <name>Train</name>
+                  <name>Train 车次</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{c9196e28-0ec2-4c9c-a492-739444135323}</uid>
+                    <uid>{367ee378-514e-4a89-8ded-6971247c2142}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Train(int index, QString number, ...)</declaration>
@@ -882,7 +1232,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9a2edbfb-7c78-438f-a8f5-84ad9122dcad}</uid>
+                    <uid>{b0a7da74-ea5f-4c6f-9499-5a39fad52831}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -891,7 +1241,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{99bef52c-7fd1-498e-a31a-72de33b8eb08}</uid>
+                    <uid>{401ae67f-ec2d-4886-b81c-706d8c793b03}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setIndex(int index)</declaration>
@@ -899,7 +1249,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bbe59f72-ea0a-4e23-991c-b83a83e8d3d7}</uid>
+                    <uid>{7be20ed3-54e7-40fc-afeb-c44197a78bcb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -908,7 +1258,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{67b392e7-7e47-430e-b4dc-65a6fb12ed76}</uid>
+                    <uid>{5b5de634-d532-4210-9f8f-a8de19d17ad6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setNumber(const QString &amp;number)</declaration>
@@ -916,7 +1266,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7cc8a9c6-b126-4241-8a99-7c36ab137df0}</uid>
+                    <uid>{5205f6e5-a06d-4717-85f1-971941795a4f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -925,7 +1275,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9554fb91-22ec-4572-809d-1350221d61bb}</uid>
+                    <uid>{add45423-559e-4f91-ba98-9d0170cc8207}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -934,7 +1284,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{be780e44-28ac-49cb-9897-e11e7013a49a}</uid>
+                    <uid>{8b7476a0-c552-4eed-95f3-4e2d5fc7df8b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -943,7 +1293,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{dc4fbfff-4178-43f9-adf1-4d9b0f4ef27b}</uid>
+                    <uid>{6f8079e9-e5db-4136-b9d3-6d14c740cae8}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setOrigin(const Station &amp;origin)</declaration>
@@ -951,7 +1301,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a8547078-a8f1-443b-a6e0-60c2f7f3f4d8}</uid>
+                    <uid>{76771857-57b9-491d-b162-02766d5b1ff3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -960,7 +1310,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b2c596cb-9a3f-42b3-a78f-d1daa4ce59f8}</uid>
+                    <uid>{231ca041-7e8c-4a5a-821b-ad0e0251c081}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDestination(const Station &amp;destination)</declaration>
@@ -968,7 +1318,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1888ac3e-4c12-4119-93fe-23597ca76a67}</uid>
+                    <uid>{5d6f0a79-614e-42fe-b7fe-c781f237ec91}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -977,7 +1327,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{41c12686-1cfd-49bf-9017-d07097c267d6}</uid>
+                    <uid>{047f4ca6-d286-44da-9acf-e7a3a9ac24ef}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDate(QDate date)</declaration>
@@ -985,7 +1335,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{23ccf63b-6b09-45a3-8875-f1e759559c01}</uid>
+                    <uid>{4a9f2e9d-d6be-4c4e-84a0-fc76461c9bd3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -994,7 +1344,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0e0335ea-1b82-4408-a0c1-a9f3c49e0647}</uid>
+                    <uid>{c94d1c8d-7d87-4678-b5a8-2ec207adedc6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1003,7 +1353,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f863d141-a9e9-421b-83b8-7a07e343f806}</uid>
+                    <uid>{826349d1-1318-40f8-95ca-5c7690afe285}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1012,7 +1362,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f631433f-370a-4fbf-bf96-a5dcb6add520}</uid>
+                    <uid>{231fd44d-eb10-4c26-afcd-311fb3d9d6bf}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDepartureTime(Time time)</declaration>
@@ -1020,7 +1370,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d683c875-da8b-4cf0-ae0d-94a318450798}</uid>
+                    <uid>{e0dd5145-df61-4147-a746-1193ffbbcfcb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setDuration(Time duration)</declaration>
@@ -1028,7 +1378,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1b66ae36-c8e3-470f-989c-9b66db4fd42b}</uid>
+                    <uid>{39e9cf27-0cbc-47ff-9e83-72e0a1d862fd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1037,7 +1387,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e3710b85-3d8a-4665-9749-5d6b1d2dac9f}</uid>
+                    <uid>{b6ef3a2f-02bd-4c35-bfd3-006f6746bb37}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setPrice(Price price)</declaration>
@@ -1045,7 +1395,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{0ee23daf-357c-42ec-afeb-8a0a19e5b72b}</uid>
+                    <uid>{ab85b1e2-9b3b-488a-afe6-e9a7dbd73764}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Spot &amp;spot(int index)</declaration>
@@ -1053,7 +1403,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ae643502-da6a-4ffc-97d6-bda91fbb7e47}</uid>
+                    <uid>{7adc0ef0-824b-400e-a803-0d77ee9bda11}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int occupiedCount()</declaration>
@@ -1061,7 +1411,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ae962511-a6c1-4c8a-b261-ba8a094db0fa}</uid>
+                    <uid>{f5c209e9-ac4e-43c1-878b-53e3a73852ed}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int vacantCount()</declaration>
@@ -1069,7 +1419,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5a7b5d64-8639-47f1-ad82-51dbb6813540}</uid>
+                    <uid>{70f62b6b-2727-42cc-a01d-3112cd882928}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int findVacant()</declaration>
@@ -1077,7 +1427,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a0fc3c4f-c873-485f-a707-0d9dcdb11416}</uid>
+                    <uid>{4bb39218-265c-4f0e-bef6-1bc5c56345ca}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>enum TrainType { T, K, G }</declaration>
@@ -1085,7 +1435,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4bd8cf62-f5a0-491f-805b-88ececaed85b}</uid>
+                    <uid>{e45a1934-defd-4e48-b0bb-5bf9505655ab}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_index</declaration>
@@ -1093,7 +1443,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{779a67c2-e698-43d8-964b-bae23106cac6}</uid>
+                    <uid>{69b6c944-1496-4b83-b951-4c26bc037938}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_number</declaration>
@@ -1101,7 +1451,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{55541c82-c91e-48ba-a33e-10e8c7b5a785}</uid>
+                    <uid>{2b86c056-0c02-400e-878c-dacf95a65b3e}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>TrainType m_trainType</declaration>
@@ -1109,7 +1459,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bc5568f9-952e-43e1-93b4-a13cfdc2be4a}</uid>
+                    <uid>{baff93cc-e11e-48ec-86ee-bfae8608f6e3}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Spot::SpotType m_spotType</declaration>
@@ -1117,7 +1467,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c8da076d-08e8-40b0-a6bf-c4030d0466be}</uid>
+                    <uid>{c41ecad2-42e2-4737-87e5-19e613999f56}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Station *m_origin, *m_destination</declaration>
@@ -1125,7 +1475,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{05c4ba05-6e92-4bcf-89ac-1fcab55436e8}</uid>
+                    <uid>{4e03fc41-b40f-45cb-b979-2ae2c73224c4}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QDate m_date</declaration>
@@ -1133,7 +1483,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{48486364-d7dd-4396-96bf-5bc61509f391}</uid>
+                    <uid>{d2a36dc6-710b-499a-9473-9bf548c36421}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Time m_departureTime, m_duration</declaration>
@@ -1141,7 +1491,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bc4fbc03-0282-4edb-81a6-7959184da1d7}</uid>
+                    <uid>{a9dbec56-873c-4977-827a-010d201fba83}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Price m_price</declaration>
@@ -1149,7 +1499,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d51e08fb-644e-4a39-8654-632f0844cf76}</uid>
+                    <uid>{428a25f6-afe8-4cbd-b1b0-58810bbfecdb}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QVector&lt;Spot&gt; m_spots</declaration>
@@ -1205,28 +1555,6 @@ const int BED_COUNT = 60;</text>
                       </item>
                       <item>
                        <handle>
-                        <uid>{8c197493-0496-4fa2-8dc3-b4d24d5ccf6c}</uid>
-                        <target>
-                         <instance type="MDependency">
-                          <MDependency>
-                           <base-MRelation>
-                            <MRelation>
-                             <base-MElement>
-                              <MElement>
-                               <uid>{8c197493-0496-4fa2-8dc3-b4d24d5ccf6c}</uid>
-                              </MElement>
-                             </base-MElement>
-                             <a>{cfa7bf6a-624d-4642-a07d-a72c7bfe269d}</a>
-                             <b>{317ecfd8-d3f4-468a-a145-da8880892e5e}</b>
-                            </MRelation>
-                           </base-MRelation>
-                          </MDependency>
-                         </instance>
-                        </target>
-                       </handle>
-                      </item>
-                      <item>
-                       <handle>
                         <uid>{f0377c3a-e3fa-40c8-94c0-9d9b26bfe03a}</uid>
                         <target>
                          <instance type="MDependency">
@@ -1272,14 +1600,14 @@ const int BED_COUNT = 60;</text>
                     <flags>1</flags>
                    </MElement>
                   </base-MElement>
-                  <name>Ticket</name>
+                  <name>Ticket 车票</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{c77bb0d9-21d0-4892-9177-4a39615ab0cf}</uid>
+                    <uid>{a0a283d4-0130-4b3a-914f-d91e14679e9b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Ticket(int index, ...)</declaration>
@@ -1287,7 +1615,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{7384a5de-bdfe-4e84-9bda-7f5c4ad585d4}</uid>
+                    <uid>{20fd8713-8f79-4683-adb8-341adfb62328}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Passenger &amp;passenger()</declaration>
@@ -1295,7 +1623,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{67329d1a-64b8-4e17-b931-3cbd71d32ce5}</uid>
+                    <uid>{f9439895-5515-4c71-b53f-439431698613}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Train &amp;train()</declaration>
@@ -1303,7 +1631,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b7e73375-a01d-460e-aa75-bfc40d960a4b}</uid>
+                    <uid>{9f499dab-53db-4add-ae4e-9550081153a5}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Spot &amp;spot()</declaration>
@@ -1311,7 +1639,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{006bdb84-4451-4847-b2b5-fd94c4d80b27}</uid>
+                    <uid>{ca39fdbf-fe0c-406d-bcc0-6f8ad1c56ba9}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_index</declaration>
@@ -1319,7 +1647,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{ad140a59-3f25-44b0-a802-f58e88f0f3a4}</uid>
+                    <uid>{554e9edb-9f2b-48ea-a29d-9e463121b04d}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Passenger *m_passenger</declaration>
@@ -1327,7 +1655,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6cc79621-c74b-4144-8dcd-7612ae8b0f99}</uid>
+                    <uid>{92bfdec6-5998-4bc4-aaf4-afe03216bfb8}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Train *m_train</declaration>
@@ -1335,7 +1663,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5044005c-1f86-445c-bab6-b29d994a20bb}</uid>
+                    <uid>{a4a91d23-4042-4f90-80bd-69794e05c34b}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Spot *m_spot</declaration>
@@ -1434,22 +1762,46 @@ const int BED_COUNT = 60;</text>
                     <uid>{a71ee337-0e6a-43d1-b2b9-2b26a0419f63}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Spot</name>
+                  <name>Spot 座位/铺位</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{e92adb14-0579-4814-a4cb-2c760ee9dbc9}</uid>
+                    <uid>{fb884a7f-5a97-4396-81ac-40822670fab7}</uid>
                     <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>Spot(int index = 0, SpotType type = SEAT, ...)</declaration>
+                    <type>1</type>
+                    <declaration>enum SpotType { SEAT, GSEAT, BED }</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5a2968fb-4e75-48ef-8620-05a24dd3b393}</uid>
+                    <uid>{7f09c799-9b41-44a2-878d-b93aafecad16}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <declaration>enum Column { A, B, C, D, F }</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{dc5a3fff-d535-4a52-8853-75aa3f041fea}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <declaration>enum Level { BOTTOM, MIDDLE, TOP }</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{3b0e444d-cec8-4f3d-a281-c664120dab9e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>Spot(int index = 0, SpotType type = ...)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b599b4a4-676e-4d68-822b-67702fcddc47}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1458,7 +1810,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6088b604-a46d-4ea3-85da-07ff2844c03f}</uid>
+                    <uid>{726835c2-826d-4730-b6a2-d23baac91bd0}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setIndex(int index)</declaration>
@@ -1466,7 +1818,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6b1265f4-3772-4470-a794-47740d7a3f22}</uid>
+                    <uid>{1e62422f-c868-4f33-bae3-8be2133820cd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1475,7 +1827,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{cbf83a85-e4e9-4c67-a453-db7a7020116e}</uid>
+                    <uid>{3d4d1ef0-7ccf-4ea4-8ae6-22b2e4b80422}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setType(SpotType type)</declaration>
@@ -1483,7 +1835,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{86c9fbbc-4a50-42f7-ad0d-453d32e9364a}</uid>
+                    <uid>{4b9cf0bb-d669-43d0-9f3b-51a0147f2a5a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1492,7 +1844,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1926513f-d8c0-4d93-b9c2-f9073293df4d}</uid>
+                    <uid>{9a1e2ac8-ea96-49f0-9167-d180783761cb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void book()</declaration>
@@ -1500,7 +1852,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{91621b7d-fc11-43f3-a304-a21fac01915e}</uid>
+                    <uid>{9f9229db-5b28-49ed-8051-c8a6baa6f024}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void cancel()</declaration>
@@ -1508,7 +1860,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b3ee7a45-44ba-4363-86cc-7888c9991f91}</uid>
+                    <uid>{41e1b891-3d49-4c65-b9f9-ff63af3d3029}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void toggle()</declaration>
@@ -1516,7 +1868,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2397e11a-4277-4df2-aa45-13a85c9a3977}</uid>
+                    <uid>{0ac4aefa-a190-4b6f-a82f-610319341320}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1525,7 +1877,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c21a7afe-7570-48ec-8160-09bc28643015}</uid>
+                    <uid>{6191da49-2088-4d08-b16a-de32fda4d610}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>int row()</declaration>
@@ -1533,7 +1885,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bd80e621-d2e1-4e62-aed6-83f86c43adfc}</uid>
+                    <uid>{aa4a1669-f188-49d6-b3c5-15153fce58be}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setRow(int row)</declaration>
@@ -1541,7 +1893,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{174adeae-c802-49bb-a2ad-2b58d3d23319}</uid>
+                    <uid>{063eeed1-7f87-40aa-b430-7148cd5ef04d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Column column()</declaration>
@@ -1549,7 +1901,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a4faf2cf-efd6-4a27-9d87-76852c0be4ae}</uid>
+                    <uid>{ccb0b606-b54c-43f9-a9d6-7c1b73c42f86}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setColumn(Column column)</declaration>
@@ -1557,7 +1909,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8c611f07-0655-47e3-aa4f-f230de3fa353}</uid>
+                    <uid>{fc70d027-1a4d-4e2c-9317-790670015085}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Level level()</declaration>
@@ -1565,7 +1917,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6f9af1ed-ca0d-4115-98c6-c22dce4904f1}</uid>
+                    <uid>{76fcf22b-5eba-4e57-9071-49924e097459}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setLevel(Level level)</declaration>
@@ -1573,31 +1925,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5139ee96-9a7b-4bbf-9252-9c0230be59c7}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>enum SpotType { SEAT, GSEAT, BED }</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{3e3833bd-5426-4a0c-888c-cc2f9a2047f6}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>enum Column { A, B, C, D, F }</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{48c4acbf-8ef4-4d0f-b79f-2cff640c0064}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>enum Level { BOTTOM, MIDDLE, TOP }</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{f83396c3-b97f-4951-ab42-299fc6040ff1}</uid>
+                    <uid>{9e5fc532-0e18-412b-9d3d-8930b279bee6}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_index</declaration>
@@ -1605,7 +1933,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{73e61d58-a4b3-4cc4-9597-7bbff1065854}</uid>
+                    <uid>{d2be4d0b-b7d2-40d9-af3d-851ff7f00217}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>SpotType m_type</declaration>
@@ -1613,7 +1941,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8e91d779-c339-4c61-a650-0cb06cd97d0e}</uid>
+                    <uid>{0f2034b3-0bef-4e8f-89db-cf623783a3f2}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>bool m_booked</declaration>
@@ -1621,7 +1949,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{529f86df-14e3-4f07-885f-d5aa962b6792}</uid>
+                    <uid>{4da7b1ce-b0ad-48b2-b95e-1ad097bf64a1}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_row</declaration>
@@ -1629,7 +1957,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{37ed6b4c-1881-4a20-8e76-d0ea16d51914}</uid>
+                    <uid>{ba1b5f46-9087-4cd5-b138-12edb453ca25}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Column m_column</declaration>
@@ -1637,7 +1965,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{96c90424-fccf-449d-898b-3a6e4170c7cb}</uid>
+                    <uid>{a27dd5ca-c098-4601-8ef7-6a4551b0238c}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>Level m_level</declaration>
@@ -1670,94 +1998,6 @@ const int BED_COUNT = 60;</text>
                      <qlist>
                       <item>
                        <handle>
-                        <uid>{b9b39106-3b20-4d50-bff3-0879b0882c6a}</uid>
-                        <target>
-                         <instance type="MDependency">
-                          <MDependency>
-                           <base-MRelation>
-                            <MRelation>
-                             <base-MElement>
-                              <MElement>
-                               <uid>{b9b39106-3b20-4d50-bff3-0879b0882c6a}</uid>
-                              </MElement>
-                             </base-MElement>
-                             <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
-                             <b>{1d5fe3b9-0159-4f03-8553-791a140631e2}</b>
-                            </MRelation>
-                           </base-MRelation>
-                          </MDependency>
-                         </instance>
-                        </target>
-                       </handle>
-                      </item>
-                      <item>
-                       <handle>
-                        <uid>{f8bfdc0d-bf4c-474b-83d2-bc0849060214}</uid>
-                        <target>
-                         <instance type="MDependency">
-                          <MDependency>
-                           <base-MRelation>
-                            <MRelation>
-                             <base-MElement>
-                              <MElement>
-                               <uid>{f8bfdc0d-bf4c-474b-83d2-bc0849060214}</uid>
-                              </MElement>
-                             </base-MElement>
-                             <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
-                             <b>{cfa7bf6a-624d-4642-a07d-a72c7bfe269d}</b>
-                            </MRelation>
-                           </base-MRelation>
-                          </MDependency>
-                         </instance>
-                        </target>
-                       </handle>
-                      </item>
-                      <item>
-                       <handle>
-                        <uid>{28873a0d-87d4-4738-bbba-722a3901f1fe}</uid>
-                        <target>
-                         <instance type="MDependency">
-                          <MDependency>
-                           <base-MRelation>
-                            <MRelation>
-                             <base-MElement>
-                              <MElement>
-                               <uid>{28873a0d-87d4-4738-bbba-722a3901f1fe}</uid>
-                              </MElement>
-                             </base-MElement>
-                             <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
-                             <b>{2b7c5cde-4242-4002-b760-12060867a2c5}</b>
-                            </MRelation>
-                           </base-MRelation>
-                          </MDependency>
-                         </instance>
-                        </target>
-                       </handle>
-                      </item>
-                      <item>
-                       <handle>
-                        <uid>{ed2fc9c2-e419-459a-b677-d350f0dcac1c}</uid>
-                        <target>
-                         <instance type="MDependency">
-                          <MDependency>
-                           <base-MRelation>
-                            <MRelation>
-                             <base-MElement>
-                              <MElement>
-                               <uid>{ed2fc9c2-e419-459a-b677-d350f0dcac1c}</uid>
-                              </MElement>
-                             </base-MElement>
-                             <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
-                             <b>{dc5cf2ae-1b94-497a-91a1-523fe1793560}</b>
-                            </MRelation>
-                           </base-MRelation>
-                          </MDependency>
-                         </instance>
-                        </target>
-                       </handle>
-                      </item>
-                      <item>
-                       <handle>
                         <uid>{df331e6d-963d-4490-837d-7168ebca4bb1}</uid>
                         <target>
                          <instance type="MDependency">
@@ -1771,6 +2011,50 @@ const int BED_COUNT = 60;</text>
                              </base-MElement>
                              <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
                              <b>{99958b92-53a2-476a-ad48-52a8e2d662aa}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{299217f0-9bc3-45c8-9990-27e0dadb5ef7}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{299217f0-9bc3-45c8-9990-27e0dadb5ef7}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
+                             <b>{af0aa736-76be-46d9-af33-1aecf7cbe203}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{d8ca724e-339e-431f-a6b9-c4812261abf4}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{d8ca724e-339e-431f-a6b9-c4812261abf4}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{f1e8e9d0-40ea-4724-89bf-daf165993671}</a>
+                             <b>{315cc8fb-40b2-4765-afdd-e4a221fa0ae3}</b>
                             </MRelation>
                            </base-MRelation>
                           </MDependency>
@@ -1844,14 +2128,14 @@ const int BED_COUNT = 60;</text>
                     <uid>{7e5f2ca7-da10-4c71-a0aa-019ec4034c1a}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Station</name>
+                  <name>Station 车站</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{0b879b4a-0746-4c27-b63f-1f17e7788649}</uid>
+                    <uid>{24e30360-a0af-4799-8321-bcad0ad6ed79}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Station(int index = 0, QString name = QString())</declaration>
@@ -1859,7 +2143,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{85b4fb37-0842-4a5d-9b5f-3690aff1f735}</uid>
+                    <uid>{c0940fe2-63a0-46c5-91c4-3c89d2bc64aa}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1868,7 +2152,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{71501077-b474-404c-a59b-7d6e984b11c5}</uid>
+                    <uid>{34c39013-eb83-4df7-9e15-e0b397cc4c3d}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -1877,7 +2161,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9e073aa4-f26f-470e-aba4-3eba1e104b87}</uid>
+                    <uid>{46f78e8b-327f-4800-91d0-e848be472996}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setIndex(int index)</declaration>
@@ -1885,7 +2169,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{08fa8606-01bc-4790-8b2a-30413cd739c4}</uid>
+                    <uid>{0afeadf1-2dd0-45ba-8083-82cf13245ea6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setName(const QString &amp;name)</declaration>
@@ -1893,7 +2177,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{345b2a6a-178c-473c-9ea1-32068a502d11}</uid>
+                    <uid>{542236f5-db46-46c1-b6a8-5a0d0d2836a9}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_index</declaration>
@@ -1901,7 +2185,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{bbb6d979-c420-434f-a364-31c9308b7603}</uid>
+                    <uid>{4ec9c854-3d9e-45c1-81d7-c83585bd8d3f}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_name</declaration>
@@ -1948,30 +2232,54 @@ const int BED_COUNT = 60;</text>
                     <uid>{4d6b68ee-795e-436b-8df9-abbc15b0b88a}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Passenger</name>
+                  <name>Passenger 乘客</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{0c53cbe6-8d75-4aa9-9a89-05b92c078495}</uid>
+                    <uid>{1b33dd07-c99a-4e65-865b-717f7374b770}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>Passenger(const QString nname, ...)</declaration>
+                    <declaration>Passenger(QString new_name,QString new_id)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5ea16367-8bf2-4f9a-9454-2d313f61e141}</uid>
+                    <uid>{53232c4a-9cec-4c5c-b093-02d246dd8dfd}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>~Passenger()</declaration>
+                    <declaration>Passenger* newPass(const QString new_name, ...)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{cc8d193f-389e-4b55-b8b0-f517f516194c}</uid>
+                    <uid>{f7e352c6-e58f-4a3f-9188-6a5c9170c74a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void resetPass(QString new_name, ...)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{06b8916a-2a2b-490f-ad8f-2ac5095fae57}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>const QString Name()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{e0a09a05-46b5-4325-b685-cd317ddfe080}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>const QString ID()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{3b46ecd7-5c96-47fc-af05-a0e207b81406}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString name</declaration>
@@ -1979,7 +2287,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8a2db2f8-c0a5-4cf6-a646-53eee7751bad}</uid>
+                    <uid>{583932c7-0542-46ee-8067-832856235072}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString id</declaration>
@@ -2005,14 +2313,14 @@ const int BED_COUNT = 60;</text>
                     <uid>{8615ff60-e6f0-44bd-8a9f-87aab1620e00}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Time</name>
+                  <name>Time 时刻/时长</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{41caa710-c7d2-4d1e-827b-b8a09cc191ab}</uid>
+                    <uid>{09091a7e-dc08-4839-be09-06b170d83635}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Time(int hour = 0, int minute = 0)</declaration>
@@ -2020,7 +2328,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{cd651eee-7803-43bc-9e36-d9ddb3a1f1e3}</uid>
+                    <uid>{e1b2aa49-db56-43cf-a9c2-92813736e1c6}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -2029,7 +2337,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1d5a1feb-679c-476d-a762-7a8d5f1da204}</uid>
+                    <uid>{cbb19b9a-4bc9-4c72-8b94-520927252ab3}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -2038,7 +2346,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{023bcd20-e9ce-4b2a-9216-ae40b58bd0c7}</uid>
+                    <uid>{27324e6b-a50b-4bff-9ae7-4715faeb52d1}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <properties>4</properties>
@@ -2047,7 +2355,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a9726add-73db-4ef9-9d0a-ab4469da2a32}</uid>
+                    <uid>{662d05b8-0a98-4e14-816f-85c7a5044fbf}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setHour(int hour)</declaration>
@@ -2055,7 +2363,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{6c52cb14-866a-4d01-b467-62bc5d61bce6}</uid>
+                    <uid>{f3cc990e-d201-4f7d-b198-9d7238725d89}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>void setMinute(int minute)</declaration>
@@ -2063,7 +2371,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1b663a20-f054-446d-8c76-6b2eb96dfb36}</uid>
+                    <uid>{8545371f-aa87-4c05-8c02-4d636b0f1b0b}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>QString toString()</declaration>
@@ -2071,7 +2379,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{34b29970-0d32-4963-821f-bd2b7b347561}</uid>
+                    <uid>{a420f326-dc1a-4b39-aa6c-08a75ed08119}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>Time elapse(const Time &amp;duration)</declaration>
@@ -2079,7 +2387,16 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{22302102-09a8-4bcd-aaaf-5e6f22fc29dd}</uid>
+                    <uid>{bb16d48d-8af0-4e27-a1ba-9b20067af523}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <properties>64</properties>
+                    <declaration>Time fromString(const QString &amp;text)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{17095131-2e91-4842-b1ea-43ac8336eb89}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>int m_hour, m_minute, m_day</declaration>
@@ -2106,6 +2423,36 @@ const int BED_COUNT = 60;</text>
                    </MElement>
                   </base-MElement>
                   <name>user.h</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{d42ef01f-033e-4aa1-9320-a4c4a1445ff6}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{d42ef01f-033e-4aa1-9320-a4c4a1445ff6}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{dc5cf2ae-1b94-497a-91a1-523fe1793560}</a>
+                             <b>{cfa7bf6a-624d-4642-a07d-a72c7bfe269d}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
                  </MObject>
                 </base-MObject>
                </MComponent>
@@ -2126,150 +2473,198 @@ const int BED_COUNT = 60;</text>
                     <uid>{08e52862-c598-4a21-9fe6-bcceb0320a7a}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>User</name>
+                  <name>User 旅客账户</name>
                  </MObject>
                 </base-MObject>
                 <members>
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{7bc4718b-acbb-4524-8feb-3f0a40b2d276}</uid>
+                    <uid>{6dc4809f-d23f-4222-acae-a7dda4bcd456}</uid>
                     <visibility>1</visibility>
-                    <type>2</type>
-                    <declaration>User()</declaration>
+                    <type>1</type>
+                    <declaration>enum gender{男,女}</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f082db3b-d5c5-489a-bebc-689cdad2252f}</uid>
+                    <uid>{e9cc0348-9a45-4a0f-ad56-c849efdc0f89}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>~User()</declaration>
+                    <declaration>User(int new_idx = -1)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{86aea2bb-a46a-4cf8-8c86-b552c0604487}</uid>
+                    <uid>{d01b61ff-5763-4bf2-8539-5c9f66e0e65a}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Reset_Password()</declaration>
+                    <declaration>int index()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{eda81af6-b9e8-4105-920e-dd4cafb9f11a}</uid>
+                    <uid>{079bd627-cca3-46a6-b6e4-42b20e1966ad}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Reset_Phone()</declaration>
+                    <declaration>QString Username()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{b680191c-cc37-4d97-b3f0-46b9a8fbf30c}</uid>
+                    <uid>{1c5a5d99-5cec-4fe7-b637-936e076e2281}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Reset_Email()</declaration>
+                    <declaration>int Update_Password(QString old_password, ...)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{083aad7f-b2aa-48c4-9bba-0b7f3fea8110}</uid>
+                    <uid>{559b6b0c-6fb6-41c8-a7ed-0edc8971b4bb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Reset_Name()</declaration>
+                    <declaration>void Query_Password()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e8077169-ee0b-456d-b825-854bf1c5a56d}</uid>
+                    <uid>{fee1a08a-f3e6-4c9b-be1d-45a31a11e090}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Reset_Sex()</declaration>
+                    <declaration>bool Update_Info(QString new_name, ...)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{746b6bb4-d25f-4090-8e84-831ee1efc42a}</uid>
+                    <uid>{e1469496-5544-460e-891e-869f5a2174eb}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Charge(double charge_money)</declaration>
+                    <declaration>void Query_Info()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{170071bc-9b74-417c-b140-c7ac0b08829d}</uid>
+                    <uid>{157e5f71-cc8f-486f-9451-08597ef7a2f1}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>double Balance()</declaration>
+                    <declaration>QString Name()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{11c9957f-b781-44d5-aabc-07f07e08aa79}</uid>
+                    <uid>{49337049-47b2-41a0-a0d1-64291b4ac407}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Add_Passenger()</declaration>
+                    <declaration>gender Sex()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{a45b49f2-098b-4469-ad78-6b224b2fbb26}</uid>
+                    <uid>{a8534634-d32c-42af-99bf-8847eadfed51}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Reset_Passenger()</declaration>
+                    <declaration>QString Phone()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9977a4d1-815e-448b-bab1-ef8870c7d87c}</uid>
+                    <uid>{a96bbf0e-e62b-4e2a-9603-b2e427cf043f}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Delete_Passenger()</declaration>
+                    <declaration>QString Email()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{42f58574-f74c-4cbb-bfb2-f22f51388aa7}</uid>
+                    <uid>{5122a884-bd45-45eb-9267-fab6579ee977}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>bool Order_Ticket(TicketOffice &amp;local, ...)</declaration>
+                    <declaration>bool Charge(const Price&amp; charge_money)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{aa7ae0db-f876-4815-a8f7-f6f26d68d6b2}</uid>
+                    <uid>{60cfa4c6-c13b-4b3a-9a4d-2d6a2590ff32}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>const Passenger&amp; Choose_Pass()</declaration>
+                    <declaration>void Query_Balance()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{abaa9755-7aa0-405a-af5f-139fbe5b1319}</uid>
+                    <uid>{c0c17e99-5173-46f7-9385-93b7d2353b68}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>bool Buy_Ticket(TicketOffice &amp;local, ...)</declaration>
+                    <declaration>Price* Balance()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{f9d7c21c-9269-4753-b3c0-6bf36c230d96}</uid>
+                    <uid>{bc0f0567-4865-4a16-931a-12ae04a16989}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>void Return_Ticket(TicketOffice &amp;local)</declaration>
+                    <declaration>void Add_Passenger(const QString new_name, ...)</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{514ec151-8f26-411c-b1d1-8535d0c6e072}</uid>
+                    <uid>{6de6d23a-37a5-41c9-bd55-0c5c53557c46}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void Delete_Passenger(const int ref)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{64633bc2-e643-4636-87fd-34db9783b41b}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void Query_User()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{c4941909-3f57-41e6-9c7f-396fcf7a6a90}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>const int Pass_Size()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{24b053e7-ef8f-4284-bbc2-a200bdfe6db0}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>const Pass_Name(int ref)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{2d28aeff-0747-4f4d-a65c-d0c2bc6fcf85}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>const Pass_ID(int ref)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{730e081b-78ba-45bf-b350-da0be461b3bf}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QString account</declaration>
+                    <declaration>int idx</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{2195d684-47d3-44d9-a420-e3a9a30f5648}</uid>
+                    <uid>{e3306169-c730-4afb-8622-9ce0dc7891d3}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QString username</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ef0a013f-b3a7-46d1-bf6d-879b3b6d78eb}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString password</declaration>
@@ -2277,23 +2672,7 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8c76bf34-0963-48d6-8fe5-5b546748571c}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>QString phone</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{22b09113-568f-44b9-aa24-d8578ca1cdb1}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>QString email</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{d95e37ac-faf4-4eca-97a9-30feda041b8b}</uid>
+                    <uid>{c0d1c38f-4efb-4503-84ab-890cf68e7747}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString name</declaration>
@@ -2301,34 +2680,90 @@ const int BED_COUNT = 60;</text>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3984711d-09e2-4b36-bde5-d67607cc5bed}</uid>
+                    <uid>{98388e8b-5957-4254-91a8-fd24ea3b758c}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>double balance</declaration>
+                    <declaration>gender sex</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{4bdf6ee8-7de9-4ec8-aef0-2875a15fc13f}</uid>
+                    <uid>{6a5a3aeb-78b7-4e25-8c69-de3bf4bf370e}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QList&lt;Passenger&gt; pass_list</declaration>
+                    <declaration>QString phone</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{62c3fa40-8deb-4724-8baa-afd897d96fa3}</uid>
+                    <uid>{d973794e-8991-4647-9d28-8c96a57a7c53}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>QList&lt;Ticket&gt; ticket_head</declaration>
+                    <declaration>QString email</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c438446e-a207-425c-98a8-9a3518b76e69}</uid>
+                    <uid>{11275989-4254-4ef3-921a-275ac93fa72b}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
-                    <declaration>Order temp</declaration>
+                    <declaration>Price balance</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5fd8000b-c0d6-4c21-a5f0-c855fd67148d}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QList&lt;Passenger*&gt; pass_list</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{369a6a4f-fe39-4ca2-840c-8cd498a06719}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QList&lt;Passenger*&gt; pass_to_buy</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{18b50d43-7af2-45d3-a769-967de99b3741}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>QList&lt;Ticket*&gt; ticket_list</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{1fcd6b8b-c529-4014-843f-ca7a8d7853b6}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>bool Buy_Ticket(TicketOffice &amp;local)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ce001c1b-6df6-4fb6-8530-48c7881ecbf9}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>void Add_Pass_To_But(const int ref)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{3747fe1a-b5b3-41cb-bd02-80d8da9c3677}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>void Delete_Pass_To_Buy(const int ref)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{67583656-21d9-4e5d-a1ff-e82420bdbefe}</uid>
+                    <visibility>3</visibility>
+                    <type>2</type>
+                    <declaration>void Clear_Pass_To_Buy()</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -2372,9 +2807,763 @@ const int BED_COUNT = 60;</text>
                     <uid>{91401c84-34b3-4256-98bd-f2c715f9c278}</uid>
                    </MElement>
                   </base-MElement>
-                  <name>Admin</name>
+                  <name>Admin 管理员</name>
                  </MObject>
                 </base-MObject>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{af0aa736-76be-46d9-af33-1aecf7cbe203}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{af0aa736-76be-46d9-af33-1aecf7cbe203}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>mainwindow.h</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{250fb81c-0a05-4ca6-a7cd-8da195e1375e}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{250fb81c-0a05-4ca6-a7cd-8da195e1375e}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{af0aa736-76be-46d9-af33-1aecf7cbe203}</a>
+                             <b>{3b59cdc4-8166-4e7a-a706-b35345fa1d69}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{89cb34d5-ab0f-4dff-bb92-6cabad6615fc}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{89cb34d5-ab0f-4dff-bb92-6cabad6615fc}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{af0aa736-76be-46d9-af33-1aecf7cbe203}</a>
+                             <b>{938408ab-ce37-4773-960c-c9fbf7355410}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                      <item>
+                       <handle>
+                        <uid>{5de6795d-27b9-489b-ae16-5b6393a9cef2}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{5de6795d-27b9-489b-ae16-5b6393a9cef2}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{af0aa736-76be-46d9-af33-1aecf7cbe203}</a>
+                             <b>{c849d460-a453-4abd-8d47-8597edfd54d4}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{6b60ceb4-f94a-4677-9237-f25ac21c126a}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{6b60ceb4-f94a-4677-9237-f25ac21c126a}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>MainWindow 主窗口</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{46d6b06b-8da8-4de7-a973-f13cbcd50b0e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>MainWindow(bool mode, TicketOffice *TO, ...)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9e51e48f-0855-4ac1-ad99-90747dcb82b0}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>~MainWindow()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7db8e68a-d3a6-40af-8459-6e0c9fe7eabd}</uid>
+                    <visibility>1</visibility>
+                    <type>1</type>
+                    <declaration>User *user</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{898f1a8a-0c36-4b3e-9068-5d08a74dcc54}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString origin()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{80dedd11-b0ff-4c30-9a6b-e0464a264f82}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString destination()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{a11e08df-5dca-4af2-aff6-d486d7489523}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QDate date()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{7769fd3e-28a5-4cd3-8020-788d5843fdf7}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString number()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{0377ae35-6b9d-4eb2-a9ed-7351770a504a}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>int trainType()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9262cb9c-7ed7-49b5-b585-92503e2bf6aa}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>int spotType()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{213dc7f7-93fe-439b-af58-ade92b24aede}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void setStations(QList&lt;Station *&gt; &amp;stationList)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{28665efd-e45e-4a8a-82d1-8c925743adab}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void clearTrainInfo()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{60069f71-75fc-4ab0-8940-fe8747e882d9}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>void showTrainInfo(QList&lt;Train *&gt; *searchResult)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{25f5f59e-ed73-4613-b5ba-2ec82a7f8767}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_train_btm_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b3575ab9-625c-4a00-9775-ec579a92299a}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_user_btm_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{215d1c08-aab2-4748-95e4-0d6ea26ab13c}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_info_pb_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8b73e927-4272-4c7c-881b-c0cd58cc9014}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_pass_pb_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{bb4832be-ee59-4739-be92-23a6408d7956}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_his_pb_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{83e031f6-4490-4eaf-a3e7-8576b1c2016a}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_bal_pb_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ec2c5648-9da3-4d8f-bb31-7b489a9e7006}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_money_query_btn_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d1115dcf-883a-4e80-90b5-c3026b17f87f}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_money_update_btn_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{affe3d1d-ed7a-422d-a557-469e962abe15}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_pushButton_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{ab28b472-13d4-4454-8c0b-456deb6d4fd4}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_info_query_btn_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{e315397c-db9c-47e3-a67e-d6b458339778}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_info_updatebtn_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{deca291a-0935-4377-9c97-1c0cd36b42f3}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_password_reset_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{9f0febcd-c7c5-4870-88cb-6b8fb0fe4638}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>Ui::MainWindow *ui</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{315cc8fb-40b2-4765-afdd-e4a221fa0ae3}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{315cc8fb-40b2-4765-afdd-e4a221fa0ae3}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>logindialog.h</name>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{71bca62d-3d27-4334-9b9a-ccd237055b8f}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{71bca62d-3d27-4334-9b9a-ccd237055b8f}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>LoginDialog 登录对话框</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{20becbf6-b232-4966-bc48-4f854b76caaf}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>LoginDialog(TicketOffice *TO, ...)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{fc729c51-cb4d-40cb-9633-5f8993f90199}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>~LoginDialog()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{dd3a438a-40d0-4a1d-8830-e36db7d719a9}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>bool mode()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{0fbb82f6-c26a-4cf9-a17e-4bfa62f023e2}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString username()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{d52325af-7d54-4798-b69a-28cc469fde6f}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>QString password()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{80598cf2-1bd1-4cbe-831c-865f3b8a9cbd}</uid>
+                    <visibility>7</visibility>
+                    <type>2</type>
+                    <declaration>void toggleHide(int mode)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8c001caa-08b3-4ce4-9801-af24c2a239c3}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>Ui::LoginDialog *ui</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{c849d460-a453-4abd-8d47-8597edfd54d4}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{c849d460-a453-4abd-8d47-8597edfd54d4}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>infodialog.h</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{3e12a300-8bca-4531-afde-1e0b9c70b242}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{3e12a300-8bca-4531-afde-1e0b9c70b242}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{c849d460-a453-4abd-8d47-8597edfd54d4}</a>
+                             <b>{dc5cf2ae-1b94-497a-91a1-523fe1793560}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{4085b2b7-0785-4cc1-9766-098b157d12b5}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{4085b2b7-0785-4cc1-9766-098b157d12b5}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>InfoDialog 修改用户信息对话框</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{6b23ea3e-435f-4da8-9dfc-b4779ed5a8c0}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>InfoDialog(QWidget *parent = 0)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{8708c0c9-7d2c-49ca-bb94-59c420334d0d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>~InfoDialog()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{5f9d4d9a-6c6c-49e3-a74a-edb0a96015b8}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_confirm_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{4cc9cdd2-98ab-4eb7-8dd9-cd27be808531}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>Ui::InfoDialog *ui</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{938408ab-ce37-4773-960c-c9fbf7355410}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{938408ab-ce37-4773-960c-c9fbf7355410}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>chargedialog.h</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{af878606-0486-40e7-8651-9ea91b14535c}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{af878606-0486-40e7-8651-9ea91b14535c}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{938408ab-ce37-4773-960c-c9fbf7355410}</a>
+                             <b>{dc5cf2ae-1b94-497a-91a1-523fe1793560}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{4444b66a-6e24-4ad2-afd6-8c61984c4b19}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{4444b66a-6e24-4ad2-afd6-8c61984c4b19}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>ChargeDialog 充值对话框</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{14b3976e-3525-402b-89a1-b0284b99dd3c}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>ChargeDialog(QWidget *parent = 0)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{cc90443d-dedd-46cd-820e-759c3e40c92d}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>~ChargeDialog()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{6e6b90d9-48ea-458d-94f0-11a6441be815}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_pushButton_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{2704b33b-6e4b-4d62-9856-ce18c40540c1}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_money_yes_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{070885e4-7623-4c0c-818e-bc9e35c9c949}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>Ui::ChargeDialog *ui</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
+               </MClass>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{3b59cdc4-8166-4e7a-a706-b35345fa1d69}</uid>
+             <target>
+              <instance type="MComponent">
+               <MComponent>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{3b59cdc4-8166-4e7a-a706-b35345fa1d69}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>passworddialog.h</name>
+                  <relations>
+                   <handles>
+                    <handles>
+                     <qlist>
+                      <item>
+                       <handle>
+                        <uid>{e17d3658-a8b7-4d19-9134-8f7b82d54f6d}</uid>
+                        <target>
+                         <instance type="MDependency">
+                          <MDependency>
+                           <base-MRelation>
+                            <MRelation>
+                             <base-MElement>
+                              <MElement>
+                               <uid>{e17d3658-a8b7-4d19-9134-8f7b82d54f6d}</uid>
+                              </MElement>
+                             </base-MElement>
+                             <a>{3b59cdc4-8166-4e7a-a706-b35345fa1d69}</a>
+                             <b>{dc5cf2ae-1b94-497a-91a1-523fe1793560}</b>
+                            </MRelation>
+                           </base-MRelation>
+                          </MDependency>
+                         </instance>
+                        </target>
+                       </handle>
+                      </item>
+                     </qlist>
+                    </handles>
+                   </handles>
+                  </relations>
+                 </MObject>
+                </base-MObject>
+               </MComponent>
+              </instance>
+             </target>
+            </handle>
+           </item>
+           <item>
+            <handle>
+             <uid>{8d682a1b-5d02-43d1-b775-d3af26a06138}</uid>
+             <target>
+              <instance type="MClass">
+               <MClass>
+                <base-MObject>
+                 <MObject>
+                  <base-MElement>
+                   <MElement>
+                    <uid>{8d682a1b-5d02-43d1-b775-d3af26a06138}</uid>
+                   </MElement>
+                  </base-MElement>
+                  <name>PasswordDialog 修改密码对话框</name>
+                 </MObject>
+                </base-MObject>
+                <members>
+                 <qlist>
+                  <item>
+                   <MClassMember>
+                    <uid>{752b042e-17d3-475c-b757-14a8cd88b584}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>PasswordDialog(QWidget *parent = 0)</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{3b810dce-3bc0-4807-adbf-559bf76bac8e}</uid>
+                    <visibility>1</visibility>
+                    <type>2</type>
+                    <declaration>~PasswordDialog()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{b5acb7fb-4211-4b0c-b328-8ce9f824c90a}</uid>
+                    <visibility>5</visibility>
+                    <type>2</type>
+                    <declaration>void on_confirm_clicked()</declaration>
+                   </MClassMember>
+                  </item>
+                  <item>
+                   <MClassMember>
+                    <uid>{955929ed-0222-4358-8ad4-ac2003080644}</uid>
+                    <visibility>3</visibility>
+                    <type>1</type>
+                    <declaration>Ui::PasswordDialog *ui</declaration>
+                   </MClassMember>
+                  </item>
+                 </qlist>
+                </members>
                </MClass>
               </instance>
              </target>

@@ -12,6 +12,8 @@ public:
     Passenger &passenger();//返回乘客引用
     Train &train();//返回车次引用
     Spot &spot();//返回位子引用
+    int index() const;
+
 private:
     int m_index;//对应于数据库中的索引编号
     Passenger *m_passenger;//乘客

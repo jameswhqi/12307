@@ -1,12 +1,11 @@
 #include "passworddialog.h"
 #include "ui_passworddialog.h"
 
-
-PasswordDialog::PasswordDialog(QWidget *parent) :
-    QDialog(parent),
+PasswordDialog::PasswordDialog(MainWindow *parent) :
     ui(new Ui::PasswordDialog)
 {
     ui->setupUi(this);
+    MW = parent;
 }
 
 PasswordDialog::~PasswordDialog()
@@ -16,7 +15,7 @@ PasswordDialog::~PasswordDialog()
 
 void PasswordDialog::on_confirm_clicked()
 {
-    int res = parent->user->Update_Password(ui->old->text(),ui->new1->text(),ui->new2->text());
+    int res = MW->user->Update_Password(ui->old->text(),ui->new1->text(),ui->new2->text());
     if(res < 0)
     {
         ui->result->setText("密码错误！");

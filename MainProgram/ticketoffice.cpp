@@ -4,12 +4,7 @@
 #include <QtMath>
 #include <QByteArray>
 #include <QMessageBox>
-#include "station.h"
-#include "logindialog.h"
 #include <QDate>
-#include "train.h"
-#include <mainwindow.h>
-#include "admin.h"
 
 TicketOffice::TicketOffice()
 {
@@ -52,7 +47,7 @@ void TicketOffice::updateSpots()
             }
             else {
                 valid = old.right(bytesPerDay * (SALE_PERIOD - diff));
-                valid.leftJustified(SALE_PERIOD * bytesPerDay, 0);
+                valid = valid.leftJustified(SALE_PERIOD * bytesPerDay, 0);
             }
             query2.prepare("UPDATE trains SET spots=? WHERE idx=?");
             query2.addBindValue(valid);
@@ -171,11 +166,11 @@ void TicketOffice::searchTrain()
     query.exec();
     while (query.next()) {
         int idx = query.value(0).toInt();
-        Train *pointer;
+        Train *pointer = nullptr;
         QList<Train *>::const_iterator i;
         for (i = m_cache.constBegin(); i != m_cache.constEnd(); i++) {
             if ((*i)->index() == idx && (*i)->date() == s_date) {
-                pointer = &(*i);
+                pointer = *i;
                 break;
             }
         }
@@ -186,18 +181,18 @@ void TicketOffice::searchTrain()
             int d_originIdx = query.value(4).toInt();
             int d_destinationIdx = query.value(5).toInt();
             Station *d_origin, *d_destination;
-            QList<Station *>::iterator i;
+            QList<Station *>::const_iterator i;
             bool foundOne = false;
             for (i = m_stationList.constBegin(); i != m_stationList.constEnd(); i++) {
                 if ((*i)->index() == d_originIdx) {
-                    d_origin = &(*i);
+                    d_origin = *i;
                     if (foundOne) {
                         break;
                     }
                     foundOne = true;
                 }
                 if ((*i)->index() == d_destinationIdx) {
-                    d_destination = &(*i);
+                    d_destination = *i;
                     if (foundOne) {
                         break;
                     }
@@ -228,6 +223,6 @@ void TicketOffice::searchTrain()
         }
         m_searchResult.append(pointer);
     }
-    m_mainWindow->showTrainInfo(m_searchResult);
+    m_mainWindow->showTrainInfo(&m_searchResult);
 }
 

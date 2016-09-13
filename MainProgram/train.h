@@ -79,14 +79,14 @@ public:
     TrainType trainType() const;//返回车次类型
     Spot::SpotType spotType() const;//返回位子类型
     Station &origin() const;//返回始发站引用
-    void setOrigin(const Station &origin);//设置始发站
+    void setOrigin(Station &origin);//设置始发站
     Station &destination() const;//返回终点站引用
-    void setDestination(const Station &destination);//设置终点站
+    void setDestination(Station &destination);//设置终点站
     QDate date() const;//返回出发日期
     void setDate(QDate date);//设置出发日期
     Time departureTime() const;//返回出发时刻
     Time duration() const;//返回运行时间
-    Time arrivalTime() const;//返回到达时刻
+    Time arrivalTime();//返回到达时刻
     void setDepartureTime(Time time);//设置出发时刻
     void setDuration(Time duration);//设置运行时间
     Price price() const;//返回票价

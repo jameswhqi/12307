@@ -58,7 +58,7 @@ Station &Train::origin() const
 {
     return *m_origin;
 }
-void Train::setOrigin(const Station &origin)
+void Train::setOrigin(Station &origin)
 {
     m_origin = &origin;
 }
@@ -66,11 +66,11 @@ Station &Train::destination() const
 {
     return *m_destination;
 }
-void Train::setDestination(const Station &destination)
+void Train::setDestination(Station &destination)
 {
     m_destination = &destination;
 }
-QDate Train::date()
+QDate Train::date() const
 {
     return m_date;
 }
@@ -86,7 +86,7 @@ Time Train::duration() const
 {
     return m_duration;
 }
-Time Train::arrivalTime() const
+Time Train::arrivalTime()
 {
     return m_departureTime.elapse(m_duration);
 }
@@ -98,7 +98,7 @@ void Train::setDuration(Time duration)
 {
     m_duration = duration;
 }
-Train::Price Train::price()
+Price Train::price() const
 {
     return m_price;
 }
@@ -142,7 +142,7 @@ int Train::findVacant()
         spotCount = SEAT_COUNT;
     }
     for (int i = 0; i < SEAT_COUNT; i++) {
-        if (!m_seats[i].booked()) {
+        if (!m_spots[i].booked()) {
             return i;
         }
     }
@@ -204,7 +204,7 @@ void Price::setSubYuan(int subYuan)
 }
 QString Price::toString(PriceFormat format, bool thousandSeparator) const
 {
-    QString number = QString::number(m_datafen);
+    QString number = QString::number(m_dataFen);
     number.insert(number.size() - 2, '.');
     if (thousandSeparator) {
         for (int i = number.size() - 6; i > 0; i -= 3) {
@@ -250,15 +250,15 @@ Price &Price::operator -=(const Price &other) {
 Time::Time(int hour, int minute)
     : m_hour(hour), m_minute(minute), m_day(0) {}
 
-int Time::hour()
+int Time::hour() const
 {
     return m_hour;
 }
-int Time::minute()
+int Time::minute() const
 {
     return m_minute;
 }
-int Time::day()
+int Time::day() const
 {
     return m_day;
 }
@@ -272,7 +272,7 @@ void Time::setMinute(int minute)
 }
 QString Time::toString()
 {
-    QString result = QString("%1:%2").arg(m_hour, 2, 10, '0').arg(m_minute, 2, 10, '0');
+    QString result = QString("%1:%2").arg(m_hour, 2, 10, QLatin1Char('0')).arg(m_minute, 2, 10, QLatin1Char('0'));
     if (m_day != 0) {
         result.append(QString("(第%1天)").arg(m_day + 1));
     }
@@ -289,7 +289,7 @@ Time Time::elapse(const Time &duration)
     result.m_hour = result.m_hour % 24;
     return result;
 }
-static Time Time::fromString(const QString &text)
+Time Time::fromString(const QString &text)
 {
     return Time(text.section(':', 0).toInt(), text.section(':', 1).toInt());
 }

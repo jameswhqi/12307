@@ -4,15 +4,13 @@
 #include <QList>
 #include "ticket.h"
 
-class TicketOffice;
-
 class User
 {
 public:
     enum gender{男,女};
 
     User(int new_idx = -1);//构造函数，用于登陆与刷新全部信息
-    ~User();//析构函数，用于登出
+    //~User();//析构函数，用于登出
 
     //管理核心信息的方法：
     int index();//返回索引
@@ -29,7 +27,7 @@ public:
     QString Email();//返回电子邮箱
 
     //管理账户余额的方法
-    bool Charge(Price& charge_money);//充值
+    bool Charge(Price charge_money);//充值
     void Query_Blance();//从数据库获取余额
     Price* Balance();//返回余额
 

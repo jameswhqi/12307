@@ -1,18 +1,12 @@
 #ifndef TICKETOFFICE_H
 #define TICKETOFFICE_H
 #include "admin.h"
-//#include "logindialog.h"
-//#include "mainwindow.h"
+#include "mainwindow.h"
+#include "logindialog.h"
 #include <QList>
 #include <QObject>
 
 const int SALE_PERIOD = 30;//预售期
-
-class User;
-class Station;
-class Train;
-class MainWindow;
-class LoginDialog;
 
 class TicketOffice :public QObject
 {

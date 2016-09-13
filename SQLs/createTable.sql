@@ -1,6 +1,6 @@
 CREATE TABLE modified_date (
     date TEXT
-)
+);
 
 CREATE TABLE trains (
     idx INTEGER PRIMARY KEY,

@@ -15,3 +15,8 @@ Spot &Ticket::spot()
 {
     return *m_spot;
 }
+
+int Ticket::index() const
+{
+    return m_index;
+}

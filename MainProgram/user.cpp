@@ -16,10 +16,10 @@ User::User(int new_idx)
 }
 
 //析构函数，用于登出
-User::~User()
-{
+//User::~User()
+//{
 
-}
+//}
 
 //返回索引
 int User::index()
@@ -123,7 +123,7 @@ QString User::Email()
 }
 
 //充值
-bool User::Charge(Price& charge_money)
+bool User::Charge(Price charge_money)
 {
     if(!charge_money.isValid())
     {
@@ -265,59 +265,59 @@ void User::Clear_Pass_To_Buy()
 //从数据库以及TO获取购票信息
 void User::Query_Ticket()
 {
-    for(int i = 0;i<ticket_list.size();i++)
-    {
-        delete[] ticket_list[i];
-    }
-    ticket_list.clear();
+//    for(int i = 0;i<ticket_list.size();i++)
+//    {
+//        delete[] ticket_list[i];
+//    }
+//    ticket_list.clear();
 
-    QSqlQuery query_idx;
-    query_idx.prepare("select idx from tickets where user=:user");
-    query_idx.bindValue(":user",idx);
-    query_idx.exec();
+//    QSqlQuery query_idx;
+//    query_idx.prepare("select idx from tickets where user=:user");
+//    query_idx.bindValue(":user",idx);
+//    query_idx.exec();
 
-    QSqlQuery query_pass;
-    query_pass.prepare("select passenger from tickets where user=:user");
-    query_pass.bindValue(":user",idx);
-    query_pass.exec();
+//    QSqlQuery query_pass;
+//    query_pass.prepare("select passenger from tickets where user=:user");
+//    query_pass.bindValue(":user",idx);
+//    query_pass.exec();
 
-    QSqlQuery query_name_id;
-    while(query_pass.next())
-    {
-        query_name_id.prepare("select name,id from passengers where idx=:idx");
-        query_name_id.bindValue(":idx",query_pass.value(0).toInt());
-        query_name_id.exec();
-    }
+//    QSqlQuery query_name_id;
+//    while(query_pass.next())
+//    {
+//        query_name_id.prepare("select name,id from passengers where idx=:idx");
+//        query_name_id.bindValue(":idx",query_pass.value(0).toInt());
+//        query_name_id.exec();
+//    }
 
-    QSqlQuery query_train_date;
-    query_train_date.prepare("select idx,date from tickets where=:user");
-    query_train_date.bindValue(":user",idx);
-    query_train_date.exec();
+//    QSqlQuery query_train_date;
+//    query_train_date.prepare("select idx,date from tickets where=:user");
+//    query_train_date.bindValue(":user",idx);
+//    query_train_date.exec();
 
-    QSqlQuery query_spot;
-    query_spot.prepare("select spot from tickets where user=:user");
-    query_spot.bindValue(":user",idx);
-    query_spot.exec();
+//    QSqlQuery query_spot;
+//    query_spot.prepare("select spot from tickets where user=:user");
+//    query_spot.bindValue(":user",idx);
+//    query_spot.exec();
 
-    while(query_idx.next())
-    {
-        query_name_id.next();
-        query_train_date.next();
-        query_spot.next();
+//    while(query_idx.next())
+//    {
+//        query_name_id.next();
+//        query_train_date.next();
+//        query_spot.next();
 
-        QSqlQuery query_spot_type;
-        query_spot_type.prepare("select traintype from trains where idx=:idx");
-        query_spot_type.bindValue(":idx",query_train_date.value(0).toInt());
-        query_spot_type.exec();
-        query_spot_type.next();//注意，要指向下一个
+//        QSqlQuery query_spot_type;
+//        query_spot_type.prepare("select traintype from trains where idx=:idx");
+//        query_spot_type.bindValue(":idx",query_train_date.value(0).toInt());
+//        query_spot_type.exec();
+//        query_spot_type.next();//注意，要指向下一个
 
-        Passenger* new_pass = new Passenger(query_name_id.value(0).toString(),query_name_id.value(1).toString());
-        //假设接口函数是Train* trainForTicket(int idx,QString date)
-        Train* new_train = trainForTicket(query_train_date.value(0).toInt(),query_train_date.value(1).toString());
-        Spot* new_spot = Spot(query_spot.value(0).toInt(), query_spot_type.value(0).toInt(), true);
-        Ticket* new_ticket = Ticket(query_idx.value(0).toInt((),new_pass,new_train,new_spot);
-        ticket_list.append(new_ticket);
-    }
+//        Passenger* new_pass = new Passenger(query_name_id.value(0).toString(),query_name_id.value(1).toString());
+//        //假设接口函数是Train* trainForTicket(int idx,QString date)
+//        Train* new_train = trainForTicket(query_train_date.value(0).toInt(),query_train_date.value(1).toString());
+//        Spot* new_spot = Spot(query_spot.value(0).toInt(), query_spot_type.value(0).toInt(), true);
+//        Ticket* new_ticket = Ticket(query_idx.value(0).toInt((),new_pass,new_train,new_spot);
+//        ticket_list.append(new_ticket);
+//    }
 }
 
 //返回购票张数
