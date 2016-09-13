@@ -83,9 +83,10 @@ void TicketOffice::signIn()
         else {
             m_user = new User(idx);
         }
+        delete m_loginDialog;
         m_mainWindow = new MainWindow(mode, this, m_user);
         m_mainWindow->setStations(m_stationList);
-
+        m_mainWindow->show();
     }
     else {
         QMessageBox msg;

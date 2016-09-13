@@ -7,7 +7,6 @@ LoginDialog::LoginDialog(TicketOffice *TO) :
 {
     ui->setupUi(this);
     connect(ui->signInButton, SIGNAL(clicked()), TO, SLOT(signIn()));
-    connect(this, SIGNAL(rejected()), TO, SLOT(cancelSignIn()));
     connect(ui->modeSelector, SIGNAL(currentChanged(int)), this, SLOT(toggleHide(int)));
 }
 
