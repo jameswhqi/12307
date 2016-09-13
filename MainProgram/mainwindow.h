@@ -53,15 +53,11 @@ private slots:
 
     void on_money_update_btn_clicked();
 
-    void on_pushButton_clicked();
-
     void on_info_query_btn_clicked();
 
     void on_info_updatebtn_clicked();
 
     void on_password_reset_clicked();
-
-    void on_pushButton_3_clicked();
 
     void on_refresh_pass_clicked();
 

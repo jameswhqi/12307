@@ -16,8 +16,6 @@ public:
     ~ChargeDialoge();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_money_yes_clicked();
 
     //void on_money_no_clicked();

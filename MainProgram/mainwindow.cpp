@@ -127,10 +127,6 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
     }
 }
 
-//void MainWindow::on_searchButton_clicked()
-//{
-
-//}
 
 
 void MainWindow::on_train_btm_clicked()
