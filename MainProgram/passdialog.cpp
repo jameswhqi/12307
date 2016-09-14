@@ -1,6 +1,5 @@
 #include "passdialog.h"
 #include "ui_passdialog.h"
-#include <QString>
 
 PassDialog::PassDialog(User* new_user) :
     ui(new Ui::PassDialog)

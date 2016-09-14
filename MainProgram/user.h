@@ -4,6 +4,8 @@
 #include <QList>
 #include "ticket.h"
 
+#include "orderdialog.h"
+
 class TicketOffice;
 class User
 {
@@ -49,6 +51,7 @@ public:
     void Clear_Pass_To_Buy();
     void Query_Ticket();//从TO和数据库中更新ticket表，复杂，放在TO中为宜，因为不涉及批量操作
     Ticket* ticket(int ref);
+    void Set_Current_Train(Train* new_current_train);//设置当前订票的火车
 
 private:
     //存储构造该user的TicketOffice的指针，用于买票
@@ -76,6 +79,9 @@ private:
 
     //账户所管理的火车票
     QList<Ticket*> ticket_list;
+
+    //当前要预定的火车
+    Train* current_train;
 };
 
 

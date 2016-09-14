@@ -167,7 +167,7 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.exec("SELECT last_insert_rowid");
     query.next();
     int ticketIdx = query.value(0).toInt();
-    Ticket *ticketPtr = new Ticket(ticketIdx, passenger, currentTrain, currentTrain->spot(spotIdx));
+    Ticket *ticketPtr = new Ticket(ticketIdx, *passenger, *currentTrain, currentTrain->spot(spotIdx));
     return ticketPtr;
 }
 
@@ -233,7 +233,11 @@ void TicketOffice::order()
             + currentTrain->price().toString(Price::symbolNumber);
     m_orderdialog = new OrderDialog(m_user);
     m_orderdialog->displayTrainInfo(trainInfo);
-    m_user->populatePassenger(m_orderdialog, currentTrain);//undone on the other side!!!!!!!!!!!!!!
+    //我用一下两个函数实现//m_user->populatePassenger(m_orderdialog, currentTrain);//undone on the other side!!!!!!!!!!!!!!
+
+    m_user->Set_Current_Train(currentTrain);
+    m_orderdialog->Show_Passenger();
+
     m_orderdialog->exec();
 }
 

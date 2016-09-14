@@ -1,12 +1,12 @@
 #include "orderdialog.h"
 #include "ui_orderdialog.h"
-#include "user.h"
+#include <QDebug>
 
-OrderDialog::OrderDialog(User *user) :
+OrderDialog::OrderDialog(User *new_user) :
     ui(new Ui::OrderDialog)
 {
     ui->setupUi(this);
-    connect(ui->confirmButton, SIGNAL(clicked()), user, SLOT(confirmOrder()));//undone on the other side!!!!!!!!
+    user = new_user;
 }
 
 OrderDialog::~OrderDialog()
@@ -17,4 +17,16 @@ OrderDialog::~OrderDialog()
 void OrderDialog::displayTrainInfo(QString info)
 {
     ui->trainInfoLabel->setText(info);
+}
+
+void OrderDialog::Show_Passenger()
+{
+   int pass_size = user->Pass_Size();
+   ui->passengerSelector->setRowCount(pass_size);
+   for(int i = 0;i<pass_size;i++)
+   {
+       ui->passengerSelector->setItem(i,0,new QTableWidgetItem(user->Pass_Name(i)));
+       ui->passengerSelector->setItem(i,1,new QTableWidgetItem(user->Pass_ID(i)));
+   }
+   ui->passengerSelector->show();
 }

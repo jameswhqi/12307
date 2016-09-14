@@ -348,8 +348,8 @@ Ticket* User::ticket(int ref)
     return ticket_list[ref];
 }
 
-//退票
-//void User::Return_Ticket(TicketOffice &local)
-//{
-
-//}
+//设置当前订票的火车
+void User::Set_Current_Train(Train* new_current_train)
+{
+    current_train = new_current_train;
+}
