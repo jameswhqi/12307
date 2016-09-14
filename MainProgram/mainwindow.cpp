@@ -253,7 +253,7 @@ void MainWindow::on_refresh_pass_clicked()
 
 void MainWindow::on_refresh_btn_clicked()
 {
-    int ticket_size = user->Ticket_Size();
+    /*int ticket_size = user->Ticket_Size();
     ui->ticketinfo->setRowCount(ticket_size);
 
     for(int i = 0;i<ticket_size;i++)
@@ -268,7 +268,8 @@ void MainWindow::on_refresh_btn_clicked()
         ui->ticketinfo->setItem(i,7,new QTableWidgetItem(user->ticket(i)->train().departureTime().toString()));
         ui->ticketinfo->setItem(i,8,new QTableWidgetItem(user->ticket(i)->train().arrivalTime().toString()));
     }
-    ui->ticketinfo->show();
+    ui->ticketinfo->show();*/
+    user->Query_Ticket();
 }
 
 void MainWindow::on_add_pass_clicked()
