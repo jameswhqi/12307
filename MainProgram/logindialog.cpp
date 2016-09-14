@@ -1,6 +1,7 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 #include "ticketoffice.h"
+#include <QSqlQuery>
 
 LoginDialog::LoginDialog(TicketOffice *TO) :
     ui(new Ui::LoginDialog)
@@ -45,5 +46,43 @@ void LoginDialog::toggleHide(int mode)
     }
     else {
         ui->signUpButton->show();
+    }
+}
+
+void LoginDialog::on_signUpButton_clicked()
+{
+    ui->login_stackedWidget->setCurrentIndex(1);
+}
+
+void LoginDialog::on_pushButton_2_clicked()
+{
+    ui->login_stackedWidget->setCurrentIndex(0);
+}
+
+void LoginDialog::on_pushButton_clicked()
+{
+    QString new_username = ui->lineEdit->text();
+    QString new_password = ui->lineEdit_2->text();
+    QString new_password2 = ui->lineEdit_3->text();
+
+
+    if(new_password != new_password2)
+    {
+        ui->register_result->setText("错误，两次密码不一致！");
+        return;
+    }
+
+    QSqlQuery query;
+    query.prepare("insert into users (username,password) values (:username,:password)");
+    query.bindValue(":username",new_username);
+    query.bindValue(":password",new_password);
+    bool res = query.exec();
+    if(res)
+    {
+        ui->register_result->setText("注册成功！");
+    }
+    else if(!res)
+    {
+        ui->register_result->setText("用户名重复，注册失败！");
     }
 }
