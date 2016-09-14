@@ -3,6 +3,7 @@
 #include "admin.h"
 #include "mainwindow.h"
 #include "logindialog.h"
+#include "orderdialog.h"
 #include <QList>
 #include <QObject>
 
@@ -21,7 +22,7 @@ public slots:
     void searchTrain();
     void signIn();//接收用户点击LoginDialog中确认键的信号
     //void cancelSignIn();//接受LoginDialog的rejected()信号
-
+    void order();//接收用户点击MainWindow中购买键的信号
     //根据用户输入的搜索条件在数据库中搜索车次，存入trainList并显示出来
 
 private:
@@ -32,6 +33,7 @@ private:
     Admin *m_admin;//当前Admin的指针
     LoginDialog *m_loginDialog;//LoginDialog的指针
     MainWindow *m_mainWindow;//MainWindow的指针
+    OrderDialog *m_orderdialog;//OrderDialog的指针
 
     int getStationIdx(QString name);//根据车站名查找车站编号
 };

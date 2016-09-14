@@ -140,6 +140,12 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
     }
 }
 
+QString MainWindow::currentNumber()
+{
+    int row = ui->trainInfo->currentRow();
+    return ui->trainInfo->item(row, 0)->text();
+}
+
 
 
 void MainWindow::on_train_btm_clicked()

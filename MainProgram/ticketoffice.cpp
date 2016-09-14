@@ -159,6 +159,34 @@ void TicketOffice::signIn()
     }
 }
 
+void TicketOffice::order()
+{
+    QString number = m_mainWindow->currentNumber();
+    Train *trainPtr = nullptr;
+    QList<Train *>::iterator i;
+    for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
+        if ((*i)->number() = number) {
+            trainPtr = *i;
+            break;
+        }
+    }
+    QString trainInfo = trainPtr->number()
+            + ' '
+            + trainPtr->origin().name()
+            + '-'
+            + trainPtr->destination().name()
+            + '\n'
+            + trainPtr->departureTime().toString()
+            + '-'
+            + trainPtr->arrivalTime().toString()
+            + '\n'
+            + trainPtr->price().toString(Price::symbolNumber);
+    m_orderdialog = new OrderDialog;
+    m_orderdialog->displayTrainInfo(trainInfo);
+    //m_user->populatePassenger(m_orderdialog);
+    m_orderdialog->exec();
+}
+
 int TicketOffice::getStationIdx(QString name)
 {
     QList<Station *>::const_iterator i;

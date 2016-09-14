@@ -1,8 +1,8 @@
 #include "orderdialog.h"
 #include "ui_orderdialog.h"
+#include "user.h"
 
-OrderDialog::OrderDialog(QWidget *parent) :
-    QDialog(parent),
+OrderDialog::OrderDialog(User *user) :
     ui(new Ui::OrderDialog)
 {
     ui->setupUi(this);
@@ -11,4 +11,9 @@ OrderDialog::OrderDialog(QWidget *parent) :
 OrderDialog::~OrderDialog()
 {
     delete ui;
+}
+
+void OrderDialog::displayTrainInfo(QString info)
+{
+    ui->trainInfoLabel->setText(info);
 }
