@@ -208,6 +208,7 @@ void MainWindow::on_info_updatebtn_clicked()
 {
     InfoDialog* NewInfoDialog = new InfoDialog(this);
     NewInfoDialog->exec();
+    on_info_query_btn_clicked();
 }
 
 void MainWindow::on_password_reset_clicked()
