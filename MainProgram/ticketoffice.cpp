@@ -113,7 +113,7 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
         spotCount = SEAT_COUNT;
         bytesPerDay = qCeil(SEAT_COUNT / 8.0);
     }
-    QByteArray thisDay = d_spots.mid((s_date.toJulianDay() - QDate::currentDate().toJulianDay()) * bytesPerDay, bytesPerDay);
+    QByteArray thisDay = d_spots.mid((QDate::fromString(date,Qt::ISODate).toJulianDay() - QDate::currentDate().toJulianDay()) * bytesPerDay, bytesPerDay);
     for (int i = 0; i < spotCount; i++) {
         char eightSpots = thisDay.at(i / 8);
         if (eightSpots && (eightSpots >> (7 - i % 8)) % 2) {

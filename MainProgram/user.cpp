@@ -2,6 +2,7 @@
 #include <QString>
 #include <QVariant>
 #include <QSqlQuery>
+#include <QDebug>
 
 #include "user.h"
 #include "ticketoffice.h"
@@ -269,7 +270,9 @@ void User::Clear_Pass_To_Buy()
 //从数据库以及TO获取购票信息
 void User::Query_Ticket()
 {
-    for(int i = 0;i<ticket_list.size();i++)
+    Train* new_train = local->trainForTicket(1,"2016-09-13");
+    qDebug() << new_train->price().dataFen();
+    /*for(int i = 0;i<ticket_list.size();i++)
     {
         delete[] ticket_list[i];
     }
@@ -324,14 +327,14 @@ void User::Query_Ticket()
         //从数据库的结果集中构建乘客
         Passenger* new_pass = new Passenger(query_name_id.value(0).toString(),query_name_id.value(1).toString());
         //从数据库的结果集中构建车次，TicketOffice的接口函数是Train* trainForTicket(int idx,QString date)
-        Train* new_train = locoal->trainForTicket(query_train_date.value(0).toInt(),query_train_date.value(1).toString());
+        Train* new_train = local->trainForTicket(query_train_date.value(0).toInt(),query_train_date.value(1).toString());
         //从数据库的结果集中构建座位
-        Spot* new_spot = new Spot(query_spot.value(0).toInt(), query_spot_type.value(0).toInt(), true);
+        Spot* new_spot = new Spot(query_spot_type.value(0).toInt(), query_spot_type.value(0).toInt(), true);
         //用index、乘客、车次、座位构建车票
-        Ticket* new_ticket = new Ticket(query_idx.value(0).toInt((),new_pass,new_train,new_spot);
+        Ticket* new_ticket = new Ticket(query_idx.value(0).toInt(),new_pass,new_train,new_spot);
         //将构建的车票存入ticket_list
         ticket_list.append(new_ticket);
-    }
+    }*/
 }
 
 //返回购票张数
