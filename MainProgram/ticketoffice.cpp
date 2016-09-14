@@ -1,5 +1,6 @@
 #include "ticketoffice.h"
 #include <QSqlQuery>
+#include <QSqlError>
 #include <QVariant>
 #include <QtMath>
 #include <QByteArray>
@@ -9,8 +10,9 @@
 TicketOffice::TicketOffice()
 {
     //读入Stations表
-    QSqlQuery query("SELECT (idx, name) FROM stations");
+    QSqlQuery query("SELECT idx, name FROM stations");
     while (query.next()) {
+        QString str = query.value(0).toString();
         Station *temp = new Station(query.value(0).toInt(), query.value(1).toString());
         m_stationList.append(temp);
     }
@@ -27,10 +29,10 @@ void TicketOffice::updateSpots()
     QSqlQuery query;
     query.exec("SELECT date FROM modified_date");
     query.next();
-    QDate original = QDate::fromString(query.value(0).toString());
+    QDate original = QDate::fromString(query.value(0).toString(), Qt::ISODate);
     if (original != QDate::currentDate()) {
         int diff = QDate::currentDate().toJulianDay() - original.toJulianDay();
-        query.exec("SELECT (idx, spottype, spots) FROM trains");
+        query.exec("SELECT idx, spottype, spots FROM trains");
         int bytesPerDay;//一个车次每天的座位空占数据占的字节数
         QByteArray old, valid;
         QSqlQuery query2;
@@ -96,6 +98,17 @@ void TicketOffice::signIn()
     }
 }
 
+int TicketOffice::getStationIdx(QString name)
+{
+    QList<Station *>::const_iterator i;
+    for (i = m_stationList.constBegin(); i != m_stationList.constEnd(); i++) {
+        if ((*i)->name() == name) {
+            return (*i)->index();
+        }
+    }
+    return 0;
+}
+
 //void TicketOffice::cancelSignIn() {}
 
 void TicketOffice::searchTrain()
@@ -146,14 +159,14 @@ void TicketOffice::searchTrain()
         superQuery.append(" WHERE spottype=:spottype)");
         toSelect[4] = true;
     }
-    superQuery.prepend("SELECT (idx, number, traintype, spottype, origin, destination, departuretime, duration, price, spots) FROM ");
+    superQuery.prepend("SELECT idx, number, traintype, spottype, origin, destination, departuretime, duration, price, spots FROM ");
     QSqlQuery query;
     query.prepare(superQuery);
     if (toSelect[0]) {
-        query.bindValue(":origin", s_origin);
+        query.bindValue(":origin", getStationIdx(s_origin));
     }
     if (toSelect[1]) {
-        query.bindValue(":destination", s_destination);
+        query.bindValue(":destination", getStationIdx(s_destination));
     }
     if (toSelect[2]) {
         query.bindValue(":number", s_number.toUpper());
@@ -165,6 +178,9 @@ void TicketOffice::searchTrain()
         query.bindValue(":spottype", s_spotType);
     }
     query.exec();
+//    QMessageBox msg;
+//    msg.setText(query.lastError().text());
+//    msg.exec();
     while (query.next()) {
         int idx = query.value(0).toInt();
         Train *pointer = nullptr;

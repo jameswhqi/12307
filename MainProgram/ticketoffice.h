@@ -32,6 +32,8 @@ private:
     Admin *m_admin;//当前Admin的指针
     LoginDialog *m_loginDialog;//LoginDialog的指针
     MainWindow *m_mainWindow;//MainWindow的指针
+
+    int getStationIdx(QString name);//根据车站名查找车站编号
 };
 
 

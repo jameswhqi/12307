@@ -4,7 +4,7 @@
 #include "passdialog.h"
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
-
+#include "ticketoffice.h"
 
 MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
     : ui(new Ui::MainWindow)
@@ -13,7 +13,7 @@ MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
     user = newuser;
 
     m_TO = TO;
-    //connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(searchTrain()));
+    connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(searchTrain()));
 
     //删掉对user或admin没用的widget
     if (mode) {
@@ -112,19 +112,31 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
     int resultSize = searchResult->size();
     ui->trainInfo->setRowCount(resultSize);
     for (int i = 0; i < resultSize; i++) {
-        QTableWidgetItem *items = new QTableWidgetItem[8];
         Train *pointer = searchResult->at(i);
-        items[0].setText(pointer->number());
-        items[1].setText(pointer->origin().name());
-        items[2].setText(pointer->destination().name());
-        items[3].setText(pointer->departureTime().toString());
-        items[4].setText(pointer->arrivalTime().toString());
-        items[5].setText(pointer->duration().toString());
-        items[6].setText(QString::number(pointer->vacantCount()));
-        items[7].setText(pointer->price().toString(Price::symbolNumber));
-        for (int j = 0; j < 8; j++) {
-            ui->trainInfo->setItem(i,j,&items[j]);
-        }
+        QTableWidgetItem *item = new QTableWidgetItem;
+        item->setText(pointer->number());
+        ui->trainInfo->setItem(i, 0, item);
+        item = new QTableWidgetItem;
+        item->setText(pointer->origin().name());
+        ui->trainInfo->setItem(i, 1, item);
+        item = new QTableWidgetItem;
+        item->setText(pointer->destination().name());
+        ui->trainInfo->setItem(i, 2, item);
+        item = new QTableWidgetItem;
+        item->setText(pointer->departureTime().toString());
+        ui->trainInfo->setItem(i, 3, item);
+        item = new QTableWidgetItem;
+        item->setText(pointer->arrivalTime().toString());
+        ui->trainInfo->setItem(i, 4, item);
+        item = new QTableWidgetItem;
+        item->setText(pointer->duration().toString());
+        ui->trainInfo->setItem(i, 5, item);
+        item = new QTableWidgetItem;
+        item->setText(QString::number(pointer->vacantCount()));
+        ui->trainInfo->setItem(i, 6, item);
+        item = new QTableWidgetItem;
+        item->setText(pointer->price().toString(Price::symbolNumber));
+        ui->trainInfo->setItem(i, 7, item);
     }
 }
 

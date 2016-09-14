@@ -44,7 +44,5 @@ FORMS    += mainwindow.ui \
     passworddialog.ui \
     passdialog.ui
 
-RESOURCES +=
-
 DISTFILES += \
     uml.qmodel
