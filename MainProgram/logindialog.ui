@@ -35,7 +35,7 @@
    <item>
     <widget class="QStackedWidget" name="login_stackedWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QTabWidget" name="modeSelector">
@@ -54,7 +54,7 @@
         </sizepolicy>
        </property>
        <property name="currentIndex">
-        <number>1</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="userTab">
         <attribute name="title">
@@ -260,7 +260,4 @@
  </widget>
  <resources/>
  <connections/>
- <buttongroups>
-  <buttongroup name="buttonGroup"/>
- </buttongroups>
 </ui>
