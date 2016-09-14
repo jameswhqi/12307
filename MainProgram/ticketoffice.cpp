@@ -75,6 +75,7 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
     query.prepare("SELECT idx, number, traintype, spottype, origin, destination, departuretime, duration, price, spots FROM trains WHERE idx=?");
     query.addBindValue(idx);
     query.exec();
+    query.next();
     QString d_number = query.value(1).toString();
     Train::TrainType d_trainType = Train::TrainType(query.value(2).toInt());
     Spot::SpotType d_spotType = Spot::SpotType(query.value(3).toInt());
@@ -113,11 +114,14 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
         spotCount = SEAT_COUNT;
         bytesPerDay = qCeil(SEAT_COUNT / 8.0);
     }
-    QByteArray thisDay = d_spots.mid((QDate::fromString(date,Qt::ISODate).toJulianDay() - QDate::currentDate().toJulianDay()) * bytesPerDay, bytesPerDay);
-    for (int i = 0; i < spotCount; i++) {
-        char eightSpots = thisDay.at(i / 8);
-        if (eightSpots && (eightSpots >> (7 - i % 8)) % 2) {
-            pointer->spot(i).book();
+    int diff = QDate::fromString(date,Qt::ISODate).toJulianDay() - QDate::currentDate().toJulianDay();
+    if (diff >= 0) {
+        QByteArray thisDay = d_spots.mid(diff * bytesPerDay, bytesPerDay);
+        for (int i = 0; i < spotCount; i++) {
+            char eightSpots = thisDay.at(i / 8);
+            if (eightSpots && (eightSpots >> (7 - i % 8)) % 2) {
+                pointer->spot(i).book();
+            }
         }
     }
     return pointer;
@@ -165,7 +169,7 @@ void TicketOffice::order()
     Train *trainPtr = nullptr;
     QList<Train *>::iterator i;
     for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
-        if ((*i)->number() = number) {
+        if ((*i)->number() == number) {
             trainPtr = *i;
             break;
         }
@@ -181,7 +185,7 @@ void TicketOffice::order()
             + trainPtr->arrivalTime().toString()
             + '\n'
             + trainPtr->price().toString(Price::symbolNumber);
-    m_orderdialog = new OrderDialog;
+    m_orderdialog = new OrderDialog(m_user);
     m_orderdialog->displayTrainInfo(trainInfo);
     //m_user->populatePassenger(m_orderdialog);
     m_orderdialog->exec();
