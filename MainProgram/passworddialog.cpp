@@ -32,5 +32,5 @@ void PasswordDialog::on_confirm_clicked()
 
 void PasswordDialog::on_cancel_clicked()
 {
-
+    this->reject();
 }

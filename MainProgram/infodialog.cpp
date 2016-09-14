@@ -35,7 +35,7 @@ void InfoDialog::on_confirm_clicked()
     }
 }
 
-//void InfoDialog::on_cancel_clicked()
-//{
-
-//}
+void InfoDialog::on_cancel_clicked()
+{
+    this->reject();
+}

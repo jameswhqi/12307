@@ -3,6 +3,7 @@
 #include "infodialog.h"
 #include "passdialog.h"
 #include "ui_mainwindow.h"
+#include "mainwindow.h"
 
 
 MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
@@ -148,22 +149,23 @@ void MainWindow::on_user_btm_clicked()
         ui->passinfo->setItem(i,1,new QTableWidgetItem(user->Pass_ID(i)));
     }
     ui->passinfo->show();
+    on_info_query_btn_clicked();
 }
 
 void MainWindow::on_info_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(0);
 
-    ui->username_lab->setText(user->Username());
-    ui->name_lab->setText(user->Name());
-    ui->sex_lab->setText((user->Sex()==0)?"男":"女");
-    ui->phone_lab->setText(user->Phone());
-    ui->email_lab->setText(user->Email());
+    on_info_query_btn_clicked();
 }
 
 void MainWindow::on_pass_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(1);
+    ui->passinfo->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->passinfo->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+    on_refresh_pass_clicked();
 }
 
 void MainWindow::on_his_pb_clicked()
@@ -174,8 +176,7 @@ void MainWindow::on_his_pb_clicked()
 void MainWindow::on_bal_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(3);
-
-    ui->money_dis_lab->setText(user->Balance()->toString(Price::numberOnly,true));
+    on_money_query_btn_clicked();
 }
 
 void MainWindow::on_money_query_btn_clicked()
@@ -188,6 +189,7 @@ void MainWindow::on_money_update_btn_clicked()
 {
     ChargeDialoge* NewChargeDialoge = new ChargeDialoge(this);
     NewChargeDialoge->exec();
+    on_money_query_btn_clicked();
 }
 
 
@@ -234,7 +236,6 @@ void MainWindow::on_refresh_btn_clicked()
 {
     int ticket_size = user->Ticket_Size();
     ui->ticketinfo->setRowCount(ticket_size);
-    //ui->passinfo->setColumnCount();
 
     for(int i = 0;i<ticket_size;i++)
     {
@@ -254,5 +255,13 @@ void MainWindow::on_refresh_btn_clicked()
 void MainWindow::on_add_pass_clicked()
 {
     PassDialog* new_passdialog = new PassDialog(user);
-    new_passdialog->exec();
+    new_passdialog->exec();   
+    on_refresh_pass_clicked();
+}
+
+void MainWindow::on_delete_pass_clicked()
+{
+    int ref = ui->passinfo->currentRow();
+    user->Delete_Passenger(ref);
+    on_refresh_pass_clicked();
 }

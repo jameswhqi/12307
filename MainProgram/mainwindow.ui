@@ -14,7 +14,7 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QFormLayout" name="formLayout_3">
+   <layout class="QGridLayout" name="gridLayout_2">
     <item row="0" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -320,8 +320,8 @@
            <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
-              <x>190</x>
-              <y>0</y>
+              <x>120</x>
+              <y>20</y>
               <width>174</width>
               <height>169</height>
              </rect>
@@ -416,8 +416,8 @@
            <widget class="QWidget" name="layoutWidget">
             <property name="geometry">
              <rect>
-              <x>180</x>
-              <y>200</y>
+              <x>100</x>
+              <y>220</y>
               <width>201</width>
               <height>32</height>
              </rect>

@@ -15,7 +15,8 @@ ChargeDialoge::~ChargeDialoge()
 
 void ChargeDialoge::on_money_yes_clicked()
 {
-    if(MW->user->Charge(Price((int)ui->input_money->text().toDouble())))
+    int money = (int)ui->input_money->text().toDouble()*100;
+    if(MW->user->Charge(Price(money)))
     {
         ui->charge_result->setText(" 充值成功！");
     }
@@ -25,7 +26,7 @@ void ChargeDialoge::on_money_yes_clicked()
     }
 }
 
-//void ChargeDialoge::on_money_no_clicked()
-//{
-
-//}
+void ChargeDialoge::on_money_no_clicked()
+{
+    this->reject();
+}

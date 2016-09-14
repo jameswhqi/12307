@@ -65,6 +65,8 @@ private slots:
 
     void on_add_pass_clicked();
 
+    void on_delete_pass_clicked();
+
 private:
     Ui::MainWindow *ui;
 

@@ -18,7 +18,7 @@ public:
 private slots:
     void on_money_yes_clicked();
 
-    //void on_money_no_clicked();
+    void on_money_no_clicked();
 
 private:
     Ui::ChargeDialoge *ui;
