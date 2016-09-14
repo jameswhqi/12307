@@ -291,5 +291,5 @@ Time Time::elapse(const Time &duration)
 }
 Time Time::fromString(const QString &text)
 {
-    return Time(text.section(':', 0).toInt(), text.section(':', 1).toInt());
+    return Time(text.section(':', 0, 0).toInt(), text.section(':', 1, 0).toInt());
 }
