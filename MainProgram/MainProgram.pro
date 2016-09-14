@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     chargedialoge.cpp \
     infodialog.cpp \
     passworddialog.cpp \
-    passdialog.cpp
+    passdialog.cpp \
+    orderdialog.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -35,14 +36,16 @@ HEADERS  += mainwindow.h \
     chargedialoge.h \
     infodialog.h \
     passworddialog.h \
-    passdialog.h
+    passdialog.h \
+    orderdialog.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     chargedialoge.ui \
     infodialog.ui \
     passworddialog.ui \
-    passdialog.ui
+    passdialog.ui \
+    orderdialog.ui
 
 DISTFILES += \
     uml.qmodel
