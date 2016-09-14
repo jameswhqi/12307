@@ -110,6 +110,11 @@ Spot &Train::spot(int index)
 {
     return m_spots[index];
 }
+
+int Train::spotCount()
+{
+    return m_spots.size();
+}
 int Train::occupiedCount()
 {
     int count = 0, spotCount;

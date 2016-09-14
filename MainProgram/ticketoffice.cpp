@@ -127,6 +127,50 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
     return pointer;
 }
 
+Ticket *TicketOffice::createTicket(Passenger *passenger)
+{
+    int spotIdx = -1, spotCount = currentTrain->spotCount();
+    for (int i = 0; i < spotCount; i++) {
+        if (!currentTrain->spot(i).booked()) {
+            currentTrain->spot(i).book();
+            spotIdx = i;
+            break;
+        }
+    }
+    if (spotIdx == -1) {
+        return nullptr;
+    }
+    QSqlQuery query;
+    query.prepare("SELECT spots FROM trains WHERE idx=?");
+    query.addBindValue(currentTrain->index());
+    query.exec();
+    query.next();
+    QByteArray spots = query.value(0).toByteArray();
+    int bytesPerDay = qCeil(spotCount / 8.0);
+    int diff = currentTrain->date().toJulianDay() - QDate::currentDate().toJulianDay();
+    int bytePos = diff * bytesPerDay + spotIdx / 8;
+    int bitPos = spotIdx % 8;
+    char oldByte = spots.at(bytePos);
+    char newByte = (1 << (7 - bitPos)) | oldByte;
+    spots.replace(bytePos, 1, QByteArray(1, newByte));
+    query.prepare("UPDATE trains SET spots=? WHERE idx=?");
+    query.addBindValue(spots);
+    query.addBindValue(currentTrain->index());
+    query.exec();
+    query.prepare("INSERT INTO tickets (user, passenger, train, date, spot) VALUES (?, ?, ?, ?, ?)");
+    query.addBindValue(m_user->index());
+    query.addBindValue(passenger->index());//undone on the other side!!!!!!!!!!!
+    query.addBindValue(currentTrain->index());
+    query.addBindValue(currentTrain->date().toString());
+    query.addBindValue(spots);
+    query.exec();
+    query.exec("SELECT last_insert_rowid");
+    query.next();
+    int ticketIdx = query.value(0).toInt();
+    Ticket *ticketPtr = new Ticket(ticketIdx, passenger, currentTrain, currentTrain->spot(spotIdx));
+    return ticketPtr;
+}
+
 void TicketOffice::signIn()
 {
     bool mode = m_loginDialog->mode();
@@ -166,28 +210,30 @@ void TicketOffice::signIn()
 void TicketOffice::order()
 {
     QString number = m_mainWindow->currentNumber();
-    Train *trainPtr = nullptr;
+    if (number.isEmpty()) {
+        return;
+    }
     QList<Train *>::iterator i;
     for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
         if ((*i)->number() == number) {
-            trainPtr = *i;
+            currentTrain = *i;
             break;
         }
     }
-    QString trainInfo = trainPtr->number()
+    QString trainInfo = currentTrain->number()
             + ' '
-            + trainPtr->origin().name()
+            + currentTrain->origin().name()
             + '-'
-            + trainPtr->destination().name()
+            + currentTrain->destination().name()
             + '\n'
-            + trainPtr->departureTime().toString()
+            + currentTrain->departureTime().toString()
             + '-'
-            + trainPtr->arrivalTime().toString()
+            + currentTrain->arrivalTime().toString()
             + '\n'
-            + trainPtr->price().toString(Price::symbolNumber);
+            + currentTrain->price().toString(Price::symbolNumber);
     m_orderdialog = new OrderDialog(m_user);
     m_orderdialog->displayTrainInfo(trainInfo);
-    //m_user->populatePassenger(m_orderdialog);
+    m_user->populatePassenger(m_orderdialog, currentTrain);//undone on the other side!!!!!!!!!!!!!!
     m_orderdialog->exec();
 }
 

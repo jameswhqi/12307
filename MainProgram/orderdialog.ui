@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>确认订单</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -66,7 +66,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableWidget" name="passengerSelector">
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>122</number>
        </attribute>

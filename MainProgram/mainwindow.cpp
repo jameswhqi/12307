@@ -14,6 +14,7 @@ MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
 
     m_TO = TO;
     connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(searchTrain()));
+    connect(ui->orderButton, SIGNAL(clicked()), TO, SLOT(order()));
 
     //删掉对user或admin没用的widget
     if (mode) {
@@ -143,6 +144,9 @@ void MainWindow::showTrainInfo(QList<Train *> *searchResult)
 QString MainWindow::currentNumber()
 {
     int row = ui->trainInfo->currentRow();
+    if (row == -1) {
+        return QString();
+    }
     return ui->trainInfo->item(row, 0)->text();
 }
 

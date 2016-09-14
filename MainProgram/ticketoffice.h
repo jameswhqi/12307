@@ -17,6 +17,8 @@ public:
 
     void updateSpots();//根据数据库modified_date表的日期删除今天之前的spots信息，添加至当前预售期结束
     Train *trainForTicket(int idx, QString date);
+
+    Ticket *createTicket(Passenger *passenger);
     //void clearCache(bool all = false);//当m_cache太大的时候进行清空，all为false时保留存在于Ticket中的Train指针
 public slots:
     void searchTrain();
@@ -34,6 +36,7 @@ private:
     LoginDialog *m_loginDialog;//LoginDialog的指针
     MainWindow *m_mainWindow;//MainWindow的指针
     OrderDialog *m_orderdialog;//OrderDialog的指针
+    Train *currentTrain;
 
     int getStationIdx(QString name);//根据车站名查找车站编号
 };

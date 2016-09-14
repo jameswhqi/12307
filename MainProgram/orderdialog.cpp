@@ -6,6 +6,7 @@ OrderDialog::OrderDialog(User *user) :
     ui(new Ui::OrderDialog)
 {
     ui->setupUi(this);
+    connect(ui->confirmButton, SIGNAL(clicked()), user, SLOT(confirmOrder()));//undone on the other side!!!!!!!!
 }
 
 OrderDialog::~OrderDialog()

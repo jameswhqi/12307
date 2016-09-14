@@ -94,6 +94,7 @@ public:
 
     Spot &spot(int index);//返回编号对应的座位/床位引用
 
+    int spotCount();
     int occupiedCount();//返回已被预订的座位/床位数
     int vacantCount();//返回未被预订的座位/床位数
     int findVacant();//找到一个未被预订的座位/床位并返回它的编号，如果找不到则返回-1
