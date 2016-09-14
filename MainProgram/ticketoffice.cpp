@@ -62,6 +62,67 @@ void TicketOffice::updateSpots()
     }
 }
 
+Train *TicketOffice::trainForTicket(int idx, QString date)
+{
+    QList<Train *>::iterator i;
+    for (i = m_cache.begin(); i != m_cache.end(); i++) {
+        if ((*i)->index() == idx && (*i)->date().toString(Qt::ISODate) == date) {
+            (*i)->setInTicket(true);
+            return *i;
+        }
+    }
+    QSqlQuery query;
+    query.prepare("SELECT idx, number, traintype, spottype, origin, destination, departuretime, duration, price, spots FROM trains WHERE idx=?");
+    query.addBindValue(idx);
+    query.exec();
+    QString d_number = query.value(1).toString();
+    Train::TrainType d_trainType = Train::TrainType(query.value(2).toInt());
+    Spot::SpotType d_spotType = Spot::SpotType(query.value(3).toInt());
+    int d_originIdx = query.value(4).toInt();
+    int d_destinationIdx = query.value(5).toInt();
+    Station *d_origin, *d_destination;
+    QList<Station *>::const_iterator i2;
+    bool foundOne = false;
+    for (i2 = m_stationList.constBegin(); i2 != m_stationList.constEnd(); i2++) {
+        if ((*i2)->index() == d_originIdx) {
+            d_origin = *i2;
+            if (foundOne) {
+                break;
+            }
+            foundOne = true;
+        }
+        if ((*i2)->index() == d_destinationIdx) {
+            d_destination = *i2;
+            if (foundOne) {
+                break;
+            }
+            foundOne = true;
+        }
+    }
+    Time d_departureTime = Time::fromString(query.value(6).toString());
+    Time d_duration = Time::fromString(query.value(7).toString());
+    Price d_price(query.value(8).toInt());
+    QByteArray d_spots = query.value(9).toByteArray();
+    Train *pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, true);
+    int bytesPerDay, spotCount;
+    if (int(d_spotType) == 2) {
+        spotCount = BED_COUNT;
+        bytesPerDay = qCeil(BED_COUNT / 8.0);
+    }
+    else {
+        spotCount = SEAT_COUNT;
+        bytesPerDay = qCeil(SEAT_COUNT / 8.0);
+    }
+    QByteArray thisDay = d_spots.mid((s_date.toJulianDay() - QDate::currentDate().toJulianDay()) * bytesPerDay, bytesPerDay);
+    for (int i = 0; i < spotCount; i++) {
+        char eightSpots = thisDay.at(i / 8);
+        if (eightSpots && (eightSpots >> (7 - i % 8)) % 2) {
+            pointer->spot(i).book();
+        }
+    }
+    return pointer;
+}
+
 void TicketOffice::signIn()
 {
     bool mode = m_loginDialog->mode();

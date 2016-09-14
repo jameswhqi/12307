@@ -15,7 +15,7 @@ public:
     TicketOffice();
 
     void updateSpots();//根据数据库modified_date表的日期删除今天之前的spots信息，添加至当前预售期结束
-
+    Train *trainForTicket(int idx, QString date);
     //void clearCache(bool all = false);//当m_cache太大的时候进行清空，all为false时保留存在于Ticket中的Train指针
 public slots:
     void searchTrain();
