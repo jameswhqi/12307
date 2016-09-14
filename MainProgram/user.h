@@ -4,12 +4,13 @@
 #include <QList>
 #include "ticket.h"
 
+class TicketOffice;
 class User
 {
 public:
     enum gender{男,女};
 
-    User(int new_idx = -1);//构造函数，用于登陆与刷新全部信息
+    User(TicketOffice* new_local = NULL, int new_idx = -1);//构造函数，用于登陆与刷新全部信息
     //~User();//析构函数，用于登出
 
     //管理核心信息的方法：
@@ -50,6 +51,8 @@ public:
     Ticket* ticket(int ref);
 
 private:
+    //存储构造该user的TicketOffice的指针，用于买票
+    TicketOffice* local;
 
     //账户核心信息：数据库中的索引编号，用户名，密码
     int idx;

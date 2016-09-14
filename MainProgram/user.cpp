@@ -4,11 +4,13 @@
 #include <QSqlQuery>
 
 #include "user.h"
+#include "ticketoffice.h"
 
 //构造函数，用于登陆
-User::User(int new_idx)
+User::User(TicketOffice *new_local, int new_idx)
 {
     idx = new_idx;
+    local = new_local;
     Query_Password();
     Query_Info();
     Query_Blance();
@@ -263,7 +265,7 @@ void User::Clear_Pass_To_Buy()
 {
     pass_to_buy.clear();
 }
-/*
+
 //从数据库以及TO获取购票信息
 void User::Query_Ticket()
 {
@@ -330,7 +332,7 @@ void User::Query_Ticket()
         //将构建的车票存入ticket_list
         ticket_list.append(new_ticket);
     }
-}*/
+}
 
 //返回购票张数
 int User::Ticket_Size()
