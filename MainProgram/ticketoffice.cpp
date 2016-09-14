@@ -144,7 +144,7 @@ void TicketOffice::signIn()
             //m_admin = new Admin(idx);
         }
         else {
-            m_user = new User(idx);
+            m_user = new User(this, idx);
         }
         delete m_loginDialog;
         m_mainWindow = new MainWindow(mode, this, m_user);
