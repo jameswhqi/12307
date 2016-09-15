@@ -248,23 +248,23 @@ void MainWindow::on_refresh_pass_clicked()
 
 void MainWindow::on_refresh_btn_clicked()
 {
-    /*int ticket_size = user->Ticket_Size();
+    user->Query_Ticket();
+
+    int ticket_size = user->Ticket_Size();
     ui->ticketinfo->setRowCount(ticket_size);
 
     for(int i = 0;i<ticket_size;i++)
     {
-        ui->ticketinfo->setItem(i,0,new QTableWidgetItem(user->ticket(i)->passenger().Name()));
-        ui->ticketinfo->setItem(i,1,new QTableWidgetItem(user->ticket(i)->train().trainType()));
-        ui->ticketinfo->setItem(i,2,new QTableWidgetItem(user->ticket(i)->train().number()));
-        ui->ticketinfo->setItem(i,3,new QTableWidgetItem(user->ticket(i)->train().spotType()));
-        ui->ticketinfo->setItem(i,4,new QTableWidgetItem(user->ticket(i)->spot().index()));
-        ui->ticketinfo->setItem(i,5,new QTableWidgetItem(user->ticket(i)->train().origin().name()));
-        ui->ticketinfo->setItem(i,6,new QTableWidgetItem(user->ticket(i)->train().destination().name()));
-        ui->ticketinfo->setItem(i,7,new QTableWidgetItem(user->ticket(i)->train().departureTime().toString()));
-        ui->ticketinfo->setItem(i,8,new QTableWidgetItem(user->ticket(i)->train().arrivalTime().toString()));
+        ui->ticketinfo->setItem(i,0,new QTableWidgetItem(user->ticket(i)->passenger().Name()));             
+        ui->ticketinfo->setItem(i,1,new QTableWidgetItem(user->ticket(i)->train().number()));
+        ui->ticketinfo->setItem(i,2,new QTableWidgetItem(user->ticket(i)->spot().toString()));
+        ui->ticketinfo->setItem(i,3,new QTableWidgetItem(user->ticket(i)->train().origin().name()));
+        ui->ticketinfo->setItem(i,4,new QTableWidgetItem(user->ticket(i)->train().destination().name()));
+        ui->ticketinfo->setItem(i,5,new QTableWidgetItem(user->ticket(i)->train().departureTime().toString()));
+        ui->ticketinfo->setItem(i,6,new QTableWidgetItem(user->ticket(i)->train().arrivalTime().toString()));
+        ui->ticketinfo->setItem(i,7,new QTableWidgetItem(user->ticket(i)->train().price().toString()));
     }
-    ui->ticketinfo->show();*/
-    user->Query_Ticket();
+    ui->ticketinfo->show();
 }
 
 void MainWindow::on_add_pass_clicked()

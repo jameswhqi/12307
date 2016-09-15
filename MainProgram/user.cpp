@@ -7,6 +7,7 @@
 #include "user.h"
 #include "ticketoffice.h"
 
+
 //构造函数，用于登陆
 User::User(TicketOffice *new_local, int new_idx)
 {
@@ -167,6 +168,18 @@ Price* User::Balance()
     return &balance;
 }
 
+bool User::Check_Balance()//余额检查
+{
+    if(balance.dataFen()>=current_train->price().dataFen())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 //从数据库获取乘客信息
 void User::Query_User()
 {
@@ -231,111 +244,75 @@ const QString User::Pass_ID(int ref)
 {
     return pass_list[ref]->ID();
 }
-/*
-//买票，给TicketOffice一个QList<Passenger*>*,一个balance,返回给我Ticket*或NULL
-bool User::Buy_Ticket(TicketOffice &local)
+
+//乘客查重
+bool User::Check_Duplicate(Passenger* tar_pass)
 {
-    Ticket* res = local->Order_Ticket(&pass_to_buy,*Balance());
-    pass_to_buy.clear();
-    if(res == NULL) return false;
+    return true;
+}
+
+//买票，0－购票成功，1－余额不足，2－购票重复，其他－未知错误
+int User::Buy_Ticket(int pass_ref)
+{
+    Passenger* tar_pass = pass_list[pass_ref];
+
+    if(Check_Balance() == false)
+    {
+        return 1;
+    }
+    else if(Check_Duplicate(tar_pass) == false)
+    {
+        return 2;
+    }
     else
     {
-        Ticket *res;
-
+        Ticket* res = local->createTicket(tar_pass);
         ticket_list.append(res);
+
+        return 0;
     }
-}
-*/
-
-//增加一个新的买票乘客
-void User::Add_Pass_To_But(const int ref)
-{
-    if(pass_to_buy.indexOf(pass_list[ref]) == -1)//不重复插入
-    {
-        pass_to_buy.append(pass_list[ref]);
-    }
-}
-
-//删除一个买票乘客
-void User::Delete_Pass_To_Buy(const int ref)
-{
-    pass_to_buy.removeAt(ref);
-}
-
-//清空pass_to_buy列表
-void User::Clear_Pass_To_Buy()
-{
-    pass_to_buy.clear();
 }
 
 //从数据库以及TO获取购票信息
 void User::Query_Ticket()
 {
-    Train* new_train = local->trainForTicket(1,"2016-09-13");
-    qDebug() << new_train->price().dataFen();
     /*for(int i = 0;i<ticket_list.size();i++)
     {
         delete[] ticket_list[i];
-    }
+    } */
     ticket_list.clear();//首先清空ticket_list中的数据，并释放空间
 
-    //从tickets表中找出对应的index(每张ticket对应的标示码)
-    QSqlQuery query_idx;
-    query_idx.prepare("select idx from tickets where user=:user");
-    query_idx.bindValue(":user",idx);
-    query_idx.exec();
+    //从tickets表中找出:
+    //ticket_index
+    //passenger_index
+    //train_index
+    //date
+    //spot_index
+    QSqlQuery query;
+    query.prepare("select idx,passenger,train,date,spot from tickets where user=:user");
+    query.bindValue(":user",idx);
+    query.exec();
 
-    //从tickets表中找出passenger的index(每个乘客的标示码)
-    QSqlQuery query_pass;
-    query_pass.prepare("select passenger from tickets where user=:user");
-    query_pass.bindValue(":user",idx);
-    query_pass.exec();
-
-    //利用乘客的index从passengers表中读出姓名，身份证号
-    QSqlQuery query_name_id;
-    while(query_pass.next())
+    for(query.first();query.isValid();query.next())
     {
-        query_name_id.prepare("select name,id from passengers where idx=:idx");
-        query_name_id.bindValue(":idx",query_pass.value(0).toInt());
+        //利用passenger_index从passengers表中读出姓名，身份证号
+        QSqlQuery query_name_id;
+        query_name_id.prepare("select name,id from passengers where idx=:pass");
+        query_name_id.bindValue(":pass",query.value(1).toInt());
         query_name_id.exec();
-    }
-
-    //从tickets表中读出每张票的车次的index和乘车日期
-    QSqlQuery query_train_date;
-    query_train_date.prepare("select idx,date from tickets where=:user");
-    query_train_date.bindValue(":user",idx);
-    query_train_date.exec();
-
-    //从tickets表中读出座位的index
-    QSqlQuery query_spot;
-    query_spot.prepare("select spot from tickets where user=:user");
-    query_spot.bindValue(":user",idx);
-    query_spot.exec();
-
-    while(query_idx.next())
-    {
-        query_name_id.next();
-        query_train_date.next();
-        query_spot.next();
-
-        //利用座位spot的index从trains表中获取列车类型和座位信息
-        QSqlQuery query_spot_type;
-        query_spot_type.prepare("select traintype from trains where idx=:idx");
-        query_spot_type.bindValue(":idx",query_train_date.value(0).toInt());
-        query_spot_type.exec();
-        query_spot_type.next();//注意，要指向下一个
+        query_name_id.first();//注意，要指向第一个
 
         //从数据库的结果集中构建乘客
         Passenger* new_pass = new Passenger(query_name_id.value(0).toString(),query_name_id.value(1).toString());
         //从数据库的结果集中构建车次，TicketOffice的接口函数是Train* trainForTicket(int idx,QString date)
-        Train* new_train = local->trainForTicket(query_train_date.value(0).toInt(),query_train_date.value(1).toString());
+        Train* new_train = local->trainForTicket(query.value(2).toInt(),query.value(3).toString());
         //从数据库的结果集中构建座位
-        Spot* new_spot = new Spot(query_spot_type.value(0).toInt(), query_spot_type.value(0).toInt(), true);
+        Spot* new_spot = &new_train->spot(query.value(4).toInt());
         //用index、乘客、车次、座位构建车票
-        Ticket* new_ticket = new Ticket(query_idx.value(0).toInt(),new_pass,new_train,new_spot);
+        Ticket* new_ticket = new Ticket(query.value(0).toInt(),*new_pass,*new_train,*new_spot);
         //将构建的车票存入ticket_list
         ticket_list.append(new_ticket);
-    }*/
+    }
 }
 
 //返回购票张数
@@ -354,3 +331,4 @@ void User::Set_Current_Train(Train* new_current_train)
 {
     current_train = new_current_train;
 }
+

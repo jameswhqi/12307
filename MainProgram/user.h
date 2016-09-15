@@ -33,6 +33,7 @@ public:
     bool Charge(Price charge_money);//充值
     void Query_Blance();//从数据库获取余额
     Price* Balance();//返回余额
+    bool Check_Balance();//购票余额检查
 
     //管理乘客信息的方法
     void Add_Passenger(const QString new_name, const QString new_id);//增加一个新乘客
@@ -41,9 +42,10 @@ public:
     int Pass_Size();//返回管理的乘客数
     const QString Pass_Name(int ref);//返回指定的姓名
     const QString Pass_ID(int ref);//返回指定的身份证号
+    bool Check_Duplicate(Passenger *tar_pass);//乘客查重
 
     //管理票务信息的方法
-    //bool Buy_Ticket(TicketOffice &local);//买票：包括订票，选人，买票，支付
+    int Buy_Ticket(int pass_ref);//买票
     //void Return_Ticker(TicketOffice &local);//退票
     int Ticket_Size();//返回购票张数
     void Add_Pass_To_But(const int ref);
@@ -73,9 +75,6 @@ private:
 
     //账户所管理的乘客信息
     QList<Passenger*> pass_list;
-
-    //某笔订单订票的乘客信息
-    QList<Passenger*> pass_to_buy;
 
     //账户所管理的火车票
     QList<Ticket*> ticket_list;

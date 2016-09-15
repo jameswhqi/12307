@@ -22,6 +22,9 @@ public:
     void displayTrainInfo(QString info);
     void Show_Passenger();//显示乘客
 
+private slots:
+    void on_confirmButton_clicked();
+
 private:
     Ui::OrderDialog *ui;
     User* user;
