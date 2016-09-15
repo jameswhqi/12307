@@ -9,6 +9,7 @@ namespace Ui {
 class OrderDialog;
 }
 
+class TicketOffice;
 class User;
 
 class OrderDialog : public QDialog
@@ -16,7 +17,7 @@ class OrderDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit OrderDialog(User *new_user = NULL);
+    explicit OrderDialog(User *new_user, TicketOffice *TO);
     ~OrderDialog();
 
     void displayTrainInfo(QString info);
@@ -28,6 +29,7 @@ private slots:
 private:
     Ui::OrderDialog *ui;
     User* user;
+    TicketOffice *m_TO;
 };
 
 #endif // ORDERDIALOG_H

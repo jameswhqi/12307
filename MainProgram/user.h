@@ -30,7 +30,7 @@ public:
     QString Email();//返回电子邮箱
 
     //管理账户余额的方法
-    bool Charge(Price &charge_money);//充值
+    bool Charge(Price charge_money);//充值
     void Pay(const Price &money);
     void Query_Blance();//从数据库获取余额
     Price* Balance();//返回余额

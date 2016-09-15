@@ -25,6 +25,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>车次</string>
         </property>
@@ -37,6 +42,11 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
         </property>
         <property name="text">
          <string>用户</string>
@@ -64,6 +74,11 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>注销</string>
         </property>
@@ -73,6 +88,9 @@
     </item>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
       <widget class="QWidget" name="train">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
@@ -318,7 +336,7 @@
            <enum>QFrame::Raised</enum>
           </property>
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="info_stk">
            <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -564,6 +582,19 @@
                 </property>
                </widget>
               </item>
+              <item>
+               <spacer name="verticalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
              </layout>
             </item>
             <item>
@@ -601,7 +632,7 @@
                <number>0</number>
               </property>
               <property name="columnCount">
-               <number>8</number>
+               <number>9</number>
               </property>
               <attribute name="horizontalHeaderDefaultSectionSize">
                <number>55</number>
@@ -638,6 +669,11 @@
               <column>
                <property name="text">
                 <string>终点站</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>日期</string>
                </property>
               </column>
               <column>
@@ -691,77 +727,141 @@
            </layout>
           </widget>
           <widget class="QWidget" name="money_stk">
-           <widget class="QLabel" name="money_text">
-            <property name="geometry">
-             <rect>
-              <x>110</x>
-              <y>90</y>
-              <width>101</width>
-              <height>61</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>账户余额：</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="money_dis_lab">
-            <property name="geometry">
-             <rect>
-              <x>190</x>
-              <y>110</y>
-              <width>171</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::Panel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QLabel" name="money_text2">
-            <property name="geometry">
-             <rect>
-              <x>370</x>
-              <y>110</y>
-              <width>59</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>元</string>
-            </property>
-           </widget>
-           <widget class="QToolButton" name="money_query_btn">
-            <property name="geometry">
-             <rect>
-              <x>280</x>
-              <y>180</y>
-              <width>71</width>
-              <height>22</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>刷新</string>
-            </property>
-           </widget>
-           <widget class="QToolButton" name="money_update_btn">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>180</y>
-              <width>71</width>
-              <height>22</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>充值</string>
-            </property>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <spacer name="verticalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>86</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <spacer name="horizontalSpacer_9">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="money_text">
+                <property name="text">
+                 <string>账户余额：</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="money_dis_lab">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Panel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Sunken</enum>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="money_text2">
+                <property name="text">
+                 <string>元</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_10">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <item>
+               <spacer name="horizontalSpacer_11">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="money_update_btn">
+                <property name="text">
+                 <string>充值</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="money_query_btn">
+                <property name="text">
+                 <string>刷新</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_12">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>85</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -769,6 +869,17 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QToolButton" name="info_pb">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>基本信息</string>
             </property>
@@ -776,6 +887,17 @@
           </item>
           <item>
            <widget class="QToolButton" name="pass_pb">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>乘客管理</string>
             </property>
@@ -783,6 +905,17 @@
           </item>
           <item>
            <widget class="QToolButton" name="his_pb">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>我的车票</string>
             </property>
@@ -790,6 +923,17 @@
           </item>
           <item>
            <widget class="QToolButton" name="bal_pb">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
             <property name="text">
              <string>账户余额</string>
             </property>

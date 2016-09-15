@@ -130,6 +130,9 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
 Ticket *TicketOffice::createTicket(Passenger *passenger)
 {
     int spotIdx = -1, spotCount = currentTrain->spotCount();
+//    for (int i = 0; i < spotCount; i++) {
+//        bool fuck = currentTrain->spot(i).booked();
+//    }
     for (int i = 0; i < spotCount; i++) {
         if (!currentTrain->spot(i).booked()) {
             currentTrain->spot(i).book();
@@ -147,7 +150,6 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.next();
     QByteArray spots = query.value(0).toByteArray();
     int bytesPerDay = qCeil(spotCount / 8.0);
-    QString str = currentTrain->date().toString(Qt::ISODate);
     int diff = currentTrain->date().toJulianDay() - QDate::currentDate().toJulianDay();
     int bytePos = diff * bytesPerDay + spotIdx / 8;
     int bitPos = spotIdx % 8;
@@ -163,7 +165,7 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.addBindValue(passenger->index());
     query.addBindValue(currentTrain->index());
     query.addBindValue(currentTrain->date().toString(Qt::ISODate));
-    query.addBindValue(spots);
+    query.addBindValue(spotIdx);
     query.exec();
     query.exec("SELECT last_insert_rowid");
     query.next();
@@ -234,7 +236,7 @@ void TicketOffice::order()
             + currentTrain->arrivalTime().toString()
             + '\n'
             + currentTrain->price().toString(Price::symbolNumber);
-    m_orderDialog = new OrderDialog(m_user);
+    m_orderDialog = new OrderDialog(m_user, this);
     m_orderDialog->displayTrainInfo(trainInfo);
 
     m_user->Set_Current_Train(currentTrain);
@@ -487,10 +489,12 @@ void TicketOffice::deleteTrain()
         return;
     }
     int index = -1;
+    Price price;
     QList<Train *>::iterator i;
     for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
         if ((*i)->number() == number) {
             index = (*i)->index();
+            price = (*i)->price();
             break;
         }
     }
@@ -522,11 +526,52 @@ void TicketOffice::deleteTrain()
         }
     }
 
+    query.prepare("SELECT user, date FROM tickets WHERE train=?");
+    query.addBindValue(index);
+    query.exec();
+    QSqlQuery query2, query3;
+    while (query.next()) {
+        if (QDate::fromString(query.value(1).toString(), Qt::ISODate) >= QDate::currentDate()) {
+            query2.prepare("SELECT balance FROM users WHERE idx=?");
+            query2.addBindValue(query.value(0));
+            query2.exec();
+            query2.next();
+            query3.prepare("UPDATE users SET balance=? WHERE idx=?");
+            query3.addBindValue(query2.value(0).toInt() + price.dataFen());
+            query3.addBindValue(query.value(0));
+            query3.exec();
+        }
+    }
+
     query.prepare("DELETE FROM tickets WHERE train=?");
     query.addBindValue(index);
     query.exec();
 
     adminSearchTrain();
+}
+
+void TicketOffice::deleteTicket(Ticket *ticket)
+{
+    int trainIdx = ticket->train().index();
+    int spotCount = ticket->train().spotCount();
+    QSqlQuery query;
+    query.prepare("SELECT spots FROM trains WHERE idx=?");
+    query.addBindValue(trainIdx);
+    query.exec();
+    query.next();
+
+    QByteArray spots = query.value(0).toByteArray();
+    int bytesPerDay = qCeil(spotCount / 8.0);
+    int diff = ticket->train().date().toJulianDay() - QDate::currentDate().toJulianDay();
+    int bytePos = diff * bytesPerDay + ticket->spot().index() / 8;
+    int bitPos = ticket->spot().index() % 8;
+    char oldByte = spots.at(bytePos);
+    char newByte = (~(1 << (7 - bitPos))) & oldByte;
+    spots.replace(bytePos, 1, QByteArray(1, newByte));
+    query.prepare("UPDATE trains SET spots=? WHERE idx=?");
+    query.addBindValue(spots);
+    query.addBindValue(trainIdx);
+    query.exec();
 }
 
 void TicketOffice::showLoginDialog()
