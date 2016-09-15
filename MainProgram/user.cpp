@@ -251,7 +251,7 @@ bool User::Check_Duplicate(Passenger* tar_pass)
     return true;
 }
 
-//买票，0－购票成功，1－余额不足，2－购票重复，其他－未知错误
+//买票，0－购票成功，1－余额不足，2-购票重复，其他－未知错误
 int User::Buy_Ticket(int pass_ref)
 {
     Passenger* tar_pass = pass_list[pass_ref];
