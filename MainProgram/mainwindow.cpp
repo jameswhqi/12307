@@ -6,6 +6,7 @@
 #include "mainwindow.h"
 #include "ticketoffice.h"
 #include <QCloseEvent>
+#include <QMessageBox>
 
 MainWindow::MainWindow(TicketOffice *TO, User *newuser)
     : ui(new Ui::MainWindow)

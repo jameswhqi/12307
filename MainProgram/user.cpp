@@ -130,7 +130,7 @@ QString User::Email()
 }
 
 //充值
-bool User::Charge(const Price &charge_money)
+bool User::Charge(Price &charge_money)
 {
     if(!charge_money.isValid())
     {
