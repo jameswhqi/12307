@@ -35,6 +35,8 @@ public slots:
 
     void deleteTrain();
 
+    void deleteTicket(Ticket *ticket);
+
     void showLoginDialog();
 private:
     QList<Train *> m_searchResult;//搜索到的车次表

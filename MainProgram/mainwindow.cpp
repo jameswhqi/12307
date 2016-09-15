@@ -6,6 +6,7 @@
 #include "mainwindow.h"
 #include "ticketoffice.h"
 #include <QCloseEvent>
+#include <QMessageBox>
 
 MainWindow::MainWindow(TicketOffice *TO, User *newuser)
     : ui(new Ui::MainWindow)
@@ -184,6 +185,7 @@ void MainWindow::on_pass_pb_clicked()
 void MainWindow::on_his_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(2);
+    on_refresh_btn_clicked();
 }
 
 void MainWindow::on_bal_pb_clicked()
@@ -279,4 +281,14 @@ void MainWindow::on_delete_pass_clicked()
     int ref = ui->passinfo->currentRow();
     user->Delete_Passenger(ref);
     on_refresh_pass_clicked();
+}
+
+void MainWindow::on_delete_btn_clicked()
+{
+    user->Return_Ticker(ui->ticketinfo->currentRow());
+    
+    QMessageBox msg;
+    msg.setText("删除成功！");
+    msg.exec();
+    on_refresh_btn_clicked();
 }

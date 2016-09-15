@@ -147,7 +147,6 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.next();
     QByteArray spots = query.value(0).toByteArray();
     int bytesPerDay = qCeil(spotCount / 8.0);
-    QString str = currentTrain->date().toString(Qt::ISODate);
     int diff = currentTrain->date().toJulianDay() - QDate::currentDate().toJulianDay();
     int bytePos = diff * bytesPerDay + spotIdx / 8;
     int bitPos = spotIdx % 8;
@@ -527,6 +526,30 @@ void TicketOffice::deleteTrain()
     query.exec();
 
     adminSearchTrain();
+}
+
+void TicketOffice::deleteTicket(Ticket *ticket)
+{
+    int trainIdx = ticket->train().index();
+    int spotCount = ticket->train().spotCount();
+    QSqlQuery query;
+    query.prepare("SELECT spots FROM trains WHERE idx=?");
+    query.addBindValue(trainIdx);
+    query.exec();
+    query.next();
+
+    QByteArray spots = query.value(0).toByteArray();
+    int bytesPerDay = qCeil(spotCount / 8.0);
+    int diff = ticket->train().date().toJulianDay() - QDate::currentDate().toJulianDay();
+    int bytePos = diff * bytesPerDay + ticket->spot().index() / 8;
+    int bitPos = ticket->spot().index() % 8;
+    char oldByte = spots.at(bytePos);
+    char newByte = (~(1 << (7 - bitPos))) & oldByte;
+    spots.replace(bytePos, 1, QByteArray(1, newByte));
+    query.prepare("UPDATE trains SET spots=? WHERE idx=?");
+    query.addBindValue(spots);
+    query.addBindValue(trainIdx);
+    query.exec();
 }
 
 void TicketOffice::showLoginDialog()
