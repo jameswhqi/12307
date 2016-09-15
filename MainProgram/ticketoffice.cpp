@@ -162,7 +162,7 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.addBindValue(m_user->index());
     query.addBindValue(passenger->index());//undone on the other side!!!!!!!!!!!
     query.addBindValue(currentTrain->index());
-    query.addBindValue(currentTrain->date().toString());
+    query.addBindValue(currentTrain->date().toString(Qt::ISODate));
     query.addBindValue(spots);
     query.exec();
     query.exec("SELECT last_insert_rowid");
