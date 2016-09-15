@@ -15,6 +15,7 @@ User::User(TicketOffice *new_local, int new_idx)
     Query_Password();
     Query_Info();
     Query_Blance();
+    Query_User();
 
 }
 

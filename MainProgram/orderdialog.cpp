@@ -28,5 +28,5 @@ void OrderDialog::Show_Passenger()
        ui->passengerSelector->setItem(i,0,new QTableWidgetItem(user->Pass_Name(i)));
        ui->passengerSelector->setItem(i,1,new QTableWidgetItem(user->Pass_ID(i)));
    }
-   ui->passengerSelector->show();
+   ui->passengerSelector->show();//模态的bug？？
 }
