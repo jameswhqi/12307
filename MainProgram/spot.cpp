@@ -65,28 +65,28 @@ QString Spot::toString() const
 {
     switch (m_type) {
     case SEAT:
-        return QString::number(m_index + 1).append("号");
+        return QString::number(m_index + 1).rightJustified(2, '0').append("号");
     case GSEAT:
         switch (m_column) {
         case A:
-            return QString::number(m_row).append('A');
+            return QString::number(m_row).rightJustified(2, '0').append('A');
         case B:
-            return QString::number(m_row).append('B');
+            return QString::number(m_row).rightJustified(2, '0').append('B');
         case C:
-            return QString::number(m_row).append('C');
+            return QString::number(m_row).rightJustified(2, '0').append('C');
         case D:
-            return QString::number(m_row).append('D');
+            return QString::number(m_row).rightJustified(2, '0').append('D');
         case F:
-            return QString::number(m_row).append('F');
+            return QString::number(m_row).rightJustified(2, '0').append('F');
         }
     case BED:
         switch (m_level) {
         case BOTTOM:
-            return QString::number(m_row).append("下");
+            return QString::number(m_row).rightJustified(2, '0').append("下");
         case MIDDLE:
-            return QString::number(m_row).append("中");
+            return QString::number(m_row).rightJustified(2, '0').append("中");
         case TOP:
-            return QString::number(m_row).append("上");
+            return QString::number(m_row).rightJustified(2, '0').append("上");
         }
     }
 

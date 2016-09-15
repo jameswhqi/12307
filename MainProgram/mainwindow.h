@@ -72,7 +72,6 @@ private slots:
     void on_delete_pass_clicked();
 
     void on_delete_btn_clicked();
-    
 private:
     Ui::MainWindow *ui;
 

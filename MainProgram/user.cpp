@@ -263,9 +263,8 @@ bool User::Check_Duplicate(Passenger* tar_pass)
     QSqlQuery query;
     query.prepare("select passenger from tickets where train =:train and date=:date");
     query.bindValue(":train",current_train->index());
-    query.bindValue(":date",current_train->date().toString());
+    query.bindValue(":date",current_train->date().toString(Qt::ISODate));
     query.exec();
-
     while(query.next())
     {
         QSqlQuery id;
@@ -305,21 +304,21 @@ int User::Buy_Ticket(int pass_ref)
     }
 }
 
-void User::Return_Ticker(int ticket_ref)//退票
+
+bool User::Return_Ticker(int ticket_ref)//退票
 {
     Ticket* tar_ticket = ticket_list[ticket_ref];
     local->deleteTicket(tar_ticket);
     tar_ticket->spot().cancel();
     Charge(tar_ticket->train().price());
     int tar_idx = tar_ticket->index();
-    
     QSqlQuery query;
     query.prepare("delete from tickets where idx=:idx");
     query.bindValue(":idx",tar_idx);
     query.exec();
-    
     delete tar_ticket;
     ticket_list.removeAt(ticket_ref);
+    return true;
 }
 
 //从数据库以及TO获取购票信息

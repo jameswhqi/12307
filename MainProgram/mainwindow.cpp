@@ -262,9 +262,10 @@ void MainWindow::on_refresh_btn_clicked()
         ui->ticketinfo->setItem(i,2,new QTableWidgetItem(user->ticket(i)->spot().toString()));
         ui->ticketinfo->setItem(i,3,new QTableWidgetItem(user->ticket(i)->train().origin().name()));
         ui->ticketinfo->setItem(i,4,new QTableWidgetItem(user->ticket(i)->train().destination().name()));
-        ui->ticketinfo->setItem(i,5,new QTableWidgetItem(user->ticket(i)->train().departureTime().toString()));
-        ui->ticketinfo->setItem(i,6,new QTableWidgetItem(user->ticket(i)->train().arrivalTime().toString()));
-        ui->ticketinfo->setItem(i,7,new QTableWidgetItem(user->ticket(i)->train().price().toString()));
+        ui->ticketinfo->setItem(i,5,new QTableWidgetItem(user->ticket(i)->train().date().toString(Qt::ISODate)));
+        ui->ticketinfo->setItem(i,6,new QTableWidgetItem(user->ticket(i)->train().departureTime().toString()));
+        ui->ticketinfo->setItem(i,7,new QTableWidgetItem(user->ticket(i)->train().arrivalTime().toString()));
+        ui->ticketinfo->setItem(i,8,new QTableWidgetItem(user->ticket(i)->train().price().toString(Price::symbolNumber)));
     }
     ui->ticketinfo->show();
 }
@@ -285,10 +286,14 @@ void MainWindow::on_delete_pass_clicked()
 
 void MainWindow::on_delete_btn_clicked()
 {
-    user->Return_Ticker(ui->ticketinfo->currentRow());
-    
+    bool flag = user->Return_Ticker(ui->ticketinfo->currentRow());
+
+    QString result;
+    if(flag)    result = "退票成功！";
+    else        result = "退票失败！";
+
     QMessageBox msg;
-    msg.setText("删除成功！");
+    msg.setText(result);
     msg.exec();
     on_refresh_btn_clicked();
 }

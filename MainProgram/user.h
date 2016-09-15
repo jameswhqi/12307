@@ -47,7 +47,7 @@ public:
 
     //管理票务信息的方法
     int Buy_Ticket(int pass_ref);//买票
-    void Return_Ticker(int ticket_ref);//退票
+    bool Return_Ticker(int ticket_ref);//退票
     int Ticket_Size();//返回购票张数
     void Add_Pass_To_But(const int ref);
     void Delete_Pass_To_Buy(const int ref);

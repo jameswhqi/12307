@@ -1,5 +1,6 @@
 #include "chargedialoge.h"
 #include "ui_chargedialoge.h"
+#include <QMessageBox>
 
 ChargeDialoge::ChargeDialoge(MainWindow *parent) :
     ui(new Ui::ChargeDialoge)
@@ -15,14 +16,22 @@ ChargeDialoge::~ChargeDialoge()
 
 void ChargeDialoge::on_money_yes_clicked()
 {
-    int money = (int)ui->input_money->text().toDouble()*100;
+    int money = (int)(ui->input_money->value() * 100);
     if(MW->user->Charge(Price(money)))
     {
-        ui->charge_result->setText(" 充值成功！");
+        QMessageBox msg;
+        msg.setText("充值成功！");
+        msg.setDefaultButton(QMessageBox::Ok);
+        msg.exec();
+        this->accept();
     }
     else
     {
-        ui->charge_result->setText("充值失败！");
+        QMessageBox msg;
+        msg.setText("充值失败！");
+        msg.setDefaultButton(QMessageBox::Ok);
+        msg.exec();
+        this->reject();
     }
 }
 

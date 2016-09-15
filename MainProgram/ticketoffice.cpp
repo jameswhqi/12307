@@ -233,7 +233,7 @@ void TicketOffice::order()
             + currentTrain->arrivalTime().toString()
             + '\n'
             + currentTrain->price().toString(Price::symbolNumber);
-    m_orderDialog = new OrderDialog(m_user);
+    m_orderDialog = new OrderDialog(m_user, this);
     m_orderDialog->displayTrainInfo(trainInfo);
 
     m_user->Set_Current_Train(currentTrain);
@@ -486,10 +486,12 @@ void TicketOffice::deleteTrain()
         return;
     }
     int index = -1;
+    Price price;
     QList<Train *>::iterator i;
     for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
         if ((*i)->number() == number) {
             index = (*i)->index();
+            price = (*i)->price();
             break;
         }
     }
@@ -518,6 +520,23 @@ void TicketOffice::deleteTrain()
         }
         if (i == m_cache.end()) {
             break;
+        }
+    }
+
+    query.prepare("SELECT user, date FROM tickets WHERE train=?");
+    query.addBindValue(index);
+    query.exec();
+    QSqlQuery query2, query3;
+    while (query.next()) {
+        if (QDate::fromString(query.value(1).toString(), Qt::ISODate) >= QDate::currentDate()) {
+            query2.prepare("SELECT balance FROM users WHERE idx=?");
+            query2.addBindValue(query.value(0));
+            query2.exec();
+            query2.next();
+            query3.prepare("UPDATE users SET balance=? WHERE idx=?");
+            query3.addBindValue(query2.value(0).toInt() + price.dataFen());
+            query3.addBindValue(query.value(0));
+            query3.exec();
         }
     }
 
