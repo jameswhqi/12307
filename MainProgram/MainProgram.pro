@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     passworddialog.cpp \
     passdialog.cpp \
     orderdialog.cpp \
-    adminwindow.cpp
+    adminwindow.cpp \
+    addtraindialog.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -37,7 +38,8 @@ HEADERS  += mainwindow.h \
     passworddialog.h \
     passdialog.h \
     orderdialog.h \
-    adminwindow.h
+    adminwindow.h \
+    addtraindialog.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
@@ -46,7 +48,5 @@ FORMS    += mainwindow.ui \
     passworddialog.ui \
     passdialog.ui \
     orderdialog.ui \
-    adminwindow.ui
-
-DISTFILES += \
-    uml.qmodel
+    adminwindow.ui \
+    addtraindialog.ui

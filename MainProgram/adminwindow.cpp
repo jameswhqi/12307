@@ -11,6 +11,8 @@ AdminWindow::AdminWindow(TicketOffice *TO) :
     ui->setupUi(this);
     m_TO = TO;
     connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(adminSearchTrain()));
+    connect(ui->modifyButton, SIGNAL(clicked(bool)), TO, SLOT(modifyTrain()));
+    connect(ui->addButton, SIGNAL(clicked(bool)), TO, SLOT(addTrain()));
 
     //设置车次类型和座位类型的下拉列表
     QStringList types;
@@ -119,6 +121,15 @@ void AdminWindow::showTrainInfo(QList<Train *> *searchResult)
         item->setText(pointer->price().toString(Price::symbolNumber));
         ui->trainInfo->setItem(i, 7, item);
     }
+}
+
+QString AdminWindow::currentNumber()
+{
+    int row = ui->trainInfo->currentRow();
+    if (row == -1) {
+        return QString();
+    }
+    return ui->trainInfo->item(row, 0)->text();
 }
 
 void AdminWindow::closeEvent(QCloseEvent *event)
