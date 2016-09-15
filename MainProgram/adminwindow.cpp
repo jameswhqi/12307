@@ -13,6 +13,7 @@ AdminWindow::AdminWindow(TicketOffice *TO) :
     connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(adminSearchTrain()));
     connect(ui->modifyButton, SIGNAL(clicked(bool)), TO, SLOT(modifyTrain()));
     connect(ui->addButton, SIGNAL(clicked(bool)), TO, SLOT(addTrain()));
+    connect(ui->deleteButton, SIGNAL(clicked(bool)), TO, SLOT(deleteTrain()));
 
     //设置车次类型和座位类型的下拉列表
     QStringList types;

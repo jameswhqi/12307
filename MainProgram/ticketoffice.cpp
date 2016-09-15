@@ -160,9 +160,9 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.exec();
     query.prepare("INSERT INTO tickets (user, passenger, train, date, spot) VALUES (?, ?, ?, ?, ?)");
     query.addBindValue(m_user->index());
-    query.addBindValue(passenger->index());//undone on the other side!!!!!!!!!!!
+    query.addBindValue(passenger->index());
     query.addBindValue(currentTrain->index());
-    query.addBindValue(currentTrain->date().toString());
+    query.addBindValue(currentTrain->date().toString(Qt::ISODate));
     query.addBindValue(spots);
     query.exec();
     query.exec("SELECT last_insert_rowid");
@@ -236,7 +236,6 @@ void TicketOffice::order()
             + currentTrain->price().toString(Price::symbolNumber);
     m_orderDialog = new OrderDialog(m_user);
     m_orderDialog->displayTrainInfo(trainInfo);
-    //我用一下两个函数实现//m_user->populatePassenger(m_orderdialog, currentTrain);//undone on the other side!!!!!!!!!!!!!!
 
     m_user->Set_Current_Train(currentTrain);
     m_orderDialog->Show_Passenger();
@@ -373,7 +372,7 @@ void TicketOffice::modifyTrain()
 
 void TicketOffice::addTrain()
 {
-    m_modifyMode = true;
+    m_modifyMode = false;
     m_addTrainDialog = new AddTrainDialog(this, false);
     m_addTrainDialog->setStations(m_stationList);
     m_addTrainDialog->exec();
@@ -381,21 +380,21 @@ void TicketOffice::addTrain()
 
 void TicketOffice::confirmAdMoTrain()
 {
-    m_adminWindow->clearTrainInfo();
-    QList<Train *>::const_iterator i;
-    for (i = m_searchResult.constBegin(); i != m_searchResult.constEnd(); i++) {
-        if (m_cache.indexOf(*i) == -1) {
-            m_cache.prepend(*i);
-        }
-    }
-    m_searchResult.clear();
-
-    Station *n_origin = findStation(m_addTrainDialog->origin());
-    Station *n_destination = findStation(m_addTrainDialog->destination());
-    Time n_departureTime = m_addTrainDialog->departureTime();
-    Time n_duration = m_addTrainDialog->duration();
-    Price n_price = m_addTrainDialog->price();
     if (m_modifyMode) {
+        m_adminWindow->clearTrainInfo();
+        QList<Train *>::const_iterator i;
+        for (i = m_searchResult.constBegin(); i != m_searchResult.constEnd(); i++) {
+            if (m_cache.indexOf(*i) == -1) {
+                m_cache.prepend(*i);
+            }
+        }
+        m_searchResult.clear();
+
+        Station *n_origin = findStation(m_addTrainDialog->origin());
+        Station *n_destination = findStation(m_addTrainDialog->destination());
+        Time n_departureTime = m_addTrainDialog->departureTime();
+        Time n_duration = m_addTrainDialog->duration();
+        Price n_price = m_addTrainDialog->price();
         QSqlQuery query;
         query.prepare("UPDATE trains SET origin=?, destination=?, departuretime=?, duration=?, price=? WHERE idx=?");
         query.addBindValue(n_origin->index());
@@ -418,12 +417,116 @@ void TicketOffice::confirmAdMoTrain()
         adminSearchTrain();
         m_addTrainDialog->done(1);
     }
-//    else {
-//        QString n_number = m_addTrainDialog->number();
-//        Train::TrainType n_trainType = Train::TrainType(m_addTrainDialog->trainType());
-//        Spot::SpotType n_spotType = Spot::SpotType(m_addTrainDialog->spotType());
+    else {
+        QString n_number = m_addTrainDialog->number();
+        QSqlQuery query;
+        query.prepare("SELECT idx FROM trains WHERE number=?");
+        query.addBindValue(n_number);
+        query.exec();
+        if (query.next()) {
+            QMessageBox msg;
+            msg.setText("车次编号不能与已有车次重复！");
+            msg.setDefaultButton(QMessageBox::Ok);
+            msg.exec();
+            return;
+        }
 
-//    }
+        m_adminWindow->clearTrainInfo();
+        QList<Train *>::const_iterator i;
+        for (i = m_searchResult.constBegin(); i != m_searchResult.constEnd(); i++) {
+            if (m_cache.indexOf(*i) == -1) {
+                m_cache.prepend(*i);
+            }
+        }
+        m_searchResult.clear();
+
+        Station *n_origin = findStation(m_addTrainDialog->origin());
+        Station *n_destination = findStation(m_addTrainDialog->destination());
+        Time n_departureTime = m_addTrainDialog->departureTime();
+        Time n_duration = m_addTrainDialog->duration();
+        Price n_price = m_addTrainDialog->price();
+        Train::TrainType n_trainType = Train::TrainType(m_addTrainDialog->trainType());
+        Spot::SpotType n_spotType = Spot::SpotType(m_addTrainDialog->spotType());
+        QByteArray n_spots;
+        if (n_spotType == Spot::BED) {
+            n_spots.fill(0, qCeil(BED_COUNT / 8.0) * SALE_PERIOD);
+        }
+        else {
+            n_spots.fill(0, qCeil(SEAT_COUNT / 8.0) * SALE_PERIOD);
+        }
+
+        query.prepare("INSERT INTO trains (number, traintype, spottype, origin, destination, departuretime, duration, price, spots) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        query.addBindValue(n_number);
+        query.addBindValue((int)n_trainType);
+        query.addBindValue((int)n_spotType);
+        query.addBindValue(n_origin->index());
+        query.addBindValue(n_destination->index());
+        query.addBindValue(n_departureTime.toString());
+        query.addBindValue(n_duration.toString());
+        query.addBindValue(n_price.dataFen());
+        query.addBindValue(n_spots);
+        query.exec();
+        adminSearchTrain();
+        m_addTrainDialog->done(1);
+    }
+}
+
+void TicketOffice::deleteTrain()
+{
+    QString number = m_adminWindow->currentNumber();
+    if (number.isEmpty()) {
+        return;
+    }
+    QMessageBox msg;
+    msg.setText("确定删除该车次？");
+    msg.addButton(QMessageBox::Ok);
+    msg.addButton(QMessageBox::Cancel);
+    msg.setDefaultButton(QMessageBox::Cancel);
+    int code = msg.exec();
+    if (code == QMessageBox::Cancel) {
+        return;
+    }
+    int index = -1;
+    QList<Train *>::iterator i;
+    for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
+        if ((*i)->number() == number) {
+            index = (*i)->index();
+            break;
+        }
+    }
+    QSqlQuery query;
+    query.prepare("DELETE FROM trains WHERE idx=?");
+    query.addBindValue(index);
+    query.exec();
+
+    m_adminWindow->clearTrainInfo();
+    for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
+        if (m_cache.indexOf(*i) == -1) {
+            m_cache.prepend(*i);
+        }
+    }
+    m_searchResult.clear();
+
+    for (i = m_cache.begin(); i != m_cache.end(); i++) {
+        while (true) {
+            if (i != m_cache.end() && (*i)->index() == index) {
+                delete *i;
+                i = m_cache.erase(i);
+            }
+            else {
+                break;
+            }
+        }
+        if (i == m_cache.end()) {
+            break;
+        }
+    }
+
+    query.prepare("DELETE FROM tickets WHERE train=?");
+    query.addBindValue(index);
+    query.exec();
+
+    adminSearchTrain();
 }
 
 void TicketOffice::showLoginDialog()
