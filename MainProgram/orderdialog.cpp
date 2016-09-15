@@ -1,6 +1,7 @@
 #include "orderdialog.h"
 #include "ui_orderdialog.h"
 #include <QDebug>
+#include <QMessageBox>
 
 OrderDialog::OrderDialog(User *new_user) :
     ui(new Ui::OrderDialog)
@@ -37,21 +38,27 @@ void OrderDialog::on_confirmButton_clicked()
    int pass_ref = ui->passengerSelector->currentRow();
    state = user->Buy_Ticket(pass_ref);
 
-   if(state = 1)
+   QString result;
+   if(state == 1)
    {
-       ui->res_label->setText("余额不足！");
+       result = "余额不足！";
    }
-   else if(state = 2)
+   else if(state == 2)
    {
-       ui->res_label->setText("该乘客已购买该车次车票！");
+       result = "该乘客已购买该车次车票！";
    }
-   else if(state = 0)
+   else if(state == 0)
    {
-       user->Set_Current_Train(NULL);
-       ui->res_label->setText("购票成功！");
+       //user->Set_Current_Train(NULL);
+       result  = "购票成功!";
    }
    else
    {
-       ui->res_label->setText("未知错误！");
+       result = "未知错误！";
    }
+   QMessageBox msg;
+   msg.setText(result);
+   msg.exec();
+
+   this->reject();
 }

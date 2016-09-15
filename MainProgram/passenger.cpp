@@ -30,6 +30,7 @@ int Passenger::index()
     query.bindValue(":name",name);
     query.bindValue(":id",id);
     query.exec();
+    query.first();
 
     int res = query.value(0).toInt();
     return res;
