@@ -104,7 +104,7 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
     Time d_duration = Time::fromString(query.value(7).toString());
     Price d_price(query.value(8).toInt());
     QByteArray d_spots = query.value(9).toByteArray();
-    Train *pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, true);
+    Train *pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, QDate::fromString(date, Qt::ISODate), true);
     int bytesPerDay, spotCount;
     if (int(d_spotType) == 2) {
         spotCount = BED_COUNT;
@@ -114,7 +114,7 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
         spotCount = SEAT_COUNT;
         bytesPerDay = qCeil(SEAT_COUNT / 8.0);
     }
-    int diff = QDate::fromString(date,Qt::ISODate).toJulianDay() - QDate::currentDate().toJulianDay();
+    int diff = QDate::fromString(date, Qt::ISODate).toJulianDay() - QDate::currentDate().toJulianDay();
     if (diff >= 0) {
         QByteArray thisDay = d_spots.mid(diff * bytesPerDay, bytesPerDay);
         for (int i = 0; i < spotCount; i++) {
@@ -147,6 +147,7 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.next();
     QByteArray spots = query.value(0).toByteArray();
     int bytesPerDay = qCeil(spotCount / 8.0);
+    QString str = currentTrain->date().toString(Qt::ISODate);
     int diff = currentTrain->date().toJulianDay() - QDate::currentDate().toJulianDay();
     int bytePos = diff * bytesPerDay + spotIdx / 8;
     int bitPos = spotIdx % 8;
@@ -287,10 +288,10 @@ void TicketOffice::adminSearchTrain()
     QSqlQuery query;
     query.prepare(superQuery);
     if (toSelect[0]) {
-        query.bindValue(":origin", getStationIdx(s_origin));
+        query.bindValue(":origin", findStation(s_origin)->index());
     }
     if (toSelect[1]) {
-        query.bindValue(":destination", getStationIdx(s_destination));
+        query.bindValue(":destination", findStation(s_destination)->index());
     }
     if (toSelect[2]) {
         query.bindValue(":number", s_number.toUpper());
@@ -343,11 +344,86 @@ void TicketOffice::adminSearchTrain()
             Time d_departureTime = Time::fromString(query.value(6).toString());
             Time d_duration = Time::fromString(query.value(7).toString());
             Price d_price(query.value(8).toInt());
-            pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, false);
+            pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, QDate::currentDate(), false);
         }
         m_searchResult.append(pointer);
     }
     m_adminWindow->showTrainInfo(&m_searchResult);
+}
+
+void TicketOffice::modifyTrain()
+{
+    m_modifyMode = true;
+    QString number = m_adminWindow->currentNumber();
+    if (number.isEmpty()) {
+        return;
+    }
+    QList<Train *>::iterator i;
+    for (i = m_searchResult.begin(); i != m_searchResult.end(); i++) {
+        if ((*i)->number() == number) {
+            currentTrain = *i;
+            break;
+        }
+    }
+    m_addTrainDialog = new AddTrainDialog(this, true);
+    m_addTrainDialog->setStations(m_stationList);
+    m_addTrainDialog->displayTrainInfo(currentTrain);
+    m_addTrainDialog->exec();
+}
+
+void TicketOffice::addTrain()
+{
+    m_modifyMode = true;
+    m_addTrainDialog = new AddTrainDialog(this, false);
+    m_addTrainDialog->setStations(m_stationList);
+    m_addTrainDialog->exec();
+}
+
+void TicketOffice::confirmAdMoTrain()
+{
+    m_adminWindow->clearTrainInfo();
+    QList<Train *>::const_iterator i;
+    for (i = m_searchResult.constBegin(); i != m_searchResult.constEnd(); i++) {
+        if (m_cache.indexOf(*i) == -1) {
+            m_cache.prepend(*i);
+        }
+    }
+    m_searchResult.clear();
+
+    Station *n_origin = findStation(m_addTrainDialog->origin());
+    Station *n_destination = findStation(m_addTrainDialog->destination());
+    Time n_departureTime = m_addTrainDialog->departureTime();
+    Time n_duration = m_addTrainDialog->duration();
+    Price n_price = m_addTrainDialog->price();
+    if (m_modifyMode) {
+        QSqlQuery query;
+        query.prepare("UPDATE trains SET origin=?, destination=?, departuretime=?, duration=?, price=? WHERE idx=?");
+        query.addBindValue(n_origin->index());
+        query.addBindValue(n_destination->index());
+        query.addBindValue(n_departureTime.toString());
+        query.addBindValue(n_duration.toString());
+        query.addBindValue(n_price.dataFen());
+        query.addBindValue(currentTrain->index());
+        query.exec();
+
+        for (i = m_cache.constBegin(); i != m_cache.constEnd(); i++) {
+            if ((*i)->index() == currentTrain->index()) {
+                (*i)->setOrigin(*n_origin);
+                (*i)->setDestination(*n_destination);
+                (*i)->setDepartureTime(n_departureTime);
+                (*i)->setDuration(n_duration);
+                (*i)->setPrice(n_price);
+            }
+        }
+        adminSearchTrain();
+        m_addTrainDialog->done(1);
+    }
+//    else {
+//        QString n_number = m_addTrainDialog->number();
+//        Train::TrainType n_trainType = Train::TrainType(m_addTrainDialog->trainType());
+//        Spot::SpotType n_spotType = Spot::SpotType(m_addTrainDialog->spotType());
+
+//    }
 }
 
 void TicketOffice::showLoginDialog()
@@ -356,12 +432,12 @@ void TicketOffice::showLoginDialog()
     m_loginDialog->show();
 }
 
-int TicketOffice::getStationIdx(QString name)
+Station *TicketOffice::findStation(QString name)
 {
     QList<Station *>::const_iterator i;
     for (i = m_stationList.constBegin(); i != m_stationList.constEnd(); i++) {
         if ((*i)->name() == name) {
-            return (*i)->index();
+            return *i;
         }
     }
     return 0;
@@ -421,10 +497,10 @@ void TicketOffice::searchTrain()
     QSqlQuery query;
     query.prepare(superQuery);
     if (toSelect[0]) {
-        query.bindValue(":origin", getStationIdx(s_origin));
+        query.bindValue(":origin", findStation(s_origin)->index());
     }
     if (toSelect[1]) {
-        query.bindValue(":destination", getStationIdx(s_destination));
+        query.bindValue(":destination", findStation(s_destination)->index());
     }
     if (toSelect[2]) {
         query.bindValue(":number", s_number.toUpper());
@@ -478,7 +554,7 @@ void TicketOffice::searchTrain()
             Time d_duration = Time::fromString(query.value(7).toString());
             Price d_price(query.value(8).toInt());
             QByteArray d_spots = query.value(9).toByteArray();
-            pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, false);
+            pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, s_date, false);
             int bytesPerDay, spotCount;
             if (int(d_spotType) == 2) {
                 spotCount = BED_COUNT;

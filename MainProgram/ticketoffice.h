@@ -4,6 +4,7 @@
 #include "logindialog.h"
 #include "orderdialog.h"
 #include "adminwindow.h"
+#include "addtraindialog.h"
 #include <QList>
 #include <QObject>
 
@@ -27,6 +28,10 @@ public slots:
     void order();//接收用户点击MainWindow中购买键的信号
 
     void adminSearchTrain();
+    void modifyTrain();
+    void addTrain();
+
+    void confirmAdMoTrain();
 
     void showLoginDialog();
 private:
@@ -38,9 +43,12 @@ private:
     MainWindow *m_mainWindow;//MainWindow的指针
     OrderDialog *m_orderDialog;//OrderDialog的指针
     AdminWindow *m_adminWindow;
+    AddTrainDialog *m_addTrainDialog;
     Train *currentTrain;
 
-    int getStationIdx(QString name);//根据车站名查找车站编号
+    bool m_modifyMode;
+
+    Station *findStation(QString name);//根据车站名查找车站
 };
 
 

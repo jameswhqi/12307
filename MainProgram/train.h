@@ -70,7 +70,7 @@ public:
 
     Train(int index, QString number, TrainType trainType, Spot::SpotType spotType,
           Station &origin, Station &destination, Time departureTime,
-          Time duration, Price price, bool inTicket);
+          Time duration, Price price, QDate date, bool inTicket);
 
     int index() const;//返回索引编号
     void setIndex(int index);//设置索引编号

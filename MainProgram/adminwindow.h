@@ -31,6 +31,8 @@ public:
     void clearTrainInfo();//清空搜索结果
     void showTrainInfo(QList<Train *> *searchResult);//显示搜索结果
 
+    QString currentNumber();
+
     void closeEvent(QCloseEvent *event);
 private:
     Ui::AdminWindow *ui;

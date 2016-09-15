@@ -2,10 +2,10 @@
 
 Train::Train(int index, QString number, TrainType trainType, Spot::SpotType spotType,
              Station &origin, Station &destination, Time departureTime,
-             Time duration, Price price, bool inTicket)
+             Time duration, Price price, QDate date, bool inTicket)
     : m_index(index), m_number(number), m_trainType(trainType), m_spotType(spotType),
       m_origin(&origin), m_destination(&destination), m_departureTime(departureTime),
-      m_duration(duration), m_price(price), m_inTicket(inTicket)
+      m_duration(duration), m_price(price), m_date(date), m_inTicket(inTicket)
 {
     int spotCount;
     if (m_spotType == Spot::BED) {
