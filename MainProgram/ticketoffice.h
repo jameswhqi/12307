@@ -25,8 +25,10 @@ public slots:
     void signIn();//接收用户点击LoginDialog中确认键的信号
     //void cancelSignIn();//接受LoginDialog的rejected()信号
     void order();//接收用户点击MainWindow中购买键的信号
-    //根据用户输入的搜索条件在数据库中搜索车次，存入trainList并显示出来
 
+    void adminSearchTrain();
+
+    void showLoginDialog();
 private:
     QList<Train *> m_searchResult;//搜索到的车次表
     QList<Train *> m_cache;//所有已经被读取过的Train的指针列表

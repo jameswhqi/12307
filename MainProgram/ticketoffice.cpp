@@ -243,6 +243,119 @@ void TicketOffice::order()
     m_orderDialog->exec();
 }
 
+void TicketOffice::adminSearchTrain()
+{
+    m_adminWindow->clearTrainInfo();
+    QList<Train *>::const_iterator i;
+    for (i = m_searchResult.constBegin(); i != m_searchResult.constEnd(); i++) {
+        if (m_cache.indexOf(*i) == -1) {
+            m_cache.prepend(*i);
+        }
+    }
+    m_searchResult.clear();
+
+    QString superQuery("(SELECT * FROM trains)");
+    QString s_origin(m_adminWindow->origin()), s_destination(m_adminWindow->destination()), s_number(m_adminWindow->number());
+    int s_trainType = m_adminWindow->trainType(), s_spotType = m_adminWindow->spotType();
+    bool toSelect[5] = {0,0,0,0,0};
+    if (!s_origin.isEmpty()) {
+        superQuery.prepend("(SELECT * FROM ");
+        superQuery.append(" WHERE origin=:origin)");
+        toSelect[0] = true;
+    }
+    if (!s_destination.isEmpty()) {
+        superQuery.prepend("(SELECT * FROM ");
+        superQuery.append(" WHERE destination=:destination)");
+        toSelect[1] = true;
+    }
+    if (!s_number.isEmpty()) {
+        superQuery.prepend("(SELECT * FROM ");
+        superQuery.append(" WHERE number=:number)");
+        toSelect[2] = true;
+    }
+    if (s_trainType != -1) {
+        superQuery.prepend("(SELECT * FROM ");
+        superQuery.append(" WHERE traintype=:traintype)");
+        toSelect[3] = true;
+    }
+    if (s_spotType != -1) {
+        superQuery.prepend("(SELECT * FROM ");
+        superQuery.append(" WHERE spottype=:spottype)");
+        toSelect[4] = true;
+    }
+    superQuery.prepend("SELECT idx, number, traintype, spottype, origin, destination, departuretime, duration, price FROM ");
+    QSqlQuery query;
+    query.prepare(superQuery);
+    if (toSelect[0]) {
+        query.bindValue(":origin", getStationIdx(s_origin));
+    }
+    if (toSelect[1]) {
+        query.bindValue(":destination", getStationIdx(s_destination));
+    }
+    if (toSelect[2]) {
+        query.bindValue(":number", s_number.toUpper());
+    }
+    if (toSelect[3]) {
+        query.bindValue(":traintype", s_trainType);
+    }
+    if (toSelect[4]) {
+        query.bindValue(":spottype", s_spotType);
+    }
+    query.exec();
+//    QMessageBox msg;
+//    msg.setText(query.lastError().text());
+//    msg.exec();
+    while (query.next()) {
+        int idx = query.value(0).toInt();
+        Train *pointer = nullptr;
+        QList<Train *>::const_iterator i;
+        for (i = m_cache.constBegin(); i != m_cache.constEnd(); i++) {
+            if ((*i)->index() == idx) {
+                pointer = *i;
+                break;
+            }
+        }
+        if (pointer == nullptr) {
+            QString d_number = query.value(1).toString();
+            Train::TrainType d_trainType = Train::TrainType(query.value(2).toInt());
+            Spot::SpotType d_spotType = Spot::SpotType(query.value(3).toInt());
+            int d_originIdx = query.value(4).toInt();
+            int d_destinationIdx = query.value(5).toInt();
+            Station *d_origin, *d_destination;
+            QList<Station *>::const_iterator i;
+            bool foundOne = false;
+            for (i = m_stationList.constBegin(); i != m_stationList.constEnd(); i++) {
+                if ((*i)->index() == d_originIdx) {
+                    d_origin = *i;
+                    if (foundOne) {
+                        break;
+                    }
+                    foundOne = true;
+                }
+                if ((*i)->index() == d_destinationIdx) {
+                    d_destination = *i;
+                    if (foundOne) {
+                        break;
+                    }
+                    foundOne = true;
+                }
+            }
+            Time d_departureTime = Time::fromString(query.value(6).toString());
+            Time d_duration = Time::fromString(query.value(7).toString());
+            Price d_price(query.value(8).toInt());
+            pointer = new Train(idx, d_number, Train::TrainType(d_trainType), Spot::SpotType(d_spotType), *d_origin, *d_destination, d_departureTime, d_duration, d_price, false);
+        }
+        m_searchResult.append(pointer);
+    }
+    m_adminWindow->showTrainInfo(&m_searchResult);
+}
+
+void TicketOffice::showLoginDialog()
+{
+    m_loginDialog = new LoginDialog(this);
+    m_loginDialog->show();
+}
+
 int TicketOffice::getStationIdx(QString name)
 {
     QList<Station *>::const_iterator i;

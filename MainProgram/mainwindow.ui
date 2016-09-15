@@ -14,8 +14,8 @@
    <string>12307铁路售票系统</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout_2">
-    <item row="0" column="0">
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QToolButton" name="train_btm">
@@ -56,9 +56,22 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QToolButton" name="user_btm_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="text">
+         <string>注销</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
-    <item row="0" column="1">
+    <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <widget class="QWidget" name="train">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -797,5 +810,22 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>user_btm_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>30</x>
+     <y>352</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>41</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

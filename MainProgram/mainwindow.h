@@ -36,6 +36,8 @@ public:
     void showTrainInfo(QList<Train *> *searchResult);//显示搜索结果
 
     QString currentNumber();
+
+    void closeEvent(QCloseEvent *event);
 private slots:
     //void on_searchButton_clicked();
 

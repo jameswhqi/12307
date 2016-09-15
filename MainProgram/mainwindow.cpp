@@ -5,6 +5,7 @@
 #include "ui_mainwindow.h"
 #include "mainwindow.h"
 #include "ticketoffice.h"
+#include <QCloseEvent>
 
 MainWindow::MainWindow(TicketOffice *TO, User *newuser)
     : ui(new Ui::MainWindow)
@@ -132,6 +133,12 @@ QString MainWindow::currentNumber()
         return QString();
     }
     return ui->trainInfo->item(row, 0)->text();
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    m_TO->showLoginDialog();
+    event->accept();
 }
 
 
