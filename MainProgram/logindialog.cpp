@@ -7,6 +7,7 @@ LoginDialog::LoginDialog(TicketOffice *TO) :
     ui(new Ui::LoginDialog)
 {
     ui->setupUi(this);
+
     connect(ui->signInButton, SIGNAL(clicked()), TO, SLOT(signIn()));
     connect(ui->modeSelector, SIGNAL(currentChanged(int)), this, SLOT(toggleHide(int)));
 }
@@ -68,7 +69,7 @@ void LoginDialog::on_pushButton_clicked()
 
     if(new_password != new_password2)
     {
-        ui->register_result->setText("错误，两次密码不一致！");
+        ui->register_result->setText("错误，\n两次密码不一致！");
         return;
     }
 

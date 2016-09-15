@@ -16,12 +16,12 @@ SOURCES += main.cpp\
     ticket.cpp \
     station.cpp \
     spot.cpp \
-    admin.cpp \
     chargedialoge.cpp \
     infodialog.cpp \
     passworddialog.cpp \
     passdialog.cpp \
-    orderdialog.cpp
+    orderdialog.cpp \
+    adminwindow.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -32,12 +32,12 @@ HEADERS  += mainwindow.h \
     ticket.h \
     station.h \
     spot.h \
-    admin.h \
     chargedialoge.h \
     infodialog.h \
     passworddialog.h \
     passdialog.h \
-    orderdialog.h
+    orderdialog.h \
+    adminwindow.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
@@ -45,7 +45,8 @@ FORMS    += mainwindow.ui \
     infodialog.ui \
     passworddialog.ui \
     passdialog.ui \
-    orderdialog.ui
+    orderdialog.ui \
+    adminwindow.ui
 
 DISTFILES += \
     uml.qmodel

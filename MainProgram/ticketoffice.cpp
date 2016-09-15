@@ -187,17 +187,19 @@ void TicketOffice::signIn()
     query.addBindValue(password);
     query.exec();
     if (query.next()) {
+        delete m_loginDialog;
         int idx = query.value(0).toInt();
         if (mode) {
-            //m_admin = new Admin(idx);
+            m_adminWindow = new AdminWindow(this);
+            m_adminWindow->setStations(m_stationList);
+            m_adminWindow->show();
         }
         else {
             m_user = new User(this, idx);
+            m_mainWindow = new MainWindow(this, m_user);
+            m_mainWindow->setStations(m_stationList);
+            m_mainWindow->show();
         }
-        delete m_loginDialog;
-        m_mainWindow = new MainWindow(mode, this, m_user);
-        m_mainWindow->setStations(m_stationList);
-        m_mainWindow->show();
     }
     else {
         QMessageBox msg;
@@ -231,14 +233,14 @@ void TicketOffice::order()
             + currentTrain->arrivalTime().toString()
             + '\n'
             + currentTrain->price().toString(Price::symbolNumber);
-    m_orderdialog = new OrderDialog(m_user);
-    m_orderdialog->displayTrainInfo(trainInfo);
+    m_orderDialog = new OrderDialog(m_user);
+    m_orderDialog->displayTrainInfo(trainInfo);
     //我用一下两个函数实现//m_user->populatePassenger(m_orderdialog, currentTrain);//undone on the other side!!!!!!!!!!!!!!
 
     m_user->Set_Current_Train(currentTrain);
-    m_orderdialog->Show_Passenger();
+    m_orderDialog->Show_Passenger();
 
-    m_orderdialog->exec();
+    m_orderDialog->exec();
 }
 
 int TicketOffice::getStationIdx(QString name)

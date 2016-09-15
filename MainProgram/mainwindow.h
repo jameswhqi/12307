@@ -16,7 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(bool mode, TicketOffice *TO, User *newuser);
+    explicit MainWindow(TicketOffice *TO, User *newuser);
     ~MainWindow();
     User *user;
     TicketOffice *m_TO;

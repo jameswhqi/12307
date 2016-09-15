@@ -74,7 +74,14 @@
              </widget>
             </item>
             <item row="0" column="1">
-             <widget class="QComboBox" name="origin"/>
+             <widget class="QComboBox" name="origin">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="1" column="0">
              <widget class="QLabel" name="label_2">
@@ -84,7 +91,14 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QComboBox" name="destination"/>
+             <widget class="QComboBox" name="destination">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_3">
@@ -131,7 +145,14 @@
              </widget>
             </item>
             <item row="1" column="1">
-             <widget class="QComboBox" name="trainType"/>
+             <widget class="QComboBox" name="trainType">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
             <item row="2" column="0">
              <widget class="QLabel" name="label_6">
@@ -141,7 +162,14 @@
              </widget>
             </item>
             <item row="2" column="1">
-             <widget class="QComboBox" name="spotType"/>
+             <widget class="QComboBox" name="spotType">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+             </widget>
             </item>
            </layout>
           </item>
@@ -253,33 +281,6 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="deleteButton">
-            <property name="text">
-             <string>删除</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="addButton">
-            <property name="text">
-             <string>添加</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="modifyButton">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>修改</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="orderButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -304,141 +305,196 @@
            <enum>QFrame::Raised</enum>
           </property>
           <widget class="QWidget" name="info_stk">
-           <widget class="QLabel" name="label_7">
-            <property name="geometry">
-             <rect>
-              <x>446</x>
-              <y>10</y>
-              <width>168</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-           <widget class="QWidget" name="layoutWidget">
-            <property name="geometry">
-             <rect>
-              <x>120</x>
-              <y>20</y>
-              <width>174</width>
-              <height>169</height>
-             </rect>
-            </property>
-            <layout class="QGridLayout" name="gridLayout">
-             <item row="0" column="0">
-              <widget class="QLabel" name="username_label">
-               <property name="text">
-                <string>用户名：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="username_lab">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="passwd_label">
-               <property name="text">
-                <string>密码：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="name_label">
-               <property name="text">
-                <string>姓名：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="name_lab">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="sex_label">
-               <property name="text">
-                <string>性别：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLabel" name="sex_lab">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="phone_label">
-               <property name="text">
-                <string>电话：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLabel" name="phone_lab">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="0">
-              <widget class="QLabel" name="email_label">
-               <property name="text">
-                <string>邮箱：</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLabel" name="email_lab">
-               <property name="text">
-                <string/>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="password_reset">
-               <property name="text">
-                <string>修改密码</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="layoutWidget">
-            <property name="geometry">
-             <rect>
-              <x>100</x>
-              <y>220</y>
-              <width>201</width>
-              <height>32</height>
-             </rect>
-            </property>
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <item>
-              <widget class="QPushButton" name="info_updatebtn">
-               <property name="text">
-                <string>修改</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QPushButton" name="info_query_btn">
-               <property name="text">
-                <string>刷新</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <item>
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QFormLayout" name="formLayout_3">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="username_label">
+                  <property name="text">
+                   <string>用户名：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="username_lab">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="passwd_label">
+                  <property name="text">
+                   <string>密码：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="password_reset">
+                  <property name="text">
+                   <string>修改密码</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="name_label">
+                  <property name="text">
+                   <string>姓名：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLabel" name="name_lab">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="sex_label">
+                  <property name="text">
+                   <string>性别：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLabel" name="sex_lab">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="phone_label">
+                  <property name="text">
+                   <string>电话：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QLabel" name="phone_lab">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="email_label">
+                  <property name="text">
+                   <string>邮箱：</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QLabel" name="email_lab">
+                  <property name="text">
+                   <string/>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <item>
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="info_updatebtn">
+                <property name="text">
+                 <string>修改</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="info_query_btn">
+                <property name="text">
+                 <string>刷新</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_7">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="pass_stk">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -508,9 +564,6 @@
              </spacer>
             </item>
            </layout>
-           <zorder>horizontalSpacer_2</zorder>
-           <zorder>passinfo</zorder>
-           <zorder>horizontalSpacer_3</zorder>
           </widget>
           <widget class="QWidget" name="history_stk">
            <widget class="QTableWidget" name="ticketinfo">

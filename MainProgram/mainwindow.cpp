@@ -6,7 +6,7 @@
 #include "mainwindow.h"
 #include "ticketoffice.h"
 
-MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
+MainWindow::MainWindow(TicketOffice *TO, User *newuser)
     : ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -15,22 +15,6 @@ MainWindow::MainWindow(bool mode, TicketOffice *TO, User *newuser)
     m_TO = TO;
     connect(ui->searchButton, SIGNAL(clicked()), TO, SLOT(searchTrain()));
     connect(ui->orderButton, SIGNAL(clicked()), TO, SLOT(order()));
-
-    //删掉对user或admin没用的widget
-    if (mode) {
-        delete ui->orderButton;
-        delete ui->bal_pb;
-        delete ui->his_pb;
-        delete ui->info_pb;
-        delete ui->pass_pb;
-        delete ui->history_stk;
-        delete ui->money_stk;
-        delete ui->pass_stk;
-    } else {
-        delete ui->modifyButton;
-        delete ui->addButton;
-        delete ui->deleteButton;
-    }
 
     //把日期选择框设成系统日期
     ui->dateEdit->setDate(QDate::currentDate());

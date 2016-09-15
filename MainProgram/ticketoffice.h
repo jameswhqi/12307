@@ -1,9 +1,9 @@
 #ifndef TICKETOFFICE_H
 #define TICKETOFFICE_H
-#include "admin.h"
 #include "mainwindow.h"
 #include "logindialog.h"
 #include "orderdialog.h"
+#include "adminwindow.h"
 #include <QList>
 #include <QObject>
 
@@ -32,10 +32,10 @@ private:
     QList<Train *> m_cache;//所有已经被读取过的Train的指针列表
     QList<Station *> m_stationList;//所有车站的列表
     User *m_user;//当前User的指针
-    Admin *m_admin;//当前Admin的指针
     LoginDialog *m_loginDialog;//LoginDialog的指针
     MainWindow *m_mainWindow;//MainWindow的指针
-    OrderDialog *m_orderdialog;//OrderDialog的指针
+    OrderDialog *m_orderDialog;//OrderDialog的指针
+    AdminWindow *m_adminWindow;
     Train *currentTrain;
 
     int getStationIdx(QString name);//根据车站名查找车站编号
