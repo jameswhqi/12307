@@ -673,6 +673,13 @@
                </spacer>
               </item>
               <item>
+               <widget class="QPushButton" name="delete_btn">
+                <property name="text">
+                 <string>退票</string>
+                </property>
+               </widget>
+              </item>
+              <item>
                <widget class="QPushButton" name="refresh_btn">
                 <property name="text">
                  <string>刷新</string>

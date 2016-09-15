@@ -184,6 +184,7 @@ void MainWindow::on_pass_pb_clicked()
 void MainWindow::on_his_pb_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(2);
+    on_refresh_btn_clicked();
 }
 
 void MainWindow::on_bal_pb_clicked()
@@ -279,4 +280,18 @@ void MainWindow::on_delete_pass_clicked()
     int ref = ui->passinfo->currentRow();
     user->Delete_Passenger(ref);
     on_refresh_pass_clicked();
+}
+
+void MainWindow::on_delete_btn_clicked()
+{
+    bool flag = user->Return_Ticker(ui->ticketinfo->currentRow());
+
+    QString result;
+    if(flag)    result = "退票成功！";
+    else        result = "退票失败！";
+
+    QMessageBox msg;
+    msg.setText(result);
+    msg.exec();
+    on_refresh_btn_clicked();
 }

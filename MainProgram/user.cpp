@@ -130,7 +130,7 @@ QString User::Email()
 }
 
 //充值
-bool User::Charge(Price charge_money)
+bool User::Charge(const Price &charge_money)
 {
     if(!charge_money.isValid())
     {
@@ -303,6 +303,23 @@ int User::Buy_Ticket(int pass_ref)
 
         return 0;
     }
+}
+
+bool User::Return_Ticker(int ticket_ref)//退票
+{
+    Ticket* tar_ticket = ticket_list[ticket_ref];
+    local->deleteTicket(tar_ticket);
+    tar_ticket->spot().cancel();
+    Charge(tar_ticket->train().price());
+    int tar_idx = tar_ticket->index();
+
+    QSqlQuery query;
+    query.prepare("delete from tickets where idx=:idx");
+    query.bindValue(":idx",tar_idx);
+    query.exec();
+
+    delete[] ticket_list[ticket_ref];
+    ticket_list.erase(ticket_ref);
 }
 
 //从数据库以及TO获取购票信息

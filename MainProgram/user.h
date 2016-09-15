@@ -30,7 +30,7 @@ public:
     QString Email();//返回电子邮箱
 
     //管理账户余额的方法
-    bool Charge(Price charge_money);//充值
+    bool Charge(const Price &charge_money);//充值
     void Pay(const Price &money);
     void Query_Blance();//从数据库获取余额
     Price* Balance();//返回余额
@@ -47,7 +47,7 @@ public:
 
     //管理票务信息的方法
     int Buy_Ticket(int pass_ref);//买票
-    //void Return_Ticker(TicketOffice &local);//退票
+    bool Return_Ticker(int ticket_ref);//退票
     int Ticket_Size();//返回购票张数
     void Add_Pass_To_But(const int ref);
     void Delete_Pass_To_Buy(const int ref);
