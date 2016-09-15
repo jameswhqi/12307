@@ -130,6 +130,9 @@ Train *TicketOffice::trainForTicket(int idx, QString date)
 Ticket *TicketOffice::createTicket(Passenger *passenger)
 {
     int spotIdx = -1, spotCount = currentTrain->spotCount();
+//    for (int i = 0; i < spotCount; i++) {
+//        bool fuck = currentTrain->spot(i).booked();
+//    }
     for (int i = 0; i < spotCount; i++) {
         if (!currentTrain->spot(i).booked()) {
             currentTrain->spot(i).book();
@@ -162,7 +165,7 @@ Ticket *TicketOffice::createTicket(Passenger *passenger)
     query.addBindValue(passenger->index());
     query.addBindValue(currentTrain->index());
     query.addBindValue(currentTrain->date().toString(Qt::ISODate));
-    query.addBindValue(spots);
+    query.addBindValue(spotIdx);
     query.exec();
     query.exec("SELECT last_insert_rowid");
     query.next();

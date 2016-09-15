@@ -632,7 +632,7 @@
                <number>0</number>
               </property>
               <property name="columnCount">
-               <number>8</number>
+               <number>9</number>
               </property>
               <attribute name="horizontalHeaderDefaultSectionSize">
                <number>55</number>
@@ -669,6 +669,11 @@
               <column>
                <property name="text">
                 <string>终点站</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>日期</string>
                </property>
               </column>
               <column>
